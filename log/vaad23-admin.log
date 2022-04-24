@@ -1,0 +1,82 @@
+2022-04-24 08:45:40 INFO  [http-nio-8080-exec-5] : [wizard    ] - La directory 'wizard' è stata aggiornata su 'vaadin23' 
+2022-04-24 09:00:36 INFO  [http-nio-8080-exec-7] : [wizard    ] - La directory 'wizard' è stata aggiornata su 'vaadin23' 
+2022-04-24 09:00:50 INFO  [http-nio-8080-exec-6] : [spazio    ] 
+2022-04-24 09:00:50 INFO  [http-nio-8080-exec-6] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
+2022-04-24 09:00:50 INFO  [http-nio-8080-exec-6] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:00:50 INFO  [http-nio-8080-exec-6] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:00:50 INFO  [http-nio-8080-exec-6] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:00:50 INFO  [http-nio-8080-exec-6] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:00:50 INFO  [http-nio-8080-exec-6] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:00:50 INFO  [http-nio-8080-exec-6] : [wizard    ] - Update: la directory 'vaad23' esisteva già ma è stata sostituita. (dirDeletingAll) 
+2022-04-24 09:00:50 INFO  [http-nio-8080-exec-6] : [wizard    ] - Update: il file 'WPref.java' esisteva già ma è stato modificato (sourceSovrascriveSempreAncheSeEsiste) 
+2022-04-24 09:00:50 INFO  [http-nio-8080-exec-6] : [wizard    ] - Delete: cancellata la directory 'sources' dal progetto wiki 
+2022-04-24 09:02:52 INFO  [http-nio-8080-exec-7] : [spazio    ] 
+2022-04-24 09:02:52 INFO  [http-nio-8080-exec-7] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
+2022-04-24 09:02:52 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:02:52 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:02:52 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:02:52 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:02:52 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:02:52 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: il file 'WPref.java' non esisteva ed è stato creato (sourceSovrascriveSempreAncheSeEsiste) 
+2022-04-24 09:02:52 WARN  [http-nio-8080-exec-7] : [file      ] - La directory /Users/gac/Documents/IdeaProjects/operativi/wiki/src/main/java/it/algos/vaad23/wizard/sources non esiste [class=FileService         ] [method=deleteDirectoryStr  ] [line=811 ]  
+2022-04-24 09:02:52 WARN  [http-nio-8080-exec-7] : [wizard    ] - Non sono riuscito a cancellare la directory 'sources' dal progetto wiki 
+2022-04-24 09:05:23 INFO  [http-nio-8080-exec-8] : [spazio    ] 
+2022-04-24 09:05:23 INFO  [http-nio-8080-exec-8] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
+2022-04-24 09:05:23 INFO  [http-nio-8080-exec-8] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:05:23 INFO  [http-nio-8080-exec-8] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:05:23 INFO  [http-nio-8080-exec-8] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:05:23 INFO  [http-nio-8080-exec-8] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:05:23 INFO  [http-nio-8080-exec-8] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:05:23 INFO  [http-nio-8080-exec-8] : [wizard    ] - Update: il file 'WPref.java' esisteva già ma è stato modificato (sourceSovrascriveSempreAncheSeEsiste) 
+2022-04-24 09:05:23 WARN  [http-nio-8080-exec-8] : [file      ] - La directory /Users/gac/Documents/IdeaProjects/operativi/wiki/src/main/java/it/algos/vaad23/wizard/sources non esiste [class=FileService         ] [method=deleteDirectoryStr  ] [line=811 ]  
+2022-04-24 09:05:23 WARN  [http-nio-8080-exec-8] : [wizard    ] - Non sono riuscito a cancellare la directory 'sources' dal progetto wiki 
+2022-04-24 09:06:23 INFO  [http-nio-8080-exec-6] : [spazio    ] 
+2022-04-24 09:06:23 INFO  [http-nio-8080-exec-6] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
+2022-04-24 09:06:23 INFO  [http-nio-8080-exec-6] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:06:23 INFO  [http-nio-8080-exec-6] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:06:23 INFO  [http-nio-8080-exec-6] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:06:23 INFO  [http-nio-8080-exec-6] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:06:23 INFO  [http-nio-8080-exec-6] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:06:23 INFO  [http-nio-8080-exec-6] : [wizard    ] - Update: il file 'WPref.java' non esisteva ed è stato creato (sourceSovrascriveSempreAncheSeEsiste) 
+2022-04-24 09:06:23 WARN  [http-nio-8080-exec-6] : [file      ] - La directory /Users/gac/Documents/IdeaProjects/operativi/wiki/src/main/java/it/algos/vaad23/wizard/sources non esiste [class=FileService         ] [method=deleteDirectoryStr  ] [line=811 ]  
+2022-04-24 09:06:23 WARN  [http-nio-8080-exec-6] : [wizard    ] - Non sono riuscito a cancellare la directory 'sources' dal progetto wiki 
+2022-04-24 09:07:21 INFO  [http-nio-8080-exec-7] : [spazio    ] 
+2022-04-24 09:07:21 INFO  [http-nio-8080-exec-7] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
+2022-04-24 09:07:21 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:07:21 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:07:21 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:07:21 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:07:21 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:07:21 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: il file 'WikiPref.java' esisteva già ma è stato modificato (sourceSovrascriveSempreAncheSeEsiste) 
+2022-04-24 09:07:21 WARN  [http-nio-8080-exec-7] : [file      ] - La directory /Users/gac/Documents/IdeaProjects/operativi/wiki/src/main/java/it/algos/vaad23/wizard/sources non esiste [class=FileService         ] [method=deleteDirectoryStr  ] [line=811 ]  
+2022-04-24 09:07:21 WARN  [http-nio-8080-exec-7] : [wizard    ] - Non sono riuscito a cancellare la directory 'sources' dal progetto wiki 
+2022-04-24 09:09:08 INFO  [http-nio-8080-exec-10] : [spazio    ] 
+2022-04-24 09:09:08 INFO  [http-nio-8080-exec-10] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
+2022-04-24 09:09:08 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:09:08 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:09:08 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:09:08 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:09:08 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:09:08 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'vaad23' esisteva già ma è stata sostituita. (dirDeletingAll) 
+2022-04-24 09:09:08 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: il file 'WikiPref.java' esisteva già ma è stato modificato (sourceSovrascriveSempreAncheSeEsiste) 
+2022-04-24 09:09:08 INFO  [http-nio-8080-exec-10] : [wizard    ] - Delete: cancellata la directory 'sources' dal progetto wiki 
+2022-04-24 09:13:53 INFO  [http-nio-8080-exec-4] : [spazio    ] 
+2022-04-24 09:13:53 INFO  [http-nio-8080-exec-4] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
+2022-04-24 09:13:53 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:13:53 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:13:53 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:13:53 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:13:53 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:13:53 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'vaad23' esisteva già ma è stata sostituita. (dirDeletingAll) 
+2022-04-24 09:13:53 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: il file 'WikiPref.java' esisteva già ma è stato modificato (sourceSovrascriveSempreAncheSeEsiste) 
+2022-04-24 09:13:53 INFO  [http-nio-8080-exec-4] : [wizard    ] - Delete: cancellata la directory 'sources' dal progetto wiki 
+2022-04-24 09:15:05 INFO  [http-nio-8080-exec-10] : [spazio    ] 
+2022-04-24 09:15:05 INFO  [http-nio-8080-exec-10] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
+2022-04-24 09:15:05 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:15:05 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:15:05 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:15:05 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:15:05 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-24 09:15:05 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'vaad23' esisteva già ma è stata sostituita. (dirDeletingAll) 
+2022-04-24 09:15:05 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: il file 'WikiPref.java' esisteva già ma è stato modificato (sourceSovrascriveSempreAncheSeEsiste) 
+2022-04-24 09:15:05 INFO  [http-nio-8080-exec-10] : [wizard    ] - Delete: cancellata la directory 'sources' dal progetto wiki 

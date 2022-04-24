@@ -1,0 +1,112 @@
+:doctype: book
+:toc: left
+:toclevels: 4
+
+
+= Nuovo progetto
+IDEA, creazione di un nuovo progetto di base con VaadinFlow e SpringBoot
+Usa Vaadin 23.0.4 (e successivi) e IntelliJ Idea 2021.3.3 (e
+
+successivi)
+
+== Struttura base
+
+1. File -> New -> Project...
+
+2. Selezionare **Maven** a sinistra (la seconda opzione)
+
+3. Controllare che Project SDK sia selezionato su '17 version 17'.
+Se manca, crearlo -> **New**
+
+4. Non selezionare 'Create from archetype'.
+- Confermare -> _Next_
+
+5. Inserire **Name** del progetto (iniziale minuscola) e controllare la **Location** d'installazione.
+
+6. Aprire **Artifact Coordinates** e regolare:
+- GroupId: it.algos **Modificare**
+- ArtifactId: nomeNuovoProgetto **Dovrebbe essere già inserito**
+- Version: 1.0-SNAPSHOT **Lasciare invariato**
+- Confermare -> **Finish**
+
+7. Il progetto è stato creato in /Users/gac/Documents/IdeaProjects/...
+
+8. Se vuoi cambiare directory di creazione di Idea per i futuri progetti vai a: Preferences->System Settings a destra Project->Default project directory
+
+9. Se lo crei in una directory diversa devi spostarlo in /Users/gac/Documents/IdeaProjects/ prima di usare Wizard
+
+== Crea nuovo progetto
+
+1. Apri 'vaadin23' e lancialo
+
+2. Clicca sul meu **Wizard** e sul bottone 'New project'
+
+3. Seleziona il project appena creato nel popup di progetti vuoti esistenti nella directory IdeaProjects <br>Se il progetto non esiste/non appare, torna alla sezione precedente <br>Clicca il bottone _Conferma_
+
+== Git
+
+==== Ignore
+
+- Controllare che esista il file (nascosto) **.gitignore**
+- Se manca recuperarlo
+
+==== Esclusioni
+
+===== Generali
+
+- target
+- build/
+- target/
+- out/
+- log/
+
+===== Mac
+
+- *.DS_Store
+
+===== IntelliJ IDEA
+
+- .idea
+- *.iws
+- *.iml
+- *.ipr
+
+===== Pnpm
+
+- bower_components
+- node
+- node_modules/
+- package.json
+- package-lock.json
+- webpack.config.js
+- **/webpack.generated.js
+- pnpm-lock.yaml
+- pnpmfile.js
+
+==== Rimozione Remotes
+
+- Aprire VCS -> Git -> Remotes... e cancellare eventuali preesistenti riferimenti ad altri progetti
+- Un nuovo progetto **NON** dovrebbe avere la partizione VCS -> Git -> Remotes...
+
+=== GitHub
+
+- Aprire VCS -> Import into Version Control -> Share Project on GitHub...
+- Confermare -> **Share**
+
+=== POM
+
+==== Vaadin
+
+- Replace artifactId with vaadin-core to use only free components
+- Aggiungere <exclusions>: Webjars are only needed when running in Vaadin 13 compatibility mode
+
+==== Dependency
+
+- Spring MongoDB
+- Lombok
+
+=== Install
+
+- On terminal run: **npm install**
+- Aggiungere (obbligatorio) resources -> application.properties
+- Aggiungere (facoltativo) resources -> banner.txt

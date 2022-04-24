@@ -1,0 +1,79 @@
+2022-04-23 17:03:04 INFO  [http-nio-8080-exec-2] : [spazio    ] 
+2022-04-23 17:03:04 INFO  [http-nio-8080-exec-2] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
+2022-04-23 17:03:04 INFO  [http-nio-8080-exec-2] : [wizard    ] - Update: la directory 'vaad23' esisteva già ma è stata sostituita. (dirDeletingAll) 
+2022-04-23 17:07:27 INFO  [http-nio-8080-exec-10] : [spazio    ] 
+2022-04-23 17:07:27 INFO  [http-nio-8080-exec-10] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
+2022-04-23 17:07:27 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 17:07:27 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 17:07:27 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 17:07:27 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 17:07:27 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 17:07:27 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'vaad23' esisteva già ma è stata sostituita. (dirDeletingAll) 
+2022-04-23 17:10:13 INFO  [http-nio-8080-exec-7] : [wizard    ] - La directory 'wizard' è stata aggiornata su 'vaadin23' 
+2022-04-23 17:10:26 INFO  [http-nio-8080-exec-9] : [spazio    ] 
+2022-04-23 17:10:26 INFO  [http-nio-8080-exec-9] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
+2022-04-23 17:10:26 INFO  [http-nio-8080-exec-9] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 17:10:26 INFO  [http-nio-8080-exec-9] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 17:10:26 INFO  [http-nio-8080-exec-9] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 17:10:26 INFO  [http-nio-8080-exec-9] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 17:10:26 INFO  [http-nio-8080-exec-9] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 17:10:26 INFO  [http-nio-8080-exec-9] : [wizard    ] - Update: la directory 'vaad23' esisteva già ma è stata sostituita. (dirDeletingAll) 
+2022-04-23 17:10:26 INFO  [http-nio-8080-exec-9] : [wizard    ] - Update: il file 'WikiPref.java' non esisteva ed è stato creato (sourceSovrascriveSempreAncheSeEsiste) 
+2022-04-23 17:14:14 INFO  [http-nio-8080-exec-8] : [spazio    ] 
+2022-04-23 17:14:14 INFO  [http-nio-8080-exec-8] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
+2022-04-23 17:14:14 INFO  [http-nio-8080-exec-8] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 17:14:14 INFO  [http-nio-8080-exec-8] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 17:14:14 INFO  [http-nio-8080-exec-8] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 17:14:14 INFO  [http-nio-8080-exec-8] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 17:14:14 INFO  [http-nio-8080-exec-8] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 17:14:14 INFO  [http-nio-8080-exec-8] : [wizard    ] - Update: il file 'WikiPref.java' esisteva già ma è stato modificato (sourceSovrascriveSempreAncheSeEsiste) 
+2022-04-23 17:16:59 INFO  [http-nio-8080-exec-6] : [spazio    ] 
+2022-04-23 17:16:59 INFO  [http-nio-8080-exec-6] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
+2022-04-23 17:16:59 INFO  [http-nio-8080-exec-6] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 17:16:59 INFO  [http-nio-8080-exec-6] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 17:16:59 INFO  [http-nio-8080-exec-6] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 17:16:59 INFO  [http-nio-8080-exec-6] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 17:16:59 INFO  [http-nio-8080-exec-6] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 17:16:59 INFO  [http-nio-8080-exec-6] : [wizard    ] - Update: il file 'WikiPref.java' esisteva già ma è stato modificato (sourceSovrascriveSempreAncheSeEsiste) 
+2022-04-23 17:18:43 INFO  [http-nio-8080-exec-9] : [wizard    ] - La directory 'wizard' è stata aggiornata su 'vaadin23' 
+2022-04-23 17:19:49 INFO  [http-nio-8080-exec-9] : [wizard    ] - La directory 'wizard' è stata aggiornata su 'vaadin23' 
+2022-04-23 17:46:32 INFO  [http-nio-8080-exec-9] : [wizard    ] - La directory 'wizard' è stata aggiornata su 'vaadin23' 
+2022-04-23 20:13:07 INFO  [http-nio-8080-exec-1] : [wizard    ] - La directory 'wizard' è stata aggiornata su 'vaadin23' 
+2022-04-23 20:13:12 INFO  [http-nio-8080-exec-4] : [spazio    ] 
+2022-04-23 20:13:12 INFO  [http-nio-8080-exec-4] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
+2022-04-23 20:13:12 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 20:13:12 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 20:13:12 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 20:13:12 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 20:13:12 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 20:13:12 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'vaad23' esisteva già ma è stata sostituita. (dirDeletingAll) 
+2022-04-23 20:13:12 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: il file 'WikiPref.java' esisteva già ma è stato modificato (sourceSovrascriveSempreAncheSeEsiste) 
+2022-04-23 20:13:59 INFO  [http-nio-8080-exec-4] : [spazio    ] 
+2022-04-23 20:13:59 INFO  [http-nio-8080-exec-4] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
+2022-04-23 20:13:59 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 20:13:59 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 20:13:59 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 20:13:59 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 20:13:59 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 20:13:59 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'vaad23' esisteva già ma è stata sostituita. (dirDeletingAll) 
+2022-04-23 20:16:22 INFO  [http-nio-8080-exec-5] : [wizard    ] - La directory 'wizard' è stata aggiornata su 'vaadin23' 
+2022-04-23 20:16:26 INFO  [http-nio-8080-exec-1] : [spazio    ] 
+2022-04-23 20:16:26 INFO  [http-nio-8080-exec-1] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
+2022-04-23 20:16:26 INFO  [http-nio-8080-exec-1] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 20:16:26 INFO  [http-nio-8080-exec-1] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 20:16:26 INFO  [http-nio-8080-exec-1] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 20:16:26 INFO  [http-nio-8080-exec-1] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 20:16:26 INFO  [http-nio-8080-exec-1] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 20:16:26 INFO  [http-nio-8080-exec-1] : [wizard    ] - Update: la directory 'vaad23' esisteva già ma è stata sostituita. (dirDeletingAll) 
+2022-04-23 20:16:26 INFO  [http-nio-8080-exec-1] : [wizard    ] - Delete: cancellata la directory 'sources' dal progetto wiki 
+2022-04-23 20:21:41 INFO  [http-nio-8080-exec-9] : [wizard    ] - La directory 'wizard' è stata aggiornata su 'vaadin23' 
+2022-04-23 20:22:50 INFO  [http-nio-8080-exec-4] : [spazio    ] 
+2022-04-23 20:22:50 INFO  [http-nio-8080-exec-4] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
+2022-04-23 20:22:50 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 20:22:50 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 20:22:50 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 20:22:50 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 20:22:50 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-23 20:22:50 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'vaad23' esisteva già ma è stata sostituita. (dirDeletingAll) 
+2022-04-23 20:22:50 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: il file 'WikiVers.java' esisteva già ma è stato modificato (sourceSovrascriveSempreAncheSeEsiste) 
+2022-04-23 20:22:50 INFO  [http-nio-8080-exec-4] : [wizard    ] - Delete: cancellata la directory 'sources' dal progetto wiki 

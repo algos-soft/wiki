@@ -1,0 +1,8 @@
+id,ordine,nome,abitato,reset
+europa,1,Europax,true,true
+asia,2,Asia,true,true
+africa,3,Africa,true,true
+nordamerica,4,Nordamerica,true,true
+sudamerica,5,Sudamerica,true,true
+oceania,6,Oceania,true,true
+antartide,7,Antartide,false,true

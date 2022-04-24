@@ -1,0 +1,127 @@
+
+
+
+    /**
+     * Istanza unica di una classe @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) di servizio <br>
+     * Iniettata automaticamente dal framework SpringBoot/Vaadin con l'Annotation @Autowired <br>
+     * Disponibile DOPO il ciclo init() del costruttore di questa classe <br>
+     */
+    @Autowired
+
+
+    /**
+     * Constructor with @Autowired on setter. Usato quando ci sono sottoclassi. <br>
+     * Per evitare di avere nel costruttore tutte le property che devono essere iniettate e per poterle aumentare senza dover modificare i costruttori delle sottoclassi, l'iniezione tramite @Autowired viene delegata ad alcuni metodi setter() che vengono qui invocati con valore (ancora) nullo. <br>
+     * Al termine del ciclo init() del costruttore il framework SpringBoot/Vaadin, inietterà la relativa istanza <br>
+     */
+    public FlowData() {
+    }// end of constructor with @Autowired on setter
+
+
+    /**
+     * Constructor @Autowired. <br>
+     * In the newest Spring release, it’s constructor does not need to be annotated with @Autowired annotation <br>
+     * L' @Autowired (esplicito o implicito) funziona SOLO per UN costruttore <br>
+     * Se ci sono DUE o più costruttori, va in errore <br>
+     * Se ci sono DUE costruttori, di cui uno senza parametri, inietta quello senza parametri <br>
+     */
+    public UtenteService() {
+    }// end of constructor with @Autowired
+
+
+    /**
+     * Constructor @Autowired <br>
+     * Questa classe viene costruita partendo da @Route e NON dalla catena @Autowired di SpringBoot <br>
+     * Nella sottoclasse concreta si usa un @Qualifier(), per avere la sottoclasse specifica <br>
+     * Nella sottoclasse concreta si usa una costante statica, per scrivere sempre uguali i riferimenti <br>
+     */
+    public AViewList() {
+    }// end of Vaadin/@Route constructor
+
+
+    /**
+     * Constructor not @Autowired. <br>
+     * Non utilizzato e non necessario <br>
+     * In the newest Spring release, it’s constructor does not need to be annotated with @Autowired annotation <br>
+     * Se c'è un SOLO costruttore questo diventa automaticamente @Autowired e IntelliJ Idea 'segna' in rosso i
+     * parametri <br>
+     * Per evitare il bug (solo visivo), aggiungo un costruttore senza parametri <br>
+     */
+    public WrapLogCompany() {
+    }// end of second constructor not @Autowired
+
+
+    /**
+     * Costruttore <br>
+     * Si usa un @Qualifier(), per specificare la classe che incrementa l'interfaccia repository <br>
+     * Si usa una costante statica, per essere sicuri di scriverla uguale a quella di xxxRepository <br>
+     * Regola la classe di persistenza dei dati specifica e la passa al costruttore della superclasse <br>
+     *
+     * @param repository per la persistenza dei dati
+     */
+    public ComuneService(@Qualifier(TAG_COMUNE) MongoRepository repository) {
+
+
+    /**
+     * Performing the initialization in a constructor is not suggested as the state of the UI is not properly set up when the constructor is invoked. <br>
+     * La injection viene fatta da SpringBoot SOLO DOPO il metodo init() del costruttore <br>
+     * Si usa quindi un metodo @PostConstruct per avere disponibili tutte le istanze @Autowired <br>
+     * <p>
+     * Ci possono essere diversi metodi con @PostConstruct e firme diverse e funzionano tutti, ma l'ordine con cui vengono chiamati (nella stessa classe) NON è garantito <br>
+     * Se viene implementata una sottoclasse, passa di qui per ogni sottoclasse oltre che per questa istanza <br>
+     * Se esistono delle sottoclassi, passa di qui per ognuna di esse (oltre a questa classe madre) <br>
+     */
+    @PostConstruct
+    private void postConstruct() {
+    }
+
+    * Può essere sovrascritto, invocando PRIMA il metodo della superclasse <br>
+    * Può essere sovrascritto, SENZA invocare il metodo della superclasse <br>
+    * Deve essere sovrascritto, invocando PRIMA il metodo della superclasse <br>
+    * Non può essere sovrascritto <br>
+
+    public static final String XXX = "";
+
+
+
+    // Fields order
+    @Annotation public protected private static final transient volatile
+
+    // Methods order
+    @Annotation public protected private abstract static final synchronized native strictfp
+
+    logger.warn(AETypeLog.file, new AlgosException(SWITCH));
+
+        // When creating a notification using the `show` static method,
+        // the duration is 5-sec by default.
+        Notification.show("Cancellata tutta la collection");
+
+
+String result = new StringBuilder()
+  .append("foo")
+  .append("bar")
+  .replace(4, 6, "az")
+  .reverse()
+  .toString(); // "zaboof"
+
+  Mail mail = new MailBuilder()
+  .from("donald.t@mail.com")
+  .to("joe.b@mail.com")
+  .subject("Congratulations on recent promotion")
+  .body("Yours truly, Donald")
+  .build();
+
+
+        if (WamEntity.class.isAssignableFrom(entityClass)||Milite.class.isAssignableFrom(entityClass)) {
+            codice
+        }// end of if cycle
+
+Label emailStatus = new Label();
+emailStatus.getStyle().set("color", "Red");
+
+@Email, @NotEmpty, @NotBlank, @Positive, @PositiveOrZero, @Negative, @NegativeOrZero, @PastOrPresent and @FutureOrPresent
+
+
+    @Annotation public protected private static final transient volatile
+    @Annotation public protected private abstract static final synchronized native strictfp
+

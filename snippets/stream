@@ -1,0 +1,16 @@
+private void forLoop() {
+    List<Person> persons = List.of();
+    List<String> result = new ArrayList<>();
+    for(Person p : persons){
+        if(p.getAge() > 18){
+            result.add(p.getName());
+        }
+    }
+}
+
+private void streaming() {
+    List<Person> persons = List.of();
+    List<String> result = persons.stream()
+            .filter(p -> p.getAge() > 18)
+            .map(p -> p.getName())
+            .collect(Collectors.toList());
