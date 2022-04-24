@@ -20,6 +20,14 @@ public abstract class WikiView extends CrudView {
 
     protected Button buttonDownload;
 
+    protected String parametri;
+
+    protected String alfabetico;
+
+    protected String singolare;
+
+    protected String plurale;
+
     /**
      * Istanza unica di una classe @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) di servizio <br>
      * Iniettata automaticamente dal framework SpringBoot/Vaadin con l'Annotation @Autowired <br>
@@ -61,11 +69,9 @@ public abstract class WikiView extends CrudView {
 
     /**
      * Bottoni standard (solo icone) Reset, New, Edit, Delete, ecc.. <br>
-     * Può essere sovrascritto, invocando PRIMA il metodo della superclasse <br>
+     * Può essere sovrascritto, invocando DOPO il metodo della superclasse <br>
      */
     protected void fixBottoniTopStandard() {
-        super.fixBottoniTopStandard();
-
         if (usaBottoneDownload) {
             buttonDownload = new Button();
             buttonDownload.getElement().setAttribute("theme", "error");
@@ -75,6 +81,7 @@ public abstract class WikiView extends CrudView {
             topPlaceHolder.add(buttonDownload);
         }
 
+        super.fixBottoniTopStandard();
     }
 
     protected void fixBottomLayout() {

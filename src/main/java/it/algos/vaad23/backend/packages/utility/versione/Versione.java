@@ -44,7 +44,7 @@ public class Versione extends AEntity {
     @AIField(type = AETypeField.localDate)
     public LocalDate giorno;
 
-    @AIField(type = AETypeField.text, flexGrow = true)
+    @AIField(type = AETypeField.text, flexGrow = true, search = true)
     public String descrizione;
 
     @AIField(type = AETypeField.text)

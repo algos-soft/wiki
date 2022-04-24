@@ -5,6 +5,7 @@ import it.algos.vaad23.backend.boot.*;
 import it.algos.vaad23.backend.interfaces.*;
 import static it.algos.wiki.backend.boot.WikiCost.*;
 import it.algos.wiki.backend.packages.attivita.*;
+import it.algos.wiki.backend.packages.genere.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.beans.factory.config.*;
 import org.springframework.context.annotation.Scope;
@@ -88,6 +89,7 @@ public class WikiBoot extends VaadBoot {
     protected void fixMenuRoutes() {
         super.fixMenuRoutes();
 
+        VaadVar.menuRouteList.add(GenereView.class);
         VaadVar.menuRouteList.add(AttivitaView.class);
     }
 

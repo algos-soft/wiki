@@ -62,7 +62,6 @@ public class VersioneView extends CrudView {
         }
         super.sortOrder = Sort.by(Sort.Direction.ASC, "ordine");
         super.usaBottoneDeleteReset = false;
-        super.usaBottoneFilter = true;
         super.usaBottoneNew = false;
         super.usaBottoneEdit = false;
         super.usaBottoneDelete = false;
@@ -182,8 +181,8 @@ public class VersioneView extends CrudView {
         String textSearch = VUOTA;
         AETypeVers type = null;
 
-        if (usaBottoneFilter && filter != null) {
-            textSearch = filter.getValue();
+        if (usaBottoneSearch && searchField != null) {
+            textSearch = searchField.getValue();
             items = backend.findByDescrizione(textSearch);
         }
 
@@ -191,7 +190,7 @@ public class VersioneView extends CrudView {
             type = comboTypeVers.getValue();
         }
 
-        if (usaBottoneFilter) {
+        if (usaBottoneSearch) {
             items = backend.findByDescrizioneAndType(textSearch, type);
         }
 

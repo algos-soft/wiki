@@ -382,4 +382,12 @@ public @interface AIField {
      */
     String headerIconColor() default COLOR_BLUE;
 
+    /**
+     * (Optional) Flag per il campo ricerca testuale
+     * Defaults to false.
+     *
+     * @return the boolean
+     */
+    boolean search() default false;
+
 }

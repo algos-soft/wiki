@@ -50,6 +50,14 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
      * Disponibile DOPO il ciclo init() del costruttore di questa classe <br>
      */
     @Autowired
+    public AnnotationService annotationService;
+
+    /**
+     * Istanza unica di una classe @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) di servizio <br>
+     * Iniettata automaticamente dal framework SpringBoot/Vaadin con l'Annotation @Autowired <br>
+     * Disponibile DOPO il ciclo init() del costruttore di questa classe <br>
+     */
+    @Autowired
     public HtmlService htmlService;
 
     /**
@@ -121,9 +129,11 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
 
     protected Button buttonRefresh;
 
-    protected boolean usaBottoneFilter;
+    protected boolean usaBottoneSearch;
 
-    protected TextField filter;
+    protected TextField searchField;
+
+    protected String searchFieldName;
 
     /**
      * Flag di preferenza per l' utilizzo del bottone. Di default false. <br>
@@ -238,6 +248,7 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
         usaBottoneEdit = true;
         usaBottoneDelete = true;
         usaBottoneExport = false;
+        usaBottoneSearch = true;
         usaComboType = false;
         usaBottomTotale = true;
         usaBottomInfo = true;
@@ -355,7 +366,12 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
             topPlaceHolder.add(buttonDelete);
         }
 
-        if (usaBottoneExport) {
+        if (usaBottoneSearch) {
+            searchField = new TextField();
+            searchField.setPlaceholder("Filter by ...");
+            searchField.setClearButtonVisible(true);
+            searchField.addValueChangeListener(event -> sincroFiltri());
+            topPlaceHolder.add(searchField);
         }
     }
 
@@ -396,6 +412,7 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
         else {
             this.addColumnsOneByOne();
         }
+        this.fixSearch();
 
         // Pass all objects to a grid from a Spring Data repository object
         grid.setItems(crudBackend.findAll(sortOrder));
@@ -454,6 +471,21 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
         columnService.addColumnsOneByOne(grid, entityClazz, gridPropertyNamesList);
     }
 
+    protected void fixSearch() {
+        if (grid != null) {
+            for (Grid.Column column : grid.getColumns()) {
+                if (annotationService.isSearch(entityClazz, column.getKey())) {
+                    searchFieldName = column.getKey();
+                    if (searchField != null) {
+                        searchField.setPlaceholder(String.format("Filter by %s", searchFieldName));
+                    }
+                    break;
+                }
+            }
+        }
+
+    }
+
     /**
      * Aggiunge alcuni listeners alla Grid <br>
      * Aggiunge alcuni listeners eventualmente non aggiunti ai bottoni, comboBox <br>
@@ -471,12 +503,10 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
     protected void fixBottomLayout() {
         String message;
         String view = textService.primaMaiuscola(entityClazz.getSimpleName());
-        int sel = 34;
         int num = crudBackend.countAll();
         String elementi = textService.format(num);
 
         message = String.format("%s: in totale ci sono %s elementi", view, elementi);
-        //        message = String.format("%s: selezionati %d elementi su %d totali", view,sel,num);
 
         if (usaBottomTotale) {
             this.add(new Label(message));
@@ -491,8 +521,8 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
         List items = null;
         String textSearch;
 
-        if (usaBottoneFilter && filter != null) {
-            textSearch = filter != null ? filter.getValue() : VUOTA;
+        if (usaBottoneSearch && searchField != null) {
+            textSearch = searchField != null ? searchField.getValue() : VUOTA;
             items = crudBackend.findByDescrizione(textSearch);
         }
 

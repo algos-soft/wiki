@@ -34,4 +34,12 @@ public interface AttivitaRepository extends MongoRepository<Attivita, String> {
     @Override
     void delete(Attivita entity);
 
+    Attivita findFirstBySingolare(String singolare);
+
+    List<Attivita> findBySingolareStartingWithIgnoreCaseOrderBySingolareAsc(String singolare);
+
+    List<Attivita> findByPluraleStartingWithIgnoreCaseOrderBySingolareAsc(String plurale);
+
+    List<Attivita> findBySingolareStartingWithIgnoreCaseAndPluraleStartingWithIgnoreCaseOrderBySingolareAsc(String singolare, String plurale);
+
 }// end of crud repository class

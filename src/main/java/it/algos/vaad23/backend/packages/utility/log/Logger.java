@@ -36,7 +36,7 @@ public class Logger extends AEntity {
     public LocalDateTime evento;
 
     @NotEmpty
-    @AIField(type = AETypeField.text, flexGrow = true)
+    @AIField(type = AETypeField.text, flexGrow = true, search = true)
     public String descrizione;
 
     @AIField(type = AETypeField.text)

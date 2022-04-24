@@ -23,6 +23,9 @@ import java.util.*;
  */
 public enum WPref  {
 
+    lastDownloadGenere("lastGenere", AETypePref.localdatetime, "Data dell'ultimo download di genere dal Modulo:Bio/Plurale attività genere.",
+            ROOT_DATA_TIME) {},
+    durataDownloadGenere("durataGenere", AETypePref.integer, "Durata in secondi dell'ultimo download del modulo genere.",0) {},
     lastDownloadAttivita("lastAttivita", AETypePref.localdatetime, "Data dell'ultimo download di attività dal Modulo:Bio/Plurale attività.", ROOT_DATA_TIME) {},
     durataDownloadAttivita("durataAttivita", AETypePref.integer, "Durata in secondi dell'ultimo download del modulo attività.",0) {},
     ;

@@ -61,7 +61,6 @@ public class NotaView extends CrudView {
         super.formPropertyNamesList = Arrays.asList("type", "livello", "descrizione", "fatto", "fine");
         super.sortOrder = Sort.by(Sort.Direction.DESC, "inizio");
         this.usaBottoneDeleteReset = true;
-        this.usaBottoneFilter = true;
     }
 
     /**
@@ -110,8 +109,8 @@ public class NotaView extends CrudView {
         AENotaLevel level = null;
         AETypeLog type = null;
 
-        if (usaBottoneFilter && filter != null) {
-            textSearch = filter != null ? filter.getValue() : VUOTA;
+        if (usaBottoneSearch && searchField != null) {
+            textSearch = searchField != null ? searchField.getValue() : VUOTA;
             items = backend.findByDescrizione(textSearch);
         }
 
@@ -123,7 +122,7 @@ public class NotaView extends CrudView {
             type = comboTypeLog.getValue();
         }
 
-        if (usaBottoneFilter) {
+        if (usaBottoneSearch) {
             items = backend.findByDescrizioneAndLivelloAndType(textSearch, level, type);
         }
 

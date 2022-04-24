@@ -36,12 +36,12 @@ public interface LoggerRepository extends MongoRepository<Logger, String> {
     @Override
     void delete(Logger entity);
 
-    List<Logger> findByDescrizioneContainingIgnoreCaseAndLivelloOrderByEventoDesc(String descrizione, AELogLevel level);
+    List<Logger> findByDescrizioneStartingWithIgnoreCaseAndLivelloOrderByEventoDesc(String descrizione, AELogLevel level);
 
-    List<Logger> findByDescrizioneContainingIgnoreCaseAndTypeOrderByEventoDesc(String descrizione, AETypeLog type);
+    List<Logger> findByDescrizioneStartingWithIgnoreCaseAndTypeOrderByEventoDesc(String descrizione, AETypeLog type);
 
-    List<Logger> findByDescrizioneContainingIgnoreCaseAndLivelloAndTypeOrderByEventoDesc(String descrizione, AELogLevel level, AETypeLog type);
+    List<Logger> findByDescrizioneStartingWithIgnoreCaseAndLivelloAndTypeOrderByEventoDesc(String descrizione, AELogLevel level, AETypeLog type);
 
-    List<Logger> findByDescrizioneContainingIgnoreCaseOrderByEventoDesc(String descrizione);
+    List<Logger> findByDescrizioneStartingWithIgnoreCaseOrderByEventoDesc(String descrizione);
 
 }// end of crud repository class

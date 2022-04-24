@@ -39,8 +39,7 @@ public interface NotaRepository extends MongoRepository<Nota, String> {
     @Override
     void delete(Nota entity);
 
-
-    List<Nota> findByDescrizioneContainingIgnoreCaseOrderByInizioDesc(String descrizione);
+    List<Nota> findByDescrizioneStartingWithIgnoreCaseOrderByInizioDesc(String descrizione);
 
     List<Nota> findByLivelloOrderByInizioDesc(AENotaLevel level);
 
@@ -48,10 +47,11 @@ public interface NotaRepository extends MongoRepository<Nota, String> {
 
     List<Nota> findByLivelloAndTypeOrderByInizioDesc(AENotaLevel level, AETypeLog type);
 
-    List<Nota> findByDescrizioneContainingIgnoreCaseAndLivelloOrderByInizioDesc(String descrizione, AENotaLevel level);
+    List<Nota> findByDescrizioneStartingWithIgnoreCaseAndLivelloOrderByInizioDesc(String descrizione, AENotaLevel level);
 
-    List<Nota> findByDescrizioneContainingIgnoreCaseAndTypeOrderByInizioDesc(String descrizione, AETypeLog type);
+    List<Nota> findByDescrizioneStartingWithIgnoreCaseAndTypeOrderByInizioDesc(String descrizione, AETypeLog type);
 
-    List<Nota> findByDescrizioneContainingIgnoreCaseAndLivelloAndTypeOrderByInizioDesc(String descrizione, AENotaLevel level, AETypeLog type);
+    List<Nota> findByDescrizioneStartingWithIgnoreCaseAndLivelloAndTypeOrderByInizioDesc(String descrizione, AENotaLevel level, AETypeLog type);
+
 
 }// end of crud repository class

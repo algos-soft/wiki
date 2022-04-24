@@ -37,7 +37,7 @@ public class Nota extends AEntity {
     public LocalDate inizio;
 
     @NotEmpty
-    @AIField(type = AETypeField.text, flexGrow = true, focus = true)
+    @AIField(type = AETypeField.text, flexGrow = true, focus = true, search = true)
     public String descrizione;
 
     @AIField(type = AETypeField.booleano, headerIcon = VaadinIcon.CHECK)

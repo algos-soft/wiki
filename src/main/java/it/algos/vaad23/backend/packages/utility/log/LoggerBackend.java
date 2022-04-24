@@ -96,15 +96,15 @@ public class LoggerBackend extends CrudBackend {
 
     public List<Logger> findByDescrizioneAndLivelloAndType(final String value, final AELogLevel level, final AETypeLog type) {
         if (level != null && type != null) {
-            return repository.findByDescrizioneContainingIgnoreCaseAndLivelloAndTypeOrderByEventoDesc(value, level, type);
+            return repository.findByDescrizioneStartingWithIgnoreCaseAndLivelloAndTypeOrderByEventoDesc(value, level, type);
         }
         if (level != null) {
-            return repository.findByDescrizioneContainingIgnoreCaseAndLivelloOrderByEventoDesc(value, level);
+            return repository.findByDescrizioneStartingWithIgnoreCaseAndLivelloOrderByEventoDesc(value, level);
         }
         if (type != null) {
-            return repository.findByDescrizioneContainingIgnoreCaseAndTypeOrderByEventoDesc(value, type);
+            return repository.findByDescrizioneStartingWithIgnoreCaseAndTypeOrderByEventoDesc(value, type);
         }
-        return repository.findByDescrizioneContainingIgnoreCaseOrderByEventoDesc(value);
+        return repository.findByDescrizioneStartingWithIgnoreCaseOrderByEventoDesc(value);
     }
 
 }// end of crud backend class

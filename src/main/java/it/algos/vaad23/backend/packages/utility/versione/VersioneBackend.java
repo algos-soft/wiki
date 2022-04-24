@@ -217,7 +217,7 @@ public class VersioneBackend extends CrudBackend {
     }
 
     public List<Versione> findByDescrizioneContainingIgnoreCase(final String value) {
-        return repository.findByDescrizioneContainingIgnoreCaseOrderByOrdineAsc(value);
+        return repository.findByDescrizioneStartingWithIgnoreCaseOrderByOrdineAsc(value);
     }
 
     public List<Versione> findByType(final AETypeVers type) {
@@ -226,9 +226,9 @@ public class VersioneBackend extends CrudBackend {
 
     public List<Versione> findByDescrizioneAndType(final String value, final AETypeVers type) {
         if (type != null) {
-            return repository.findByDescrizioneContainingIgnoreCaseAndTypeOrderByOrdineAsc(value, type);
+            return repository.findByDescrizioneStartingWithIgnoreCaseAndTypeOrderByOrdineAsc(value, type);
         }
-        return repository.findByDescrizioneContainingIgnoreCaseOrderByOrdineAsc(value);
+        return repository.findByDescrizioneStartingWithIgnoreCaseOrderByOrdineAsc(value);
     }
 
 

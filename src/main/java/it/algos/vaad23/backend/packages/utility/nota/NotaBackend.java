@@ -94,7 +94,7 @@ public class NotaBackend extends CrudBackend {
     }
 
     public List<Nota> findByDescrizione(final String value) {
-        return repository.findByDescrizioneContainingIgnoreCaseOrderByInizioDesc(value);
+        return repository.findByDescrizioneStartingWithIgnoreCaseOrderByInizioDesc(value);
     }
 
     public List<Nota> findByLevel(final AENotaLevel level) {
@@ -118,15 +118,15 @@ public class NotaBackend extends CrudBackend {
     @Override
     public List<Nota> findByDescrizioneAndLivelloAndType(final String value, final AENotaLevel level, final AETypeLog type) {
         if (level != null && type != null) {
-            return repository.findByDescrizioneContainingIgnoreCaseAndLivelloAndTypeOrderByInizioDesc(value, level, type);
+            return repository.findByDescrizioneStartingWithIgnoreCaseAndLivelloAndTypeOrderByInizioDesc(value, level, type);
         }
         if (level != null) {
-            return repository.findByDescrizioneContainingIgnoreCaseAndLivelloOrderByInizioDesc(value, level);
+            return repository.findByDescrizioneStartingWithIgnoreCaseAndLivelloOrderByInizioDesc(value, level);
         }
         if (type != null) {
-            return repository.findByDescrizioneContainingIgnoreCaseAndTypeOrderByInizioDesc(value, type);
+            return repository.findByDescrizioneStartingWithIgnoreCaseAndTypeOrderByInizioDesc(value, type);
         }
-        return repository.findByDescrizioneContainingIgnoreCaseOrderByInizioDesc(value);
+        return repository.findByDescrizioneStartingWithIgnoreCaseOrderByInizioDesc(value);
     }
 
 }// end of crud backend class

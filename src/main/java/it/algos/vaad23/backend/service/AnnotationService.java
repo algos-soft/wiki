@@ -607,4 +607,24 @@ public class AnnotationService extends AbstractService {
         return textService.isValid(color) ? color : COLOR_BLUE;
     }
 
+
+    /**
+     * Check if the field is searchable <br>.
+     *
+     * @param entityClazz     the class of type AEntity
+     * @param publicFieldName the property name
+     *
+     * @return the field is searchable
+     */
+    public boolean isSearch(final Class<? extends AEntity> entityClazz, final String publicFieldName) {
+        boolean isSearch = false;
+        AIField annotation = this.getAIField(entityClazz, publicFieldName);
+
+        if (annotation != null) {
+            isSearch = annotation.search();
+        }
+
+        return isSearch;
+    }
+
 }

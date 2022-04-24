@@ -1,6 +1,8 @@
 package it.algos.wiki.backend.packages.attivita;
 
+import com.vaadin.flow.component.textfield.*;
 import com.vaadin.flow.router.*;
+import static it.algos.vaad23.backend.boot.VaadCost.*;
 import it.algos.vaad23.ui.views.*;
 import static it.algos.wiki.backend.boot.WikiCost.*;
 import it.algos.wiki.backend.enumeration.*;
@@ -34,13 +36,7 @@ public class AttivitaView extends WikiView {
     //--per eventuali metodi specifici
     private AttivitaDialog dialog;
 
-    protected String parametri;
-
-    protected String alfabetico;
-
-    protected String singolare;
-
-    protected String plurale;
+    private TextField searchFieldPlurale;
 
     /**
      * Costruttore @Autowired (facoltativo) <br>
@@ -77,6 +73,7 @@ public class AttivitaView extends WikiView {
     @Override
     public void fixAlert() {
         super.fixAlert();
+
         String message;
         String uno;
         String due;
@@ -113,6 +110,53 @@ public class AttivitaView extends WikiView {
         addSpanRosso(message);
         message = String.format("Indipendentemente da come sono scritte nel modulo, tutte le attività singolari e plurali sono convertite in %s ", minuscolo);
         addSpanRosso(message);
+    }
+
+    protected void fixBottoniTopSpecifici() {
+        searchFieldPlurale = new TextField();
+        searchFieldPlurale.setPlaceholder("Filter by plurale");
+        searchFieldPlurale.setClearButtonVisible(true);
+        searchFieldPlurale.addValueChangeListener(event -> sincroFiltri());
+        topPlaceHolder.add(searchFieldPlurale);
+    }
+
+    /**
+     * Può essere sovrascritto, SENZA invocare il metodo della superclasse <br>
+     */
+    protected List sincroFiltri() {
+        List items = null;
+        String singolare = VUOTA;
+        String plurale = VUOTA;
+
+        if (searchField != null) {
+            singolare = searchField.getValue();
+        }
+        if (searchFieldPlurale != null) {
+            plurale = searchFieldPlurale.getValue();
+        }
+
+        if (textService.isEmpty(singolare) && textService.isEmpty(plurale)) {
+            items = backend.findAll();
+        }
+        else {
+            if (textService.isValid(singolare) && textService.isValid(plurale)) {
+                items = backend.findBySingolarePlurale(singolare, plurale);
+            }
+            else {
+                if (textService.isValid(singolare)) {
+                    items = backend.findBySingolare(singolare);
+                }
+                if (textService.isValid(plurale)) {
+                    items = backend.findByPlurale(plurale);
+                }
+            }
+        }
+
+        if (items != null) {
+            grid.setItems(items);
+        }
+
+        return items;
     }
 
 }// end of crud @Route view class

@@ -40,10 +40,10 @@ public interface PreferenzaRepository extends MongoRepository<Preferenza, String
 
     List<Preferenza> findAllByCode(String code);
 
-    List<Preferenza> findByCodeContainingIgnoreCase(String code);
+    List<Preferenza> findByCodeStartingWithIgnoreCase(String code);
 
     List<Preferenza> findByType(AETypePref type);
 
-    List<Preferenza> findByCodeContainingIgnoreCaseAndType(String code, AETypePref type);
+    List<Preferenza> findByCodeStartingWithIgnoreCaseAndType(String code, AETypePref type);
 
 }// end of crud repository class

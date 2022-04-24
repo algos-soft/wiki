@@ -61,7 +61,6 @@ public class LoggerView extends CrudView {
         }
         super.sortOrder = Sort.by(Sort.Direction.DESC, "evento");
         super.usaBottoneDeleteReset = true;
-        super.usaBottoneFilter = true;
         super.usaBottoneNew = false;
         super.usaBottoneEdit = false;
         super.usaBottoneDelete = false;
@@ -118,8 +117,8 @@ public class LoggerView extends CrudView {
         AELogLevel level = null;
         AETypeLog type = null;
 
-        if (usaBottoneFilter && filter != null) {
-            textSearch = filter != null ? filter.getValue() : VUOTA;
+        if (usaBottoneSearch && searchField != null) {
+            textSearch = searchField != null ? searchField.getValue() : VUOTA;
             items = backend.findByDescrizione(textSearch);
         }
 
@@ -131,7 +130,7 @@ public class LoggerView extends CrudView {
             type = comboTypeLog.getValue();
         }
 
-        if (usaBottoneFilter) {
+        if (usaBottoneSearch) {
             items = backend.findByDescrizioneAndLivelloAndType(textSearch, level, type);
         }
 

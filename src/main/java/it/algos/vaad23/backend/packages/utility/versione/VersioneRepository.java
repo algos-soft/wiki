@@ -47,10 +47,10 @@ public interface VersioneRepository extends MongoRepository<Versione, String> {
 
     List<Versione> findByIdRegexOrderByOrdineAsc(String idKey);
 
-    List<Versione> findByDescrizioneContainingIgnoreCaseOrderByOrdineAsc(String descrizione);
+    List<Versione> findByDescrizioneStartingWithIgnoreCaseOrderByOrdineAsc(String descrizione);
 
     List<Versione> findByTypeOrderByOrdineAsc(AETypeVers type);
 
-    List<Versione> findByDescrizioneContainingIgnoreCaseAndTypeOrderByOrdineAsc(String descrizione, AETypeVers type);
+    List<Versione> findByDescrizioneStartingWithIgnoreCaseAndTypeOrderByOrdineAsc(String descrizione, AETypeVers type);
 
 }// end of crud repository class

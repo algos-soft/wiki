@@ -73,6 +73,7 @@ public class ColumnService extends AbstractService {
         String header = annotationService.getHeader(entityClazz, propertyName);
         VaadinIcon headerIcon = annotationService.getHeaderIcon(entityClazz, propertyName);
         String colorHeaderIcon = annotationService.getHeaderIconColor(entityClazz, propertyName);
+        boolean isSearchField = annotationService.isSearch(entityClazz, propertyName);
 
         colonna = grid.addColumn(new ComponentRenderer<>(entity -> {
             Field field = null;
@@ -136,6 +137,18 @@ public class ColumnService extends AbstractService {
             icon.setColor(colorHeaderIcon);
             colonna.setHeader(icon);
         }
+
+        if (isSearchField) {
+            Icon icon = new Icon(VaadinIcon.SEARCH);
+            icon.setSize("12px");
+            icon.getStyle().set("float", "center");
+            icon.setColor("red");
+            Label label = new Label();
+            label.add(icon);
+            label.add(textService.primaMaiuscola(header));
+            colonna.setHeader(label);
+        }
+
     }
 
 }

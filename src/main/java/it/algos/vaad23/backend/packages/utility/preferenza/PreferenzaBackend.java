@@ -56,7 +56,7 @@ public class PreferenzaBackend extends CrudBackend {
 
     public Preferenza findByKey(final String key) {
         Object alfa = repository.findById(key);
-        List<Preferenza> lista = repository.findByCodeContainingIgnoreCase(key);
+        List<Preferenza> lista = repository.findByCodeStartingWithIgnoreCase(key);
         if (lista != null && lista.size() == 1) {
             return lista.get(0);
         }
@@ -91,11 +91,11 @@ public class PreferenzaBackend extends CrudBackend {
 
     public List<Preferenza> findAllByCodeAndType(final String code, final AETypePref type) {
         if (type == null) {
-            return repository.findByCodeContainingIgnoreCase(code);
+            return repository.findByCodeStartingWithIgnoreCase(code);
         }
         else {
             if (textService.isValid(code)) {
-                return repository.findByCodeContainingIgnoreCaseAndType(code, type);
+                return repository.findByCodeStartingWithIgnoreCaseAndType(code, type);
             }
             else {
                 return repository.findByType(type);
