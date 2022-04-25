@@ -2,6 +2,7 @@ package it.algos.wiki.backend.packages.wiki;
 
 import com.vaadin.flow.component.button.*;
 import com.vaadin.flow.component.icon.*;
+import com.vaadin.flow.data.selection.*;
 import it.algos.vaad23.backend.logic.*;
 import it.algos.vaad23.backend.service.*;
 import it.algos.vaad23.ui.views.*;
@@ -19,6 +20,35 @@ public abstract class WikiView extends CrudView {
     protected boolean usaBottoneDownload;
 
     protected Button buttonDownload;
+
+    protected boolean usaBottoneUpload;
+
+    protected Button buttonUpload;
+
+    protected boolean usaBottoneModulo;
+
+    protected Button buttonModulo;
+
+    protected boolean usaBottoneStatistiche;
+
+    protected Button buttonStatistiche;
+
+    protected boolean usaBottoneUploadStatistiche;
+
+    protected Button buttonUploadStatistiche;
+
+
+    protected boolean usaBottonePaginaWiki;
+
+    protected Button buttonPaginaWiki;
+
+    protected boolean usaBottoneTest;
+
+    protected Button buttonTest;
+
+    protected boolean usaBottoneUploadPagina;
+
+    protected Button buttonUploadPagina;
 
     protected String parametri;
 
@@ -64,6 +94,13 @@ public abstract class WikiView extends CrudView {
         super.usaBottoneDelete = false;
 
         this.usaBottoneDownload = true;
+        this.usaBottoneUpload = true;
+        this.usaBottoneModulo = true;
+        this.usaBottoneStatistiche = true;
+        this.usaBottoneUploadStatistiche = true;
+        this.usaBottonePaginaWiki = true;
+        this.usaBottoneTest = true;
+        this.usaBottoneUploadPagina = true;
     }
 
 
@@ -74,14 +111,112 @@ public abstract class WikiView extends CrudView {
     protected void fixBottoniTopStandard() {
         if (usaBottoneDownload) {
             buttonDownload = new Button();
-            buttonDownload.getElement().setAttribute("theme", "error");
+            buttonDownload.getElement().setAttribute("theme", "primary");
             buttonDownload.getElement().setProperty("title", "Download: ricarica tutti i valori dal server wiki");
-            buttonDownload.setIcon(new Icon(VaadinIcon.ARROW_CIRCLE_DOWN));
+            buttonDownload.setIcon(new Icon(VaadinIcon.DOWNLOAD));
             buttonDownload.addClickListener(event -> download());
             topPlaceHolder.add(buttonDownload);
         }
 
+        if (usaBottoneUpload) {
+            buttonUpload = new Button();
+            buttonUpload.getElement().setAttribute("theme", "error");
+            buttonUpload.getElement().setProperty("title", "Upload: costruisce tutte le pagine di attività sul server wiki");
+            buttonUpload.setIcon(new Icon(VaadinIcon.UPLOAD));
+            buttonUpload.addClickListener(event -> upload());
+            topPlaceHolder.add(buttonUpload);
+        }
+
+        if (usaBottoneModulo) {
+            buttonModulo = new Button();
+            buttonModulo.getElement().setAttribute("theme", "secondary");
+            buttonModulo.getElement().setProperty("title", "Modulo: lettura del modulo originario su wiki");
+            buttonModulo.setIcon(new Icon(VaadinIcon.LIST));
+            buttonModulo.addClickListener(event -> visioneModulo());
+            topPlaceHolder.add(buttonModulo);
+        }
+
+        if (usaBottoneStatistiche) {
+            buttonStatistiche = new Button();
+            buttonStatistiche.getElement().setAttribute("theme", "secondary");
+            buttonStatistiche.getElement().setProperty("title", "Statistiche: lettura della pagina su wiki");
+            buttonStatistiche.setIcon(new Icon(VaadinIcon.TABLE));
+            buttonStatistiche.addClickListener(event -> statistiche());
+            topPlaceHolder.add(buttonStatistiche);
+        }
+
+        if (usaBottoneUploadStatistiche) {
+            buttonUploadStatistiche = new Button();
+            buttonUploadStatistiche.getElement().setAttribute("theme", "error");
+            buttonUploadStatistiche.getElement().setProperty("title", "Statistiche: costruisce la pagina delle statistiche sul server wiki");
+            buttonUploadStatistiche.setIcon(new Icon(VaadinIcon.TABLE));
+            buttonUploadStatistiche.addClickListener(event -> uploadStatistiche());
+            topPlaceHolder.add(buttonUploadStatistiche);
+        }
+
+        if (usaBottonePaginaWiki) {
+            buttonPaginaWiki = new Button();
+            buttonPaginaWiki.getElement().setAttribute("theme", "secondary");
+            buttonPaginaWiki.getElement().setProperty("title", "Pagina: lettura della pagina esistente su wiki");
+            buttonPaginaWiki.setIcon(new Icon(VaadinIcon.SEARCH));
+            buttonPaginaWiki.setEnabled(false);
+            buttonPaginaWiki.addClickListener(event -> visionePagina());
+            topPlaceHolder.add(buttonPaginaWiki);
+        }
+
+        if (usaBottoneTest) {
+            buttonTest = new Button();
+            buttonTest.getElement().setAttribute("theme", "secondary");
+            buttonTest.getElement().setProperty("title", "Test: scrittura di una voce su Utente:Biobot");
+            buttonTest.setIcon(new Icon(VaadinIcon.SERVER));
+            buttonTest.setEnabled(false);
+            buttonTest.addClickListener(event -> testPagina());
+            topPlaceHolder.add(buttonTest);
+        }
+
+        if (usaBottoneUploadPagina) {
+            buttonUploadPagina = new Button();
+            buttonUploadPagina.getElement().setAttribute("theme", "error");
+            buttonUploadPagina.getElement().setProperty("title", "Upload: scrittura della singola voce sul server wiki");
+            buttonUploadPagina.setIcon(new Icon(VaadinIcon.UPLOAD));
+            buttonUploadPagina.setEnabled(false);
+            buttonUploadPagina.addClickListener(event -> uploadPagina());
+            topPlaceHolder.add(buttonUploadPagina);
+        }
+
         super.fixBottoniTopStandard();
+    }
+
+    protected boolean sincroSelection(SelectionEvent event) {
+        boolean singoloSelezionato = super.sincroSelection(event);
+
+        if (buttonDownload != null) {
+            buttonDownload.setEnabled(!singoloSelezionato);
+        }
+        if (buttonUpload != null) {
+            buttonUpload.setEnabled(!singoloSelezionato);
+        }
+        if (buttonModulo != null) {
+            buttonModulo.setEnabled(!singoloSelezionato);
+        }
+        if (buttonStatistiche != null) {
+            buttonStatistiche.setEnabled(!singoloSelezionato);
+        }
+        if (buttonUploadStatistiche != null) {
+            buttonUploadStatistiche.setEnabled(!singoloSelezionato);
+        }
+
+        if (buttonPaginaWiki != null) {
+            buttonPaginaWiki.setEnabled(singoloSelezionato);
+        }
+        if (buttonTest != null) {
+            buttonTest.setEnabled(singoloSelezionato);
+        }
+        if (buttonUploadPagina != null) {
+            buttonUploadPagina.setEnabled(singoloSelezionato);
+        }
+
+        return singoloSelezionato;
     }
 
     protected void fixBottomLayout() {
@@ -94,6 +229,62 @@ public abstract class WikiView extends CrudView {
      */
     public void download() {
         crudBackend.download();
+        reload();
+    }
+
+    /**
+     * Esegue un azione di upload, specifica del programma/package in corso <br>
+     * Deve essere sovrascritto, invocando PRIMA il metodo della superclasse <br>
+     */
+    public void upload() {
+        reload();
+    }
+
+    /**
+     * Esegue un azione di apertura di un modulo su wiki, specifica del programma/package in corso <br>
+     * Deve essere sovrascritto, invocando PRIMA il metodo della superclasse <br>
+     */
+    public void visioneModulo() {
+        reload();
+    }
+
+    /**
+     * Esegue un azione di apertura di una pagina wiki, specifica del programma/package in corso <br>
+     * Deve essere sovrascritto, invocando PRIMA il metodo della superclasse <br>
+     */
+    public void statistiche() {
+        reload();
+    }
+
+    /**
+     * Esegue un azione di upload delle statistiche, specifica del programma/package in corso <br>
+     * Deve essere sovrascritto, invocando PRIMA il metodo della superclasse <br>
+     */
+    public void uploadStatistiche() {
+        reload();
+    }
+
+    /**
+     * Esegue un azione di apertura di una pagina su wiki, specifica del programma/package in corso <br>
+     * Deve essere sovrascritto, invocando PRIMA il metodo della superclasse <br>
+     */
+    public void visionePagina() {
+        reload();
+    }
+
+    /**
+     * Scrive una voce di prova su Utente:Biobot/test <br>
+     * Deve essere sovrascritto, invocando PRIMA il metodo della superclasse <br>
+     */
+    public void testPagina() {
+        reload();
+    }
+
+    /**
+     * Scrive una pagina definitiva sul server wiki <br>
+     * Deve essere sovrascritto, invocando PRIMA il metodo della superclasse <br>
+     */
+    public void uploadPagina() {
         reload();
     }
 

@@ -1,6 +1,9 @@
 package it.algos.wiki.backend.packages.genere;
 
+import ch.carnet.kasparscherrer.*;
+import com.vaadin.flow.component.orderedlayout.*;
 import com.vaadin.flow.router.*;
+import static it.algos.vaad23.backend.boot.VaadCost.*;
 import it.algos.vaad23.ui.views.*;
 import static it.algos.wiki.backend.boot.WikiCost.*;
 import it.algos.wiki.backend.enumeration.*;
@@ -14,6 +17,7 @@ import com.vaadin.flow.spring.annotation.SpringComponent;
 import org.springframework.context.annotation.Scope;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import com.vaadin.flow.component.textfield.TextField;
+import org.springframework.data.domain.*;
 
 /**
  * Project wiki
@@ -39,6 +43,10 @@ public class GenereView extends WikiView {
     //--per eventuali metodi specifici
     private GenereDialog dialog;
 
+    private TextField searchFieldPluraleMaschile;
+
+    private TextField searchFieldPluraleFemminile;
+
     /**
      * Costruttore @Autowired (facoltativo) <br>
      * In the newest Spring release, it’s constructor does not need to be annotated with @Autowired annotation <br>
@@ -61,9 +69,10 @@ public class GenereView extends WikiView {
     protected void fixPreferenze() {
         super.fixPreferenze();
 
-        super.gridPropertyNamesList = Arrays.asList("singolare", "pluraleMaschile", "pluraleFemminile","maschile");
+        super.gridPropertyNamesList = Arrays.asList("singolare", "pluraleMaschile", "pluraleFemminile", "maschile");
         super.formPropertyNamesList = Arrays.asList("singolare", "pluraleMaschile", "pluraleFemminile");
 
+        super.sortOrder = Sort.by(Sort.Direction.ASC, "singolare");
         super.dialogClazz = GenereDialog.class;
     }
 
@@ -100,21 +109,57 @@ public class GenereView extends WikiView {
         addSpanRosso(message);
     }
 
+
+    protected void fixBottoniTopSpecifici() {
+        searchFieldPluraleMaschile = new TextField();
+        searchFieldPluraleMaschile.setPlaceholder("Filter by maschile");
+        searchFieldPluraleMaschile.setClearButtonVisible(true);
+        searchFieldPluraleMaschile.addValueChangeListener(event -> sincroFiltri());
+        topPlaceHolder.add(searchFieldPluraleMaschile);
+
+        searchFieldPluraleFemminile = new TextField();
+        searchFieldPluraleFemminile.setPlaceholder("Filter by femminile");
+        searchFieldPluraleFemminile.setClearButtonVisible(true);
+        searchFieldPluraleFemminile.addValueChangeListener(event -> sincroFiltri());
+        topPlaceHolder.add(searchFieldPluraleFemminile);
+
+        boxBox = new IndeterminateCheckbox();
+        boxBox.setLabel("Uomo / Donna");
+        boxBox.setIndeterminate(true);
+        boxBox.addValueChangeListener(event -> sincroFiltri());
+        HorizontalLayout layout = new HorizontalLayout(boxBox);
+        layout.setAlignItems(Alignment.CENTER);
+        topPlaceHolder.add(layout);
+    }
+
     /**
      * Può essere sovrascritto, SENZA invocare il metodo della superclasse <br>
      */
-    protected List sincroFiltri() {
-        List items = null;
+    protected void sincroFiltri() {
+        List<Genere> items = backend.findAll(sortOrder);
 
-        if (usaBottoneSearch && searchField != null) {
-            items = backend.findBySingolare(searchField.getValue());
+        final String textSearch = searchField != null ? searchField.getValue() : VUOTA;
+        if (textService.isValid(textSearch)) {
+            items = items.stream().filter(gen -> gen.singolare.matches("^(?i)" + textSearch + ".*$")).toList();
+        }
+
+        final String textSearchPluraleMaschile = searchFieldPluraleMaschile != null ? searchFieldPluraleMaschile.getValue() : VUOTA;
+        if (textService.isValid(textSearch)) {
+            items = items.stream().filter(gen -> gen.pluraleMaschile.matches("^(?i)" + textSearchPluraleMaschile + ".*$")).toList();
+        }
+
+        final String textSearchPluraleFemminile = searchFieldPluraleFemminile != null ? searchFieldPluraleFemminile.getValue() : VUOTA;
+        if (textService.isValid(textSearch)) {
+            items = items.stream().filter(gen -> gen.pluraleFemminile.matches("^(?i)" + textSearchPluraleFemminile + ".*$")).toList();
+        }
+
+        if (boxBox != null && !boxBox.isIndeterminate()) {
+            items = items.stream().filter(gen -> gen.maschile == boxBox.getValue()).toList();
         }
 
         if (items != null) {
-            grid.setItems(items);
+            grid.setItems((List) items);
         }
-
-        return items;
     }
 
 }// end of crud @Route view class

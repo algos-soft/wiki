@@ -1,6 +1,5 @@
 package it.algos.vaad23.backend.packages.utility.preferenza;
 
-import it.algos.vaad23.backend.enumeration.*;
 import it.algos.vaad23.backend.logic.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.data.mongodb.repository.*;
@@ -55,7 +54,6 @@ public class PreferenzaBackend extends CrudBackend {
 
 
     public Preferenza findByKey(final String key) {
-        Object alfa = repository.findById(key);
         List<Preferenza> lista = repository.findByCodeStartingWithIgnoreCase(key);
         if (lista != null && lista.size() == 1) {
             return lista.get(0);
@@ -80,27 +78,27 @@ public class PreferenzaBackend extends CrudBackend {
         return repository.findAllByCode(code);
     }
 
-    public List<Preferenza> findAllByType(final AETypePref type) {
-        if (type != null) {
-            return repository.findByType(type);
-        }
-        else {
-            return repository.findAll();
-        }
-    }
+    //    public List<Preferenza> findAllByType(final AETypePref type) {
+    //        if (type != null) {
+    //            return repository.findByType(type);
+    //        }
+    //        else {
+    //            return repository.findAll();
+    //        }
+    //    }
 
-    public List<Preferenza> findAllByCodeAndType(final String code, final AETypePref type) {
-        if (type == null) {
-            return repository.findByCodeStartingWithIgnoreCase(code);
-        }
-        else {
-            if (textService.isValid(code)) {
-                return repository.findByCodeStartingWithIgnoreCaseAndType(code, type);
-            }
-            else {
-                return repository.findByType(type);
-            }
-        }
-    }
+    //    public List<Preferenza> findAllByCodeAndType(final String code, final AETypePref type) {
+    //        if (type == null) {
+    //            return repository.findByCodeStartingWithIgnoreCase(code);
+    //        }
+    //        else {
+    //            if (textService.isValid(code)) {
+    //                return repository.findByCodeStartingWithIgnoreCaseAndType(code, type);
+    //            }
+    //            else {
+    //                return repository.findByType(type);
+    //            }
+    //        }
+    //    }
 
 }// end of crud backend class

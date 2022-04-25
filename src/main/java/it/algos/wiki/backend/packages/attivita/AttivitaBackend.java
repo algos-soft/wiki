@@ -4,6 +4,7 @@ import static it.algos.vaad23.backend.boot.VaadCost.*;
 import it.algos.vaad23.backend.exception.*;
 import it.algos.vaad23.backend.logic.*;
 import it.algos.vaad23.backend.wrapper.*;
+import it.algos.wiki.backend.boot.*;
 import static it.algos.wiki.backend.boot.WikiCost.*;
 import it.algos.wiki.backend.enumeration.*;
 import it.algos.wiki.backend.packages.genere.*;
@@ -50,9 +51,6 @@ public class AttivitaBackend extends CrudBackend {
 
     private AttivitaRepository repository;
 
-    private static String EX = "ex ";
-
-    private static String EX2 = "ex-";
 
     /**
      * Costruttore @Autowired (facoltativo) @Qualifier (obbligatorio) <br>
@@ -201,30 +199,30 @@ public class AttivitaBackend extends CrudBackend {
      * Le aggiunge se trova la corrispondenza tra il nome con e senza EX <br>
      */
     private void aggiunge() {
-        List<Genere> listaGenere = genereBackend.findAll();
+        List<Genere> listaEx = genereBackend.findStartingEx();
         String attivitaSingolare;
         String genereSingolare;
         Attivita entity;
         String message;
         int size = 0;
 
-        if (listaGenere == null || listaGenere.size() == 0) {
+        if (listaEx == null || listaEx.size() == 0) {
             message = "Il modulo genere deve essere scaricato PRIMA di quello di attività";
             logger.warn(new WrapLog().exception(new AlgosException(message)).usaDb());
             return;
         }
 
-        if (listaGenere != null) {
-            for (Genere genere : listaGenere) {
+        if (listaEx != null) {
+            for (Genere genere : listaEx) {
                 entity = null;
                 attivitaSingolare = VUOTA;
                 genereSingolare = genere.singolare;
 
-                if (genereSingolare.startsWith(EX)) {
-                    attivitaSingolare = genereSingolare.substring(EX.length());
+                if (genereSingolare.startsWith(WikiCost.TAG_EX)) {
+                    attivitaSingolare = genereSingolare.substring(TAG_EX.length());
                 }
-                if (genereSingolare.startsWith(EX2)) {
-                    attivitaSingolare = genereSingolare.substring(EX2.length());
+                if (genereSingolare.startsWith(TAG_EX2)) {
+                    attivitaSingolare = genereSingolare.substring(TAG_EX2.length());
                 }
 
                 if (textService.isValid(attivitaSingolare)) {

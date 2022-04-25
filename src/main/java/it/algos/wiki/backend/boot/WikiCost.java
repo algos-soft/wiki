@@ -9,8 +9,7 @@ import org.springframework.context.annotation.Scope;
  * Project Wiki
  * Created by Algos
  * User: gac
- * Date: mar, 15-mar-2022
- * Time: 09:22
+ * Date: lun, 25 apr 22
  */
 @SpringComponent
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
@@ -58,5 +57,9 @@ public class WikiCost {
     public static final String PATH_MODULO_PRENOME = "Progetto:Antroponimi/Nomi doppi";
 
     public static final String PATH_STATISTICHE_GIORNI = PATH_PROGETTO + GIORNI;
+
+    public static final String TAG_EX = "ex ";
+
+    public static final String TAG_EX2 = "ex-";
 
 }

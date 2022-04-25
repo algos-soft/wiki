@@ -18,6 +18,8 @@ import com.vaadin.flow.component.textfield.TextField;
 
 import java.time.*;
 import java.util.*;
+import java.util.function.*;
+import java.util.stream.*;
 
 /**
  * Project wiki
@@ -118,6 +120,13 @@ public class GenereBackend extends CrudBackend {
         return repository.findBySingolareStartingWithIgnoreCaseOrderBySingolareAsc(value);
     }
 
+    protected Predicate<Genere> startEx = genere -> genere.singolare.startsWith(TAG_EX) || genere.singolare.startsWith(TAG_EX2);
+
+
+    public List<Genere> findStartingEx() {
+        return (List<Genere>) findAll().stream().filter(startEx).collect(Collectors.toList());
+    }
+
     /**
      * Esegue un azione di download, specifica del programma/package in corso <br>
      * Deve essere sovrascritto, senza invocare il metodo della superclasse <br>
@@ -156,6 +165,7 @@ public class GenereBackend extends CrudBackend {
             deleteAll();
             for (Map.Entry<String, String> entry : mappa.entrySet()) {
                 singolare = entry.getKey();
+                singolare = textService.primaMinuscola(singolare);
                 pluraliGrezzi = entry.getValue();
 
                 pluraleMaschile = this.estraeMaschile(pluraliGrezzi);

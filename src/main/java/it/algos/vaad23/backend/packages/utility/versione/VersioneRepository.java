@@ -1,7 +1,6 @@
 package it.algos.vaad23.backend.packages.utility.versione;
 
 import static it.algos.vaad23.backend.boot.VaadCost.*;
-import it.algos.vaad23.backend.enumeration.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.data.mongodb.repository.*;
 import org.springframework.stereotype.*;
@@ -43,14 +42,6 @@ public interface VersioneRepository extends MongoRepository<Versione, String> {
 
     Versione findFirstByCodeIsNotNullOrderByOrdineDesc();
 
-    //    List<Versione> findFirstByCodeIsNotNullOrderByOrdineDesc();
-
     List<Versione> findByIdRegexOrderByOrdineAsc(String idKey);
-
-    List<Versione> findByDescrizioneStartingWithIgnoreCaseOrderByOrdineAsc(String descrizione);
-
-    List<Versione> findByTypeOrderByOrdineAsc(AETypeVers type);
-
-    List<Versione> findByDescrizioneStartingWithIgnoreCaseAndTypeOrderByOrdineAsc(String descrizione, AETypeVers type);
 
 }// end of crud repository class

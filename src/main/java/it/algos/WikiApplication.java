@@ -12,7 +12,7 @@ import org.springframework.context.*;
  * Project Wiki
  * Created by Algos
  * User: gac
- * Date: dom, 24 apr 22
+ * Date: lun, 25 apr 22
  * <p>
  * The entry point of the Spring Boot application. <br>
  * Spring boot web application initializer. <br>

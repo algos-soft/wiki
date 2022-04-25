@@ -216,20 +216,4 @@ public class VersioneBackend extends CrudBackend {
         return sigla + newOrdine;
     }
 
-    public List<Versione> findByDescrizioneContainingIgnoreCase(final String value) {
-        return repository.findByDescrizioneStartingWithIgnoreCaseOrderByOrdineAsc(value);
-    }
-
-    public List<Versione> findByType(final AETypeVers type) {
-        return repository.findByTypeOrderByOrdineAsc(type);
-    }
-
-    public List<Versione> findByDescrizioneAndType(final String value, final AETypeVers type) {
-        if (type != null) {
-            return repository.findByDescrizioneStartingWithIgnoreCaseAndTypeOrderByOrdineAsc(value, type);
-        }
-        return repository.findByDescrizioneStartingWithIgnoreCaseOrderByOrdineAsc(value);
-    }
-
-
 }// end of crud backend class

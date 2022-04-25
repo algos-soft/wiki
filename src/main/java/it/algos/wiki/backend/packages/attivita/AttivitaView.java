@@ -1,5 +1,7 @@
 package it.algos.wiki.backend.packages.attivita;
 
+import ch.carnet.kasparscherrer.*;
+import com.vaadin.flow.component.orderedlayout.*;
 import com.vaadin.flow.component.textfield.*;
 import com.vaadin.flow.router.*;
 import static it.algos.vaad23.backend.boot.VaadCost.*;
@@ -8,6 +10,7 @@ import static it.algos.wiki.backend.boot.WikiCost.*;
 import it.algos.wiki.backend.enumeration.*;
 import it.algos.wiki.backend.packages.wiki.*;
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.data.domain.*;
 
 import java.time.*;
 import java.util.*;
@@ -63,6 +66,7 @@ public class AttivitaView extends WikiView {
         super.gridPropertyNamesList = Arrays.asList("singolare", "plurale", "aggiunta");
         super.formPropertyNamesList = Arrays.asList("singolare", "plurale", "aggiunta");
 
+        super.sortOrder = Sort.by(Sort.Direction.ASC, "singolare");
         super.dialogClazz = AttivitaDialog.class;
     }
 
@@ -118,45 +122,39 @@ public class AttivitaView extends WikiView {
         searchFieldPlurale.setClearButtonVisible(true);
         searchFieldPlurale.addValueChangeListener(event -> sincroFiltri());
         topPlaceHolder.add(searchFieldPlurale);
+
+        boxBox = new IndeterminateCheckbox();
+        boxBox.setLabel("Aggiunti da Genere");
+        boxBox.setIndeterminate(true);
+        boxBox.addValueChangeListener(event -> sincroFiltri());
+        HorizontalLayout layout = new HorizontalLayout(boxBox);
+        layout.setAlignItems(Alignment.CENTER);
+        topPlaceHolder.add(layout);
     }
 
     /**
      * Può essere sovrascritto, SENZA invocare il metodo della superclasse <br>
      */
-    protected List sincroFiltri() {
-        List items = null;
-        String singolare = VUOTA;
-        String plurale = VUOTA;
+    protected void sincroFiltri() {
+        List<Attivita> items = backend.findAll(sortOrder);
 
-        if (searchField != null) {
-            singolare = searchField.getValue();
-        }
-        if (searchFieldPlurale != null) {
-            plurale = searchFieldPlurale.getValue();
+        final String textSearch = searchField != null ? searchField.getValue() : VUOTA;
+        if (textService.isValid(textSearch)) {
+            items = items.stream().filter(att -> att.singolare.matches("^(?i)" + textSearch + ".*$")).toList();
         }
 
-        if (textService.isEmpty(singolare) && textService.isEmpty(plurale)) {
-            items = backend.findAll();
+        final String textSearchPlurale = searchFieldPlurale != null ? searchFieldPlurale.getValue() : VUOTA;
+        if (textService.isValid(textSearch)) {
+            items = items.stream().filter(att -> att.plurale.matches("^(?i)" + textSearchPlurale + ".*$")).toList();
         }
-        else {
-            if (textService.isValid(singolare) && textService.isValid(plurale)) {
-                items = backend.findBySingolarePlurale(singolare, plurale);
-            }
-            else {
-                if (textService.isValid(singolare)) {
-                    items = backend.findBySingolare(singolare);
-                }
-                if (textService.isValid(plurale)) {
-                    items = backend.findByPlurale(plurale);
-                }
-            }
+
+        if (boxBox != null && !boxBox.isIndeterminate()) {
+            items = items.stream().filter(att -> att.aggiunta == boxBox.getValue()).toList();
         }
 
         if (items != null) {
-            grid.setItems(items);
+            grid.setItems((List) items);
         }
-
-        return items;
     }
 
 }// end of crud @Route view class

@@ -9,7 +9,6 @@ import org.springframework.data.mongodb.repository.*;
 import org.springframework.stereotype.*;
 
 import java.time.*;
-import java.util.*;
 
 /**
  * Project vaadin23
@@ -88,23 +87,6 @@ public class LoggerBackend extends CrudBackend {
             //            logger.error(unErrore);
             System.out.println("errore");
         }
-    }
-
-    public int countAll() {
-        return repository.findAll().size();
-    }
-
-    public List<Logger> findByDescrizioneAndLivelloAndType(final String value, final AELogLevel level, final AETypeLog type) {
-        if (level != null && type != null) {
-            return repository.findByDescrizioneStartingWithIgnoreCaseAndLivelloAndTypeOrderByEventoDesc(value, level, type);
-        }
-        if (level != null) {
-            return repository.findByDescrizioneStartingWithIgnoreCaseAndLivelloOrderByEventoDesc(value, level);
-        }
-        if (type != null) {
-            return repository.findByDescrizioneStartingWithIgnoreCaseAndTypeOrderByEventoDesc(value, type);
-        }
-        return repository.findByDescrizioneStartingWithIgnoreCaseOrderByEventoDesc(value);
     }
 
 }// end of crud backend class

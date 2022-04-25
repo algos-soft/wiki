@@ -1,6 +1,5 @@
 package it.algos.vaad23.backend.packages.utility.log;
 
-import it.algos.vaad23.backend.enumeration.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.data.mongodb.repository.*;
 import org.springframework.stereotype.*;
@@ -35,13 +34,5 @@ public interface LoggerRepository extends MongoRepository<Logger, String> {
 
     @Override
     void delete(Logger entity);
-
-    List<Logger> findByDescrizioneStartingWithIgnoreCaseAndLivelloOrderByEventoDesc(String descrizione, AELogLevel level);
-
-    List<Logger> findByDescrizioneStartingWithIgnoreCaseAndTypeOrderByEventoDesc(String descrizione, AETypeLog type);
-
-    List<Logger> findByDescrizioneStartingWithIgnoreCaseAndLivelloAndTypeOrderByEventoDesc(String descrizione, AELogLevel level, AETypeLog type);
-
-    List<Logger> findByDescrizioneStartingWithIgnoreCaseOrderByEventoDesc(String descrizione);
 
 }// end of crud repository class

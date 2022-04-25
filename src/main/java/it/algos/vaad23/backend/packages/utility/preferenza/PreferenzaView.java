@@ -1,5 +1,6 @@
 package it.algos.vaad23.backend.packages.utility.preferenza;
 
+import ch.carnet.kasparscherrer.*;
 import com.vaadin.flow.component.*;
 import com.vaadin.flow.component.button.*;
 import com.vaadin.flow.component.combobox.*;
@@ -40,6 +41,13 @@ import java.util.*;
 @AIView(lineawesomeClassnames = "wrench")
 public class PreferenzaView extends VerticalLayout implements AfterNavigationObserver {
 
+    /**
+     * Istanza unica di una classe @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) di servizio <br>
+     * Iniettata automaticamente dal framework SpringBoot/Vaadin con l'Annotation @Autowired <br>
+     * Disponibile DOPO il ciclo init() del costruttore di questa classe <br>
+     */
+    @Autowired
+    public TextService textService;
 
     @Autowired
     protected ApplicationContext appContext;
@@ -73,6 +81,10 @@ public class PreferenzaView extends VerticalLayout implements AfterNavigationObs
     protected Button deleteButton;
 
     protected int width;
+
+    protected IndeterminateCheckbox boxBoxVaad23;
+
+    protected IndeterminateCheckbox boxBoxRiavvio;
 
     @Override
     public void afterNavigation(AfterNavigationEvent afterNavigationEvent) {
@@ -159,6 +171,22 @@ public class PreferenzaView extends VerticalLayout implements AfterNavigationObs
         comboTypePref.addValueChangeListener(event -> sincroFiltri());
         layout.add(comboTypePref);
 
+        boxBoxVaad23 = new IndeterminateCheckbox();
+        boxBoxVaad23.setLabel("Vaad23 / Specifica");
+        boxBoxVaad23.setIndeterminate(true);
+        boxBoxVaad23.addValueChangeListener(event -> sincroFiltri());
+        HorizontalLayout layout2 = new HorizontalLayout(boxBoxVaad23);
+        layout2.setAlignItems(Alignment.CENTER);
+        layout.add(layout2);
+
+        boxBoxRiavvio = new IndeterminateCheckbox();
+        boxBoxRiavvio.setLabel("Riavvio");
+        boxBoxRiavvio.setIndeterminate(true);
+        boxBoxRiavvio.addValueChangeListener(event -> sincroFiltri());
+        HorizontalLayout layout3 = new HorizontalLayout(boxBoxRiavvio);
+        layout3.setAlignItems(Alignment.CENTER);
+        layout.add(layout3);
+
         this.add(layout);
     }
 
@@ -225,8 +253,8 @@ public class PreferenzaView extends VerticalLayout implements AfterNavigationObs
         grid.getColumnByKey("descrizione").setWidth(larDesc).setFlexGrow(1);
 
         grid.addColumn(new ComponentRenderer<>(pref -> {
-            Icon icona = pref.vaadFlow ? VaadinIcon.CHECK.create() : VaadinIcon.CLOSE.create();
-            icona.setColor(pref.vaadFlow ? COLOR_VERO : COLOR_FALSO);
+            Icon icona = pref.vaad23 ? VaadinIcon.CHECK.create() : VaadinIcon.CLOSE.create();
+            icona.setColor(pref.vaad23 ? COLOR_VERO : COLOR_FALSO);
             return icona;
         })).setHeader("Vaad23").setKey("vaadFlow").setWidth(larBool).setFlexGrow(0).setTextAlign(ColumnTextAlign.CENTER);
         grid.addColumn(new ComponentRenderer<>(pref -> {
@@ -294,12 +322,28 @@ public class PreferenzaView extends VerticalLayout implements AfterNavigationObs
     }
 
     protected void sincroFiltri() {
-        String textSearch = filter != null ? filter.getValue() : VUOTA;
-        AETypePref type = comboTypePref != null ? comboTypePref.getValue() : null;
+        List<Preferenza> items = backend.findAll();
 
-        items = backend.findAllByCodeAndType(textSearch, type);
+        final String textSearch = filter != null ? filter.getValue() : VUOTA;
+        if (textService.isValid(textSearch)) {
+            items = items.stream().filter(pref -> pref.code.matches("^(?i)" + textSearch + ".*$")).toList();
+        }
+
+        final AETypePref type = comboTypePref != null ? comboTypePref.getValue() : null;
+        if (type != null) {
+            items = items.stream().filter(pref -> pref.type == type).toList();
+        }
+
+        if (boxBoxVaad23 != null && !boxBoxVaad23.isIndeterminate()) {
+            items = items.stream().filter(pref -> pref.vaad23 == boxBoxVaad23.getValue()).toList();
+        }
+
+        if (boxBoxRiavvio != null && !boxBoxRiavvio.isIndeterminate()) {
+            items = items.stream().filter(pref -> pref.needRiavvio == boxBoxRiavvio.getValue()).toList();
+        }
+
         if (items != null) {
-            grid.setItems(items);
+            grid.setItems((List) items);
         }
     }
 

@@ -111,34 +111,27 @@ public class LoggerView extends CrudView {
     /**
      * Può essere sovrascritto, SENZA invocare il metodo della superclasse <br>
      */
-    protected List sincroFiltri() {
-        List items = null;
-        String textSearch = VUOTA;
-        AELogLevel level = null;
-        AETypeLog type = null;
+    protected void sincroFiltri() {
+        List<Logger> items = backend.findAll(sortOrder);
 
-        if (usaBottoneSearch && searchField != null) {
-            textSearch = searchField != null ? searchField.getValue() : VUOTA;
-            items = backend.findByDescrizione(textSearch);
+        final String textSearch = searchField != null ? searchField.getValue() : VUOTA;
+        if (textService.isValid(textSearch)) {
+            items = items.stream().filter(log -> log.descrizione.matches("^(?i)" + textSearch + ".*$")).toList();
         }
 
-        if (comboLivello != null) {
-            level = comboLivello.getValue();
+        final AETypeLog type = comboTypeLog != null ? comboTypeLog.getValue() : null;
+        if (type != null) {
+            items = items.stream().filter(log -> log.type == type).toList();
         }
 
-        if (comboTypeLog != null) {
-            type = comboTypeLog.getValue();
-        }
-
-        if (usaBottoneSearch) {
-            items = backend.findByDescrizioneAndLivelloAndType(textSearch, level, type);
+        final AELogLevel level = comboLivello != null ? comboLivello.getValue() : null;
+        if (level != null) {
+            items = items.stream().filter(log -> log.livello == level).toList();
         }
 
         if (items != null) {
-            grid.setItems(items);
+            grid.setItems((List) items);
         }
-
-        return items;
     }
 
 }// end of crud @Route view class

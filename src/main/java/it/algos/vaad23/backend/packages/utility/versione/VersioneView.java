@@ -1,6 +1,8 @@
 package it.algos.vaad23.backend.packages.utility.versione;
 
+import ch.carnet.kasparscherrer.*;
 import com.vaadin.flow.component.combobox.*;
+import com.vaadin.flow.component.orderedlayout.*;
 import com.vaadin.flow.router.*;
 import static it.algos.vaad23.backend.boot.VaadCost.*;
 import it.algos.vaad23.backend.boot.*;
@@ -101,104 +103,40 @@ public class VersioneView extends CrudView {
         comboTypeVers.setItems(AETypeVers.getAllEnums());
         comboTypeVers.addValueChangeListener(event -> sincroFiltri());
         topPlaceHolder.add(comboTypeVers);
+
+        boxBox = new IndeterminateCheckbox();
+        boxBox.setLabel("Vaad23 / Specifica");
+        boxBox.setIndeterminate(true);
+        boxBox.addValueChangeListener(event -> sincroFiltri());
+        HorizontalLayout layout = new HorizontalLayout(boxBox);
+        layout.setAlignItems(Alignment.CENTER);
+        topPlaceHolder.add(layout);
     }
 
-    //    /**
-    //     * Regola la visibilità delle colonne della grid <br>
-    //     * Può essere sovrascritto, invocando PRIMA il metodo della superclasse <br>
-    //     */
-    //    public void fixColumns() {
-    //        super.fixColumns();
-    //
-    //        grid.setColumns("id", "type", "titolo", "descrizione", "company", "vaadin23", "ordine");
-    //
-    //        String larId = "4em";
-    //        String larType = "8em";
-    //        String larTitolo = "11em";
-    //        String larDesc = "30em";
-    //        String larCompany = "8em";
-    //
-    //        grid.getColumnByKey("id").setWidth(larId).setFlexGrow(0);
-    //        grid.getColumnByKey("type").setWidth(larType).setFlexGrow(0);
-    //        grid.getColumnByKey("titolo").setWidth(larTitolo).setFlexGrow(0);
-    //        grid.getColumnByKey("descrizione").setWidth(larDesc).setFlexGrow(1);
-    //        grid.getColumnByKey("company").setWidth(larCompany).setFlexGrow(0);
-    //        grid.getColumnByKey("vaadin23").setVisible(false);
-    //        grid.getColumnByKey("ordine").setVisible(false);
-    //
-    //        if (!VaadVar.usaCompany) {
-    //            grid.getColumnByKey("company").setVisible(false);
-    //        }
-    //    }
-    //
-    //    /**
-    //     * Regola la visibilità dei fields del Form<br>
-    //     * Può essere sovrascritto, invocando PRIMA il metodo della superclasse <br>
-    //     */
-    //    @Override
-    //    public void fixFields() {
-    //        super.fixFields();
-    //
-    //        crudForm.setFieldType("descrizione", TextArea.class);
-    //    }
-
-    //    /**
-    //     * Regola l'ordinamento della <grid <br>
-    //     * Può essere sovrascritto, SENZA invocare il metodo della superclasse <br>
-    //     */
-    //    @Override
-    //    public void fixOrder() {
-    //        Grid.Column columnVaad = grid.getColumnByKey("vaadin23");
-    //        Grid.Column columnOrd = grid.getColumnByKey("ordine");
-    //        List<GridSortOrder> lista = new ArrayList<>();
-    //        lista.add(new GridSortOrder(columnVaad, SortDirection.DESCENDING));
-    //        lista.add(new GridSortOrder(columnOrd, SortDirection.ASCENDING));
-    //        gridCrud.getGrid().sort(lista);
-    //    }
-
-    //    /**
-    //     * Componenti aggiuntivi oltre quelli base <br>
-    //     * Tipicamente bottoni di selezione/filtro <br>
-    //     * Può essere sovrascritto, invocando PRIMA il metodo della superclasse <br>
-    //     */
-    //    protected void fixAdditionalComponents() {
-    //        super.fixAdditionalComponents();
-    //
-    //        comboTypeVers = new ComboBox<>();
-    //        comboTypeVers.setPlaceholder("Type");
-    //        comboTypeVers.setClearButtonVisible(true);
-    //        List<AETypeVers> items2 = AETypeVers.getAllEnums();
-    //        comboTypeVers.setItems(items2);
-    //        gridCrud.getCrudLayout().addFilterComponent(comboTypeVers);
-    //        comboTypeVers.addValueChangeListener(event -> sincroFiltri());
-    //    }
 
     /**
      * Può essere sovrascritto, SENZA invocare il metodo della superclasse <br>
      */
-    protected List<Versione> sincroFiltri() {
-        List items = null;
-        String textSearch = VUOTA;
-        AETypeVers type = null;
+    protected void sincroFiltri() {
+        List<Versione> items = backend.findAll(sortOrder);
 
-        if (usaBottoneSearch && searchField != null) {
-            textSearch = searchField.getValue();
-            items = backend.findByDescrizione(textSearch);
+        final String textSearch = searchField != null ? searchField.getValue() : VUOTA;
+        if (textService.isValid(textSearch)) {
+            items = items.stream().filter(vers -> vers.descrizione.matches("^(?i)" + textSearch + ".*$")).toList();
         }
 
-        if (comboTypeVers != null) {
-            type = comboTypeVers.getValue();
+        final AETypeVers level = comboTypeVers != null ? comboTypeVers.getValue() : null;
+        if (level != null) {
+            items = items.stream().filter(vers -> vers.type == level).toList();
         }
 
-        if (usaBottoneSearch) {
-            items = backend.findByDescrizioneAndType(textSearch, type);
+        if (boxBox != null && !boxBox.isIndeterminate()) {
+            items = items.stream().filter(vers -> vers.vaadin23 == boxBox.getValue()).toList();
         }
 
         if (items != null) {
-            grid.setItems(items);
+            grid.setItems((List) items);
         }
-
-        return items;
     }
 
 

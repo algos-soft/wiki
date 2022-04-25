@@ -111,6 +111,10 @@ public class VaadVers implements AIVers {
         if (installa(++k)) {
             this.crea(k, AETypeVers.addition, "Risorse CSV recuperabili dal server algos");
         }
+
+        if (installa(++k)) {
+            this.crea(k, AETypeVers.addition, "Aggiunto checkBox a 3 vie");
+        }
     }
 
     /**

@@ -1,6 +1,8 @@
 package it.algos.vaad23.backend.packages.utility.nota;
 
+import ch.carnet.kasparscherrer.*;
 import com.vaadin.flow.component.combobox.*;
+import com.vaadin.flow.component.orderedlayout.*;
 import com.vaadin.flow.router.*;
 import static it.algos.vaad23.backend.boot.VaadCost.*;
 import it.algos.vaad23.backend.enumeration.*;
@@ -33,6 +35,7 @@ public class NotaView extends CrudView {
     //--per eventuali metodi specifici
     private NotaBackend backend;
 
+
     /**
      * Costruttore @Autowired (facoltativo) <br>
      * In the newest Spring release, it’s constructor does not need to be annotated with @Autowired annotation <br>
@@ -61,6 +64,7 @@ public class NotaView extends CrudView {
         super.formPropertyNamesList = Arrays.asList("type", "livello", "descrizione", "fatto", "fine");
         super.sortOrder = Sort.by(Sort.Direction.DESC, "inizio");
         this.usaBottoneDeleteReset = true;
+        super.usaComboType = true;
     }
 
     /**
@@ -80,7 +84,6 @@ public class NotaView extends CrudView {
         columnService.addColumnsOneByOne(grid, entityClazz, gridPropertyNamesList);
     }
 
-
     /**
      * Componenti aggiuntivi oltre quelli base <br>
      * Tipicamente bottoni di selezione/filtro <br>
@@ -97,40 +100,47 @@ public class NotaView extends CrudView {
         comboLivello.setItems(AENotaLevel.getAllEnums());
         comboLivello.addValueChangeListener(event -> sincroFiltri());
         topPlaceHolder.add(comboLivello);
+
+        boxBox = new IndeterminateCheckbox();
+        boxBox.setLabel("Fatto / Da fare");
+        boxBox.setIndeterminate(true);
+        boxBox.addValueChangeListener(event -> sincroFiltri());
+        HorizontalLayout layout = new HorizontalLayout(boxBox);
+        layout.setAlignItems(Alignment.CENTER);
+        topPlaceHolder.add(layout);
     }
 
 
     /**
      * Può essere sovrascritto, SENZA invocare il metodo della superclasse <br>
      */
-    protected List sincroFiltri() {
-        List items = null;
-        String textSearch = VUOTA;
-        AENotaLevel level = null;
-        AETypeLog type = null;
+    protected void sincroFiltri() {
+        List<Nota> items = backend.findAll(sortOrder);
 
-        if (usaBottoneSearch && searchField != null) {
-            textSearch = searchField != null ? searchField.getValue() : VUOTA;
-            items = backend.findByDescrizione(textSearch);
+        final String textSearch = searchField != null ? searchField.getValue() : VUOTA;
+        if (textService.isValid(textSearch)) {
+            items = items.stream().filter(nota -> nota.descrizione.matches("^(?i)" + textSearch + ".*$")).toList();
         }
 
-        if (comboLivello != null) {
-            level = comboLivello.getValue();
+        final AETypeLog type = comboTypeLog != null ? comboTypeLog.getValue() : null;
+        if (type != null) {
+            items = items.stream().filter(nota -> nota.type == type).toList();
         }
 
-        if (comboTypeLog != null) {
-            type = comboTypeLog.getValue();
+        final AENotaLevel level = comboLivello != null ? comboLivello.getValue() : null;
+        if (level != null) {
+            items = items.stream().filter(nota -> nota.livello == level).toList();
         }
 
-        if (usaBottoneSearch) {
-            items = backend.findByDescrizioneAndLivelloAndType(textSearch, level, type);
+        if (boxBox != null && !boxBox.isIndeterminate()) {
+            items = items.stream().filter(nota -> nota.fatto == boxBox.getValue()).toList();
         }
 
         if (items != null) {
-            grid.setItems(items);
+            grid.setItems((List) items);
+            elementiFiltrati = items.size();
+            sicroBottomLayout();
         }
-
-        return items;
     }
 
     @Override

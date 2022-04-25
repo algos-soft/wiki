@@ -13,8 +13,7 @@ import org.springframework.context.event.*;
  * Project Wiki
  * Created by Algos
  * User: gac
- * Date: mar, 15-mar-2022
- * Time: 09:17
+ * Date: lun, 25 apr 22
  * <p>
  * Creazione da code di alcune preferenze del progetto <br>
  */
@@ -72,7 +71,7 @@ public class WikiPref extends VaadPref {
         preferenza.code = code;
         preferenza.type = type;
         preferenza.value = type.objectToBytes(value);
-        preferenza.vaadFlow = false;
+        preferenza.vaad23 = false;
         preferenza.usaCompany = false;
         preferenza.needRiavvio = needRiavvio;
         preferenza.visibileAdmin = true;

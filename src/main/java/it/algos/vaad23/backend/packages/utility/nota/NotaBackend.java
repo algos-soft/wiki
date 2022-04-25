@@ -8,7 +8,6 @@ import org.springframework.data.mongodb.repository.*;
 import org.springframework.stereotype.*;
 
 import java.time.*;
-import java.util.*;
 
 /**
  * Project vaadin23
@@ -87,46 +86,6 @@ public class NotaBackend extends CrudBackend {
             return null;
         }
 
-    }
-
-    public int countAll() {
-        return repository.findAll().size();
-    }
-
-    public List<Nota> findByDescrizione(final String value) {
-        return repository.findByDescrizioneStartingWithIgnoreCaseOrderByInizioDesc(value);
-    }
-
-    public List<Nota> findByLevel(final AENotaLevel level) {
-        return repository.findByLivelloOrderByInizioDesc(level);
-    }
-
-    public List<Nota> findByType(final AETypeLog type) {
-        return repository.findByTypeOrderByInizioDesc(type);
-    }
-
-    public List<Nota> findByLivelloAndType(final AENotaLevel level, final AETypeLog type) {
-        if (level == null) {
-            return repository.findByTypeOrderByInizioDesc(type);
-        }
-        if (type == null) {
-            return repository.findByLivelloOrderByInizioDesc(level);
-        }
-        return repository.findByLivelloAndTypeOrderByInizioDesc(level, type);
-    }
-
-    @Override
-    public List<Nota> findByDescrizioneAndLivelloAndType(final String value, final AENotaLevel level, final AETypeLog type) {
-        if (level != null && type != null) {
-            return repository.findByDescrizioneStartingWithIgnoreCaseAndLivelloAndTypeOrderByInizioDesc(value, level, type);
-        }
-        if (level != null) {
-            return repository.findByDescrizioneStartingWithIgnoreCaseAndLivelloOrderByInizioDesc(value, level);
-        }
-        if (type != null) {
-            return repository.findByDescrizioneStartingWithIgnoreCaseAndTypeOrderByInizioDesc(value, type);
-        }
-        return repository.findByDescrizioneStartingWithIgnoreCaseOrderByInizioDesc(value);
     }
 
 }// end of crud backend class

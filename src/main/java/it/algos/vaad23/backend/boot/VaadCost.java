@@ -318,4 +318,6 @@ public class VaadCost {
 
     public static final String TAG_NOTA = "nota";
 
+    public static final String TAG_EM = "em";
+
 }

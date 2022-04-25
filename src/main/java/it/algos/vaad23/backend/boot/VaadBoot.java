@@ -189,8 +189,8 @@ public abstract class VaadBoot implements ServletContextListener {
         //        VaadVar.menuRouteList.add(CarrelloFormView.class);
         //        VaadVar.menuRouteList.add(ContinenteView.class);
         VaadVar.menuRouteList.add(WizardView.class);
-        VaadVar.menuRouteList.add(VersioneView.class);
         VaadVar.menuRouteList.add(NotaView.class);
+        VaadVar.menuRouteList.add(VersioneView.class);
         VaadVar.menuRouteList.add(LoggerView.class);
         VaadVar.menuRouteList.add(PreferenzaView.class);
         VaadVar.menuRouteList.add(ContinenteView.class);

@@ -1,5 +1,6 @@
 package it.algos.vaad23.ui.views;
 
+import ch.carnet.kasparscherrer.*;
 import com.vaadin.flow.component.*;
 import com.vaadin.flow.component.button.*;
 import com.vaadin.flow.component.combobox.*;
@@ -9,9 +10,11 @@ import com.vaadin.flow.component.icon.*;
 import com.vaadin.flow.component.notification.*;
 import com.vaadin.flow.component.orderedlayout.*;
 import com.vaadin.flow.component.textfield.*;
+import com.vaadin.flow.data.renderer.*;
 import com.vaadin.flow.data.selection.*;
 import com.vaadin.flow.router.*;
 import static it.algos.vaad23.backend.boot.VaadCost.*;
+import it.algos.vaad23.backend.boot.*;
 import it.algos.vaad23.backend.entity.*;
 import it.algos.vaad23.backend.enumeration.*;
 import it.algos.vaad23.backend.logic.*;
@@ -20,6 +23,7 @@ import it.algos.vaad23.backend.wrapper.*;
 import it.algos.vaad23.ui.dialog.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.context.*;
+import org.springframework.core.env.*;
 import org.springframework.data.domain.*;
 import org.vaadin.crudui.crud.*;
 
@@ -35,6 +39,14 @@ import java.util.stream.*;
  * Time: 06:41
  */
 public abstract class CrudView extends VerticalLayout implements AfterNavigationObserver {
+
+    /**
+     * Istanza unica di una classe @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) di servizio <br>
+     * Iniettata automaticamente dal framework SpringBoot/Vaadin con l'Annotation @Autowired <br>
+     * Disponibile DOPO il ciclo init() del costruttore di questa classe <br>
+     */
+    @Autowired
+    public Environment environment;
 
     /**
      * Istanza di una interfaccia SpringBoot <br>
@@ -98,7 +110,11 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
 
     protected Class entityClazz;
 
+    protected VerticalLayout alertPlaceHolder;
+
     protected HorizontalLayout topPlaceHolder;
+
+    protected VerticalLayout bottomPlaceHolder;
 
     protected int browserWidth;
 
@@ -111,6 +127,8 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
      * Flag di preferenza per la creazione automatica delle colonne. Di default true. <br>
      */
     protected boolean autoCreateColumns;
+
+    protected boolean usaRowIndex;
 
     /**
      * Flag di preferenza per avere un ordine prestabilito per le colonne. Di default false. <br>
@@ -190,6 +208,10 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
 
     protected ComboBox<AETypeLog> comboTypeLog;
 
+    protected IndeterminateCheckbox boxBox;
+
+    protected int elementiFiltrati;
+
     private Function<String, Grid.Column<AEntity>> getColonna = name -> grid.getColumnByKey(name);
 
 
@@ -206,6 +228,9 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
      */
     @Override
     public void afterNavigation(AfterNavigationEvent beforeEnterEvent) {
+        //--Layout generale della view <br>
+        this.fixGeneralLayout();
+
         //--Preferenze usate da questa 'logica'
         this.fixPreferenze();
 
@@ -227,6 +252,18 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
     }
 
     /**
+     * Costruisce il layout generale della view <br>
+     * Metodo chiamato da CrudView.afterNavigation() <br>
+     * Costruisce tutti i componenti in metodi che possono essere sovrascritti <br>
+     * Non può essere sovrascritto <br>
+     */
+    protected void fixGeneralLayout() {
+        this.setPadding(true);
+        this.setSpacing(false);
+        this.setMargin(false);
+    }
+
+    /**
      * Preferenze usate da questa 'logica' <br>
      * Metodo chiamato da CrudView.afterNavigation() <br>
      * Primo metodo chiamato dopo init() (implicito del costruttore) e postConstruct() (facoltativo) <br>
@@ -237,6 +274,7 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
         UI.getCurrent().getPage().retrieveExtendedClientDetails(details -> browserWidth = details.getBodyClientWidth());
 
         sortOrder = Sort.by(Sort.Direction.ASC, FIELD_NAME_ID_SENZA);
+        usaRowIndex = true;
         riordinaColonne = true;
         gridPropertyNamesList = new ArrayList<>();
         formPropertyNamesList = new ArrayList<>();
@@ -260,6 +298,11 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
      * Può essere sovrascritto, invocando PRIMA il metodo della superclasse <br>
      */
     public void fixAlert() {
+        this.alertPlaceHolder = new VerticalLayout();
+        this.alertPlaceHolder.setPadding(false);
+        this.alertPlaceHolder.setSpacing(true);
+        this.alertPlaceHolder.setMargin(false);
+        this.add(alertPlaceHolder);
     }
 
     /**
@@ -406,6 +449,7 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
         grid = new Grid(entityClazz, autoCreateColumns);
 
         // Crea/regola le colonne
+        this.fixAutoNumbering();
         if (autoCreateColumns) {
             this.fixColumnsAutomaticallyCreated();
         }
@@ -431,6 +475,11 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
         this.add(grid);
     }
 
+    protected void fixAutoNumbering() {
+        if (usaRowIndex) {
+            grid.addColumn(LitRenderer.of("${index + 1}")).setHeader("#").setWidth(getNumberingWidth()).setFlexGrow(0); ;
+        }
+    }
 
     /**
      * autoCreateColumns=true <br>
@@ -441,6 +490,7 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
      * Può essere sovrascritto, invocando PRIMA il metodo della superclasse <br>
      */
     protected void fixColumnsAutomaticallyCreated() {
+        grid.addColumn(item -> VUOTA).setKey("rowIndex");
         if (cancellaColonnaKeyId) {
             try {
                 grid.removeColumnByKey(FIELD_NAME_ID_SENZA);
@@ -461,6 +511,7 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
             }
         }
     }
+
 
     /**
      * autoCreateColumns=false <br>
@@ -501,23 +552,48 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
     }
 
     protected void fixBottomLayout() {
-        String message;
-        String view = textService.primaMaiuscola(entityClazz.getSimpleName());
-        int num = crudBackend.countAll();
-        String elementi = textService.format(num);
+        this.bottomPlaceHolder = new VerticalLayout();
+        this.bottomPlaceHolder.setPadding(false);
+        this.bottomPlaceHolder.setSpacing(false);
+        this.bottomPlaceHolder.setMargin(false);
 
-        message = String.format("%s: in totale ci sono %s elementi", view, elementi);
-
-        if (usaBottomTotale) {
-            this.add(new Label(message));
-        }
-        if (usaBottomInfo) {
-            this.add(new Label("Algos"));
-        }
-
+        sicroBottomLayout();
+        this.add(bottomPlaceHolder);
     }
 
-    protected List sincroFiltri() {
+    protected void sicroBottomLayout() {
+        String message;
+        String view = textService.primaMaiuscola(entityClazz.getSimpleName());
+        int elementiTotali = crudBackend.countAll();
+        String totaleTxt = textService.format(elementiTotali);
+        String filtratiTxtTxt = textService.format(elementiFiltrati);
+
+        if (elementiFiltrati == 0 || elementiFiltrati == elementiTotali) {
+            message = String.format("%s: in totale ci sono %s elementi", view, totaleTxt);
+        }
+        else {
+            message = String.format("%s: filtrati %s elementi sul totale di %s", view, filtratiTxtTxt, totaleTxt);
+        }
+
+        if (bottomPlaceHolder != null) {
+            bottomPlaceHolder.removeAll();
+            if (usaBottomTotale) {
+                bottomPlaceHolder.add(htmlService.getSpan(new WrapSpan(message).color(AETypeColor.verde).weight(AEFontWeight.bold).fontHeight(AEFontHeight.em7)));
+            }
+
+            if (usaBottomInfo) {
+                double doppio = VaadVar.projectVersion;
+                String nome = VaadVar.projectNameUpper;
+                String data = VaadVar.projectDate;
+
+                //--Locale.US per forzare la visualizzazione grafica di un punto anziché una virgola
+                message = String.format(Locale.US, "Algos® - %s %2.1f di %s", nome, doppio, data);
+                bottomPlaceHolder.add(htmlService.getSpan(new WrapSpan(message).color(AETypeColor.blu).weight(AEFontWeight.bold).fontHeight(AEFontHeight.em7)));
+            }
+        }
+    }
+
+    protected void sincroFiltri() {
         List items = null;
         String textSearch;
 
@@ -529,12 +605,11 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
         if (items != null) {
             grid.setItems(items);
         }
-
-        return items;
     }
 
-    protected void sincroSelection(SelectionEvent event) {
+    protected boolean sincroSelection(SelectionEvent event) {
         boolean singoloSelezionato = event.getAllSelectedItems().size() == 1;
+
         if (buttonDeleteReset != null) {
             buttonDeleteReset.setEnabled(!singoloSelezionato);
         }
@@ -547,6 +622,8 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
         if (buttonDelete != null) {
             buttonDelete.setEnabled(singoloSelezionato);
         }
+
+        return singoloSelezionato;
     }
 
     /**
@@ -649,6 +726,41 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
         //        Notification.show(entityBean + " successfully deleted.", 3000, Notification.Position.BOTTOM_START);
     }
 
+
+    /**
+     * Larghezza della colonna di numerazione automatica in funzione della dimensione della collezione <br>
+     * Larghezza aggiustata al massimo valore numerico <br>
+     */
+    protected String getNumberingWidth() {
+        String indexWidth = VUOTA;
+        int dim = 0;
+        int dim1 = 100;
+        int dim2 = 1000;
+        String tag1 = "3.0" + TAG_EM;
+        String tag2 = "4.0" + TAG_EM;
+        String tag3 = "5.0" + TAG_EM;
+
+        try {
+            dim = crudBackend.countAll();
+        } catch (Exception unErrore) {
+            logger.error(new WrapLog().exception(unErrore).usaDb());
+        }
+
+        if (dim < dim1) {
+            indexWidth = tag1;
+        }
+        else {
+            if (dim < dim2) {
+                indexWidth = tag2;
+            }
+            else {
+                indexWidth = tag3;
+            }
+        }
+
+        return indexWidth;
+    }
+
     public Span getSpan(final String avviso) {
         return htmlService.getSpanVerde(avviso);
     }
@@ -694,10 +806,9 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
                 wrap.lineHeight(AELineHeight.em12);
             }
         }
-
         span = htmlService.getSpan(wrap);
         if (span != null) {
-            this.add(span);
+            alertPlaceHolder.add(span);
         }
     }
 

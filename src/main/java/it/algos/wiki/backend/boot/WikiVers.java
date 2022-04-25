@@ -12,8 +12,7 @@ import org.springframework.context.annotation.Scope;
  * Project Wiki
  * Created by Algos
  * User: gac
- * Date: mar, 15-mar-2022
- * Time: 09:17
+ * Date: lun, 25 apr 22
  * <p>
  * Log delle versioni, modifiche e patch installate <br>
  * Executed on container startup <br>

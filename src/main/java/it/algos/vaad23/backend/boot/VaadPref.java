@@ -89,7 +89,7 @@ public class VaadPref implements ServletContextListener {
         preferenza.code = code;
         preferenza.type = type;
         preferenza.value = type.objectToBytes(value);
-        preferenza.vaadFlow = true;
+        preferenza.vaad23 = true;
         preferenza.usaCompany = false;
         preferenza.needRiavvio = needRiavvio;
         preferenza.visibileAdmin = false;

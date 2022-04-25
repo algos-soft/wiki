@@ -1,5 +1,6 @@
 package it.algos.vaad23.backend.packages.utility.preferenza;
 
+import it.algos.vaad23.backend.annotation.*;
 import it.algos.vaad23.backend.entity.*;
 import it.algos.vaad23.backend.enumeration.*;
 import org.springframework.data.mongodb.core.index.*;
@@ -23,6 +24,7 @@ public class Preferenza extends AEntity {
     @NotEmpty()
     //    @Size(min = 3)
     @Indexed(unique = true, direction = IndexDirection.DESCENDING)
+    @AIField(type = AETypeField.text, search = true)
     public String code;
 
 
@@ -49,7 +51,7 @@ public class Preferenza extends AEntity {
      */
     //    @AIField(type = AETypeField.booleano, typeBool = AETypeBoolField.checkBox, caption = "Preferenza standard")
     //    @AIColumn(headerIcon = VaadinIcon.HOME)
-    public boolean vaadFlow;
+    public boolean vaad23;
 
 
     /**
@@ -150,12 +152,12 @@ public class Preferenza extends AEntity {
         this.value = value;
     }
 
-    public boolean isVaadFlow() {
-        return vaadFlow;
+    public boolean isVaad23() {
+        return vaad23;
     }
 
-    public void setVaadFlow(boolean vaadFlow) {
-        this.vaadFlow = vaadFlow;
+    public void setVaad23(boolean vaad23) {
+        this.vaad23 = vaad23;
     }
 
     public boolean isUsaCompany() {

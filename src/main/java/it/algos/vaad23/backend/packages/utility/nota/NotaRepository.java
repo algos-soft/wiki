@@ -1,7 +1,6 @@
 package it.algos.vaad23.backend.packages.utility.nota;
 
 import static it.algos.vaad23.backend.boot.VaadCost.*;
-import it.algos.vaad23.backend.enumeration.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.data.mongodb.repository.*;
 import org.springframework.stereotype.*;
@@ -38,20 +37,5 @@ public interface NotaRepository extends MongoRepository<Nota, String> {
 
     @Override
     void delete(Nota entity);
-
-    List<Nota> findByDescrizioneStartingWithIgnoreCaseOrderByInizioDesc(String descrizione);
-
-    List<Nota> findByLivelloOrderByInizioDesc(AENotaLevel level);
-
-    List<Nota> findByTypeOrderByInizioDesc(AETypeLog type);
-
-    List<Nota> findByLivelloAndTypeOrderByInizioDesc(AENotaLevel level, AETypeLog type);
-
-    List<Nota> findByDescrizioneStartingWithIgnoreCaseAndLivelloOrderByInizioDesc(String descrizione, AENotaLevel level);
-
-    List<Nota> findByDescrizioneStartingWithIgnoreCaseAndTypeOrderByInizioDesc(String descrizione, AETypeLog type);
-
-    List<Nota> findByDescrizioneStartingWithIgnoreCaseAndLivelloAndTypeOrderByInizioDesc(String descrizione, AENotaLevel level, AETypeLog type);
-
 
 }// end of crud repository class
