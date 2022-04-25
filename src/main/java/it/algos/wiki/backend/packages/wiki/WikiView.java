@@ -1,12 +1,18 @@
 package it.algos.wiki.backend.packages.wiki;
 
+import com.vaadin.flow.component.*;
 import com.vaadin.flow.component.button.*;
 import com.vaadin.flow.component.icon.*;
 import com.vaadin.flow.data.selection.*;
+import it.algos.vaad23.backend.entity.*;
 import it.algos.vaad23.backend.logic.*;
 import it.algos.vaad23.backend.service.*;
 import it.algos.vaad23.ui.views.*;
+import it.algos.wiki.backend.packages.attivita.*;
+import it.algos.wiki.backend.service.*;
 import org.springframework.beans.factory.annotation.*;
+
+import java.util.*;
 
 /**
  * Project vaadwiki
@@ -16,6 +22,14 @@ import org.springframework.beans.factory.annotation.*;
  * Time: 08:01
  */
 public abstract class WikiView extends CrudView {
+
+    /**
+     * Istanza unica di una classe @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) di servizio <br>
+     * Iniettata automaticamente dal framework SpringBoot/Vaadin con l'Annotation @Autowired <br>
+     * Disponibile DOPO il ciclo init() del costruttore di questa classe <br>
+     */
+    @Autowired
+    public WikiApiService wikiApiService;
 
     protected boolean usaBottoneDownload;
 
@@ -160,7 +174,7 @@ public abstract class WikiView extends CrudView {
             buttonPaginaWiki.getElement().setProperty("title", "Pagina: lettura della pagina esistente su wiki");
             buttonPaginaWiki.setIcon(new Icon(VaadinIcon.SEARCH));
             buttonPaginaWiki.setEnabled(false);
-            buttonPaginaWiki.addClickListener(event -> visionePagina());
+            buttonPaginaWiki.addClickListener(event -> wikiPage());
             topPlaceHolder.add(buttonPaginaWiki);
         }
 
@@ -268,8 +282,18 @@ public abstract class WikiView extends CrudView {
      * Esegue un azione di apertura di una pagina su wiki, specifica del programma/package in corso <br>
      * Deve essere sovrascritto, invocando PRIMA il metodo della superclasse <br>
      */
-    public void visionePagina() {
-        reload();
+    protected AEntity wikiPage() {
+        AEntity entiyBeanUnicoSelezionato = null;
+        Set righeSelezionate;
+
+        if (grid != null) {
+            righeSelezionate = grid.getSelectedItems();
+            if (righeSelezionate.size() == 1) {
+                entiyBeanUnicoSelezionato = (AEntity) righeSelezionate.toArray()[0];
+            }
+        }
+
+        return entiyBeanUnicoSelezionato;
     }
 
     /**

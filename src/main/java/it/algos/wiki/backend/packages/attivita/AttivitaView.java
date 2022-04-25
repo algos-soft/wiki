@@ -1,10 +1,12 @@
 package it.algos.wiki.backend.packages.attivita;
 
 import ch.carnet.kasparscherrer.*;
+import com.vaadin.flow.component.*;
 import com.vaadin.flow.component.orderedlayout.*;
 import com.vaadin.flow.component.textfield.*;
 import com.vaadin.flow.router.*;
 import static it.algos.vaad23.backend.boot.VaadCost.*;
+import it.algos.vaad23.backend.entity.*;
 import it.algos.vaad23.ui.views.*;
 import static it.algos.wiki.backend.boot.WikiCost.*;
 import it.algos.wiki.backend.enumeration.*;
@@ -36,9 +38,6 @@ public class AttivitaView extends WikiView {
     //--per eventuali metodi specifici
     private AttivitaBackend backend;
 
-    //--per eventuali metodi specifici
-    private AttivitaDialog dialog;
-
     private TextField searchFieldPlurale;
 
     /**
@@ -67,7 +66,6 @@ public class AttivitaView extends WikiView {
         super.formPropertyNamesList = Arrays.asList("singolare", "plurale", "aggiunta");
 
         super.sortOrder = Sort.by(Sort.Direction.ASC, "singolare");
-        super.dialogClazz = AttivitaDialog.class;
     }
 
     /**
@@ -155,6 +153,21 @@ public class AttivitaView extends WikiView {
         if (items != null) {
             grid.setItems((List) items);
         }
+    }
+
+    /**
+     * Esegue un azione di apertura di una pagina su wiki, specifica del programma/package in corso <br>
+     * Deve essere sovrascritto, invocando PRIMA il metodo della superclasse <br>
+     */
+    @Override
+    protected AEntity wikiPage() {
+        Attivita attivita = (Attivita) super.wikiPage();
+
+        String path = PATH_ATTIVITA + SLASH;
+        String attivitaText = textService.primaMaiuscola(attivita.plurale);
+        wikiApiService.openWikiPage(path + attivitaText);
+
+        return null;
     }
 
 }// end of crud @Route view class

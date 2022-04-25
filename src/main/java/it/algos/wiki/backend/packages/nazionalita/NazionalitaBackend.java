@@ -1,27 +1,30 @@
-package it.algos.wiki.backend.packages.attivita;
+package it.algos.wiki.backend.packages.nazionalita;
 
 import static it.algos.vaad23.backend.boot.VaadCost.*;
 import it.algos.vaad23.backend.exception.*;
 import it.algos.vaad23.backend.logic.*;
 import it.algos.vaad23.backend.wrapper.*;
-import it.algos.wiki.backend.boot.*;
 import static it.algos.wiki.backend.boot.WikiCost.*;
 import it.algos.wiki.backend.enumeration.*;
-import it.algos.wiki.backend.packages.genere.*;
 import it.algos.wiki.backend.service.*;
-import org.springframework.beans.factory.annotation.*;
 import org.springframework.data.mongodb.repository.*;
-import org.springframework.stereotype.*;
+import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.*;
+
+import com.vaadin.flow.spring.annotation.SpringComponent;
+import org.springframework.context.annotation.Scope;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import com.vaadin.flow.component.textfield.TextField;
 
 import java.time.*;
 import java.util.*;
 
 /**
- * Project vaadwiki
+ * Project wiki
  * Created by Algos
  * User: gac
- * Date: lun, 18-apr-2022
- * Time: 21:25
+ * Date: lun, 25-apr-2022
+ * Time: 18:21
  * <p>
  * Service di una entityClazz specifica e di un package <br>
  * Garantisce i metodi di collegamento per accedere al database <br>
@@ -31,7 +34,7 @@ import java.util.*;
  * NOT annotated with @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) (inutile, esiste già @Service) <br>
  */
 @Service
-public class AttivitaBackend extends CrudBackend {
+public class NazionalitaBackend extends CrudBackend {
 
     /**
      * Istanza unica di una classe @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) di servizio <br>
@@ -41,16 +44,8 @@ public class AttivitaBackend extends CrudBackend {
     @Autowired
     public WikiApiService wikiApiService;
 
-    /**
-     * Istanza unica di una classe @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) di servizio <br>
-     * Iniettata automaticamente dal framework SpringBoot/Vaadin con l'Annotation @Autowired <br>
-     * Disponibile DOPO il ciclo init() del costruttore di questa classe <br>
-     */
-    @Autowired
-    public GenereBackend genereBackend;
 
-    private AttivitaRepository repository;
-
+    private NazionalitaRepository repository;
 
     /**
      * Costruttore @Autowired (facoltativo) @Qualifier (obbligatorio) <br>
@@ -63,25 +58,13 @@ public class AttivitaBackend extends CrudBackend {
      * @param crudRepository per la persistenza dei dati
      */
     //@todo registrare eventualmente come costante in VaadCost il valore del Qualifier
-    public AttivitaBackend(@Autowired @Qualifier("Attivita") final MongoRepository crudRepository) {
-        super(crudRepository, Attivita.class);
-        this.repository = (AttivitaRepository) crudRepository;
+    public NazionalitaBackend(@Autowired @Qualifier("Nazionalita") final MongoRepository crudRepository) {
+        super(crudRepository, Nazionalita.class);
+        this.repository = (NazionalitaRepository) crudRepository;
     }
 
-    /**
-     * Crea e registra una entityBean <br>
-     *
-     * @param singolare di riferimento (obbligatorio, unico)
-     * @param plurale   (facoltativo, non unico)
-     *
-     * @return la nuova entityBean appena creata e salvata
-     */
-    public Attivita creaOriginale(final String singolare, final String plurale) {
-        return crea(singolare, plurale, false);
-    }
-
-    public Attivita crea(final String singolare, final String plurale, final boolean aggiunta) {
-        return repository.insert(newEntity(singolare, plurale, aggiunta));
+    public Nazionalita crea(final String singolare, final String plurale) {
+        return repository.insert(newEntity(singolare, plurale));
     }
 
     /**
@@ -91,30 +74,27 @@ public class AttivitaBackend extends CrudBackend {
      *
      * @return la nuova entity appena creata (non salvata)
      */
-    public Attivita newEntity() {
-        return newEntity(VUOTA, VUOTA, true);
+    public Nazionalita newEntity() {
+        return newEntity(VUOTA, VUOTA);
     }
 
-
     /**
-     * Creazione in memoria di una nuova entityBean che NON viene salvata <br>
+     * Creazione in memoria di una nuova entity che NON viene salvata <br>
      * Usa il @Builder di Lombok <br>
      * Eventuali regolazioni iniziali delle property <br>
+     * All properties <br>
      *
      * @param singolare di riferimento (obbligatorio, unico)
      * @param plurale   (facoltativo, non unico)
-     * @param aggiunta  flag (facoltativo, di default false)
      *
-     * @return la nuova entityBean appena creata (non salvata)
+     * @return la nuova entity appena creata (non salvata e senza keyID)
      */
-    public Attivita newEntity(final String singolare, final String plurale, final boolean aggiunta) {
-        return Attivita.builder()
+    public Nazionalita newEntity(final String singolare, final String plurale) {
+        return Nazionalita.builder()
                 .singolare(textService.isValid(singolare) ? singolare : null)
                 .plurale(textService.isValid(plurale) ? plurale : null)
-                .aggiunta(aggiunta)
                 .build();
     }
-
 
     /**
      * Esegue un azione di download, specifica del programma/package in corso <br>
@@ -122,8 +102,9 @@ public class AttivitaBackend extends CrudBackend {
      */
     @Override
     public void download() {
-        downloadModulo(PATH_MODULO_ATTIVITA);
+        downloadModulo(PATH_MODULO_NAZIONALITA);
     }
+
 
     /**
      * Legge la mappa di valori dal modulo di wiki <br>
@@ -150,7 +131,7 @@ public class AttivitaBackend extends CrudBackend {
             size = mappa.size();
             deleteAll();
             for (Map.Entry<String, String> entry : mappa.entrySet()) {
-                this.creaOriginale(entry.getKey(), entry.getValue());
+                this.crea(entry.getKey(), entry.getValue());
             }
             status = true;
             fine = System.currentTimeMillis();
@@ -159,7 +140,7 @@ public class AttivitaBackend extends CrudBackend {
             durata = delta.intValue();
             WPref.durataDownloadAttivita.setValue(durata);
             WPref.lastDownloadAttivita.setValue(LocalDateTime.now());
-            message = String.format("Download di %s attività dal modulo wiki", textService.format(size));
+            message = String.format("Download di %s nazionalità dal modulo wiki", textService.format(size));
             logger.info(new WrapLog().message(message));
         }
         else {
@@ -167,61 +148,11 @@ public class AttivitaBackend extends CrudBackend {
             logger.warn(new WrapLog().exception(new AlgosException(message)).usaDb());
         }
 
-        aggiunge();
-
         return status;
     }
 
     public int countAll() {
         return repository.findAll().size();
     }
-
-
-    /**
-     * Aggiunge le ex-attività NON presenti nel modulo 'Modulo:Bio/Plurale attività' <br>
-     * Le recupera dal modulo 'Modulo:Bio/Plurale attività genere' <br>
-     * Le aggiunge se trova la corrispondenza tra il nome con e senza EX <br>
-     */
-    private void aggiunge() {
-        List<Genere> listaEx = genereBackend.findStartingEx();
-        String attivitaSingolare;
-        String genereSingolare;
-        Attivita entity;
-        String message;
-        int size = 0;
-
-        if (listaEx == null || listaEx.size() == 0) {
-            message = "Il modulo genere deve essere scaricato PRIMA di quello di attività";
-            logger.warn(new WrapLog().exception(new AlgosException(message)).usaDb());
-            return;
-        }
-
-        if (listaEx != null) {
-            for (Genere genere : listaEx) {
-                entity = null;
-                attivitaSingolare = VUOTA;
-                genereSingolare = genere.singolare;
-
-                if (genereSingolare.startsWith(WikiCost.TAG_EX)) {
-                    attivitaSingolare = genereSingolare.substring(TAG_EX.length());
-                }
-                if (genereSingolare.startsWith(TAG_EX2)) {
-                    attivitaSingolare = genereSingolare.substring(TAG_EX2.length());
-                }
-
-                if (textService.isValid(attivitaSingolare)) {
-                    entity = repository.findFirstBySingolare(attivitaSingolare);
-                }
-
-                if (entity != null) {
-                    crea(genereSingolare, entity.plurale, true);
-                    size = size + 1;
-                }
-            }
-        }
-        message = String.format("Aggiunte %s ex-attività dalla collection genere", textService.format(size));
-        logger.info(new WrapLog().message(message));
-    }
-
 
 }// end of crud backend class

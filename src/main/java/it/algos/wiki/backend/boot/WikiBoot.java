@@ -6,6 +6,7 @@ import it.algos.vaad23.backend.interfaces.*;
 import static it.algos.wiki.backend.boot.WikiCost.*;
 import it.algos.wiki.backend.packages.attivita.*;
 import it.algos.wiki.backend.packages.genere.*;
+import it.algos.wiki.backend.packages.nazionalita.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.beans.factory.config.*;
 import org.springframework.context.annotation.Scope;
@@ -106,6 +107,7 @@ public class WikiBoot extends VaadBoot {
 
         VaadVar.menuRouteList.add(GenereView.class);
         VaadVar.menuRouteList.add(AttivitaView.class);
+        VaadVar.menuRouteList.add(NazionalitaView.class);
     }
 
 }

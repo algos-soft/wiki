@@ -33,7 +33,13 @@ public class WikiCost {
 
     public static final String ATT = "Attività";
 
+    public static final String NAZ = "Nazionalità";
+
     public static final String PATH_WIKI = "https://it.wikipedia.org/wiki/";
+
+    public static final String PATH_ATTIVITA = PATH_PROGETTO + ATT;
+
+    public static final String PATH_NAZIONALITA = PATH_PROGETTO + NAZ;
 
 
     public static final String ATT_LOWER = ATT.toLowerCase();
@@ -44,7 +50,6 @@ public class WikiCost {
 
     public static final String PATH_MODULO_PROFESSIONE = PATH_MODULO_LINK + ATT_LOWER;
 
-    public static final String NAZ = "Nazionalità";
 
     public static final String NAZ_LOWER = NAZ.toLowerCase();
 
