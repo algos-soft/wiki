@@ -65,8 +65,16 @@ public class ProfessioneBackend extends WikiBackend {
         super.durataDownload = WPref.durataDownloadProfessione;
     }
 
-    public Professione crea(final String attivita, final String pagina, final boolean aggiunta) {
-        return repository.insert(newEntity(attivita, pagina, aggiunta));
+    public Professione creaIfNotExist(final String attivita, final String pagina, final boolean aggiunta) {
+        return checkAndSave(newEntity(attivita, pagina, aggiunta));
+    }
+
+    public Professione checkAndSave(final Professione professione) {
+        return isExist(professione.attivita) ? null : repository.insert(professione);
+    }
+
+    public boolean isExist(final String attivita) {
+        return repository.findFirstByAttivita(attivita) != null;
     }
 
     /**
@@ -85,7 +93,6 @@ public class ProfessioneBackend extends WikiBackend {
      * Usa il @Builder di Lombok <br>
      * Eventuali regolazioni iniziali delle property <br>
      * All properties <br>
-     *
      *
      * @return la nuova entity appena creata (non salvata e senza keyID)
      */
@@ -117,8 +124,9 @@ public class ProfessioneBackend extends WikiBackend {
         if (mappa != null && mappa.size() > 0) {
             deleteAll();
             for (Map.Entry<String, String> entry : mappa.entrySet()) {
-                this.crea(entry.getKey(), entry.getValue(),false);
-                size++;
+                if (creaIfNotExist(entry.getKey(), entry.getValue(), false) != null) {
+                    size++;
+                }
             }
         }
         else {

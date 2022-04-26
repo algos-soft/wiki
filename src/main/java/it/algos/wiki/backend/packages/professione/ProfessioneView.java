@@ -87,24 +87,17 @@ public class ProfessioneView extends WikiView {
     public void fixAlert() {
         super.fixAlert();
 
-        String uno = "Forma1";
-        String due = "Forma2";
-        parametri = "Attività/Attività2/Attività3";
-
-        message = String.format("Contiene la tabella di conversione delle attività passate via parametri %s dal nome dell'attività a " +
-                "quello della pagina corrispondente, per creare dei piped wikiLink.",parametri);
+        message = "Contiene la tabella di conversione delle attività passate via parametri 'Attività/Attività2/Attività3',";
+        message += " dal nome dell'attività a quello della voce corrispondente per creare dei -piped wikilink-.";
         addSpanVerde(message);
 
-        message = String.format("Le attività sono elencate nel modulo '%s'", PATH_MODULO_PROFESSIONE);
+        message = "Le attività sono elencate all'interno del modulo con la seguente sintassi:";
+        message += " [\"attivitaforma1\"]=\"voce di riferimento\"; [\"attivitaforma2\"]=\"voce di riferimento\".";
         addSpanVerde(message);
 
-        message = String.format(" con la sintassi: [\"attivita%s\"]=\"%s\", [\"attivita%s\"]=\"%s\".", uno, due);
-        addSpanVerde(message);
-
-        message = String.format("Nella collezione locale mongoDB vengono aggiunte anche le voci maschili che corrispondono alla pagina (non presenti nel modulo [%s])",PATH_MODULO_PROFESSIONE);
-        addSpanRosso(message);
-
-        message = String.format("Le attività e le pagine mantengono maiuscolo/minuscolo previsto nel [%s].", PATH_MODULO_PROFESSIONE);
+        message = "Le attività e le pagine mantengono il maiuscolo/minuscolo previsto nel modulo.";
+        message += " Le voci maschili che corrispondono alla pagina (non presenti nel modulo) vengono aggiunte.";
+        message += " Le voci delle ex-attività (non presenti nel modulo) vengono aggiunte prendendole dal package 'attivita'";
         addSpanRosso(message);
     }
 
@@ -138,7 +131,7 @@ public class ProfessioneView extends WikiView {
 
         final String textSearchPagina = searchFieldPagina != null ? searchFieldPagina.getValue() : VUOTA;
         if (textService.isValid(textSearch)) {
-            items = items.stream().filter(gen -> gen.pagina.matches("^(?i)" + textSearchPagina + ".*$")).toList();
+            items = items.stream().filter(prof -> prof.pagina.matches("^(?i)" + textSearchPagina + ".*$")).toList();
         }
 
         if (boxBox != null && !boxBox.isIndeterminate()) {

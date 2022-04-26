@@ -33,8 +33,11 @@ public enum WPref {
             " " +
             "attività.", ROOT_DATA_TIME),
     durataDownloadProfessione("durataProfessione", AETypePref.integer, "Durata in secondi dell'ultimo professione del modulo genere.", 0),
-    ;
 
+    lastDownloadNomi("lastNomi", AETypePref.localdatetime,
+                       "Data dell'ultimo download di attività dalla tabella Progetto:Antroponimi/Nomi doppi.", ROOT_DATA_TIME),
+    durataDownloadNomi("durataNomi", AETypePref.integer, "Durata in secondi dell'ultimo download della tabella Nomi doppi.", 0),
+;
     //--codice di riferimento.
     private String keyCode;
 

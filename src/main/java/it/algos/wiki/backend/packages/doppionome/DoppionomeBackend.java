@@ -1,31 +1,25 @@
-package it.algos.wiki.backend.packages.nazionalita;
+package it.algos.wiki.backend.packages.doppionome;
 
 import static it.algos.vaad23.backend.boot.VaadCost.*;
 import it.algos.vaad23.backend.exception.*;
+import it.algos.vaad23.backend.interfaces.*;
 import it.algos.vaad23.backend.logic.*;
 import it.algos.vaad23.backend.wrapper.*;
 import static it.algos.wiki.backend.boot.WikiCost.*;
 import it.algos.wiki.backend.enumeration.*;
 import it.algos.wiki.backend.packages.wiki.*;
-import it.algos.wiki.backend.service.*;
 import org.springframework.data.mongodb.repository.*;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.*;
 
-import com.vaadin.flow.spring.annotation.SpringComponent;
-import org.springframework.context.annotation.Scope;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import com.vaadin.flow.component.textfield.TextField;
-
-import java.time.*;
 import java.util.*;
 
 /**
  * Project wiki
  * Created by Algos
  * User: gac
- * Date: lun, 25-apr-2022
- * Time: 18:21
+ * Date: mar, 26-apr-2022
+ * Time: 19:34
  * <p>
  * Service di una entityClazz specifica e di un package <br>
  * Garantisce i metodi di collegamento per accedere al database <br>
@@ -35,10 +29,9 @@ import java.util.*;
  * NOT annotated with @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) (inutile, esiste già @Service) <br>
  */
 @Service
-public class NazionalitaBackend extends WikiBackend {
+public class DoppionomeBackend extends WikiBackend {
 
-
-    private NazionalitaRepository repository;
+    private DoppionomeRepository repository;
 
     /**
      * Costruttore @Autowired (facoltativo) @Qualifier (obbligatorio) <br>
@@ -50,23 +43,23 @@ public class NazionalitaBackend extends WikiBackend {
      *
      * @param crudRepository per la persistenza dei dati
      */
-    public NazionalitaBackend(@Autowired @Qualifier(TAG_NAZIONALITA) final MongoRepository crudRepository) {
-        super(crudRepository, Nazionalita.class);
-        this.repository = (NazionalitaRepository) crudRepository;
-        super.lastDownload = WPref.lastDownloadNazionalita;
-        super.durataDownload = WPref.durataDownloadNazionalita;
+    public DoppionomeBackend(@Autowired @Qualifier(TAG_DOPPIO_NOME) final MongoRepository crudRepository) {
+        super(crudRepository, Doppionome.class);
+        this.repository = (DoppionomeRepository) crudRepository;
+        super.lastDownload = WPref.lastDownloadNomi;
+        super.durataDownload = WPref.durataDownloadNomi;
     }
 
-    public Nazionalita creaIfNotExist(final String singolare, final String plurale) {
-        return checkAndSave(newEntity(singolare, plurale));
+    public Doppionome creaIfNotExist(final String nome) {
+        return checkAndSave(newEntity(nome));
     }
 
-    public Nazionalita checkAndSave(final Nazionalita nazionalita) {
-        return isExist(nazionalita.singolare) ? null : repository.insert(nazionalita);
+    public Doppionome checkAndSave(final Doppionome doppionome) {
+        return isExist(doppionome.nome) ? null : repository.insert(doppionome);
     }
 
-    public boolean isExist(final String singolare) {
-        return repository.findFirstBySingolare(singolare) != null;
+    public boolean isExist(final String nome) {
+        return repository.findFirstByNome(nome) != null;
     }
 
     /**
@@ -76,8 +69,8 @@ public class NazionalitaBackend extends WikiBackend {
      *
      * @return la nuova entity appena creata (non salvata)
      */
-    public Nazionalita newEntity() {
-        return newEntity(VUOTA, VUOTA);
+    public Doppionome newEntity() {
+        return newEntity(VUOTA);
     }
 
     /**
@@ -86,15 +79,13 @@ public class NazionalitaBackend extends WikiBackend {
      * Eventuali regolazioni iniziali delle property <br>
      * All properties <br>
      *
-     * @param singolare di riferimento (obbligatorio, unico)
-     * @param plurale   (facoltativo, non unico)
+     * @param nome (obbligatorio, unico)
      *
      * @return la nuova entity appena creata (non salvata e senza keyID)
      */
-    public Nazionalita newEntity(final String singolare, final String plurale) {
-        return Nazionalita.builder()
-                .singolare(textService.isValid(singolare) ? singolare : null)
-                .plurale(textService.isValid(plurale) ? plurale : null)
+    public Doppionome newEntity(final String nome) {
+        return Doppionome.builder()
+                .nome(textService.isValid(nome) ? nome : null)
                 .build();
     }
 
@@ -109,28 +100,27 @@ public class NazionalitaBackend extends WikiBackend {
      *
      * @return true se l'azione è stata eseguita
      */
-    public void download(String wikiTitle) {
-        String message;
-        int size = 0;
+    public void download(final String wikiTitle) {
         long inizio = System.currentTimeMillis();
+        int size = 0;
 
-        Map<String, String> mappa = wikiApiService.leggeMappaModulo(wikiTitle);
+        String tag = "</li>\n<li>";
+        String nome;
+        String testoPagina = webService.leggeWikiTxt(wikiTitle);
+        testoPagina = textService.estrae(testoPagina, "<ul><li>", "</li></ul>");
+        String[] righe = testoPagina.split(tag);
 
-        if (mappa != null && mappa.size() > 0) {
+        if (righe != null) {
             deleteAll();
-            for (Map.Entry<String, String> entry : mappa.entrySet()) {
-                if (creaIfNotExist(entry.getKey(), entry.getValue()) != null) {
+            for (int k = 0; k < righe.length; k++) {
+                nome = righe[k];
+                if (creaIfNotExist(nome) != null) {
                     size++;
                 }
             }
         }
-        else {
-            message = String.format("Non sono riuscito a leggere da wiki il modulo %s", wikiTitle);
-            logger.warn(new WrapLog().exception(new AlgosException(message)).usaDb());
-        }
 
-        super.fixDownload(inizio, wikiTitle, mappa.size(), size);
+        super.fixDownload(inizio, wikiTitle, righe.length, size);
     }
-
 
 }// end of crud backend class

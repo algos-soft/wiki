@@ -44,5 +44,6 @@ public interface GenereRepository extends MongoRepository<Genere, String> {
     void delete(Genere entity);
 
     List<Genere> findBySingolareStartingWithIgnoreCaseOrderBySingolareAsc(String singolare);
+    Genere findFirstBySingolare(String singolare);
 
 }// end of crud repository class

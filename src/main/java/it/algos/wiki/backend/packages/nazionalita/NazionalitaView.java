@@ -77,30 +77,16 @@ public class NazionalitaView extends WikiView {
     @Override
     public void fixAlert() {
         super.fixAlert();
-        String uno;
-        String due;
-        String anche;
-        String minuscolo;
-        parametri = "Nazionalità/Cittadinanza/NazionalitàNaturalizzato";
-        alfabetico = "alfabetico";
-        singolare = "singolare";
-        plurale = "plurale";
-        minuscolo = "minuscolo";
-        uno = "Forma1";
-        due = "Forma2";
-        anche = "anche";
-        String ex = "ex";
-        String moduloTxt = PATH_MODULO_NAZIONALITA + " genere";
 
-        message = String.format("Contiene la tabella di conversione delle nazionalità passate via parametri %s.", parametri);
+        message = "Contiene la tabella di conversione delle attività passate via parametri 'Nazionalità/Cittadinanza/NazionalitàNaturalizzato',";
+        message += " da singolare maschile e femminile (usati nell'incipit) al plurale maschile per categorizzare la pagina.";
         addSpanVerde(message);
-        message = String.format("da singolare maschile e femminile (usati nell'incipit) al %s, per categorizzare la pagina.", plurale);
+
+        message = "Le nazionalità sono elencate all'interno del modulo con la seguente sintassi:";
+        message += " [\"nazionalitaforma1\"]=\"nazionalità al plurale\"; [\"nazionalitaforma2\"]=\"nazionalità al plurale\".";
         addSpanVerde(message);
-        message = String.format("Le nazionalità sono elencate nel modulo '%s'", PATH_MODULO_NAZIONALITA);
-        addSpanVerde(message);
-        message = String.format(" con la sintassi: [\"nazionalita%s\"]=\"nazionalità al plurale\", [\"nazionalita%s\"]=\"nazionalità al plurale\".", uno, due);
-        addSpanVerde(message);
-        message = String.format("Indipendentemente da come sono scritte nel modulo, tutte le nazionalità sono convertite in %s ", minuscolo);
+
+        message = "Indipendentemente da come sono scritte nel modulo, tutte le attività singolari e plurali sono convertite in minuscolo.";
         addSpanRosso(message);
     }
 

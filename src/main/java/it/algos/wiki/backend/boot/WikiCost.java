@@ -48,6 +48,8 @@ public class WikiCost {
 
     public static final String PATH_MODULO_ATTIVITA = PATH_MODULO_PLURALE + ATT_LOWER;
 
+    public static final String PATH_TABELLA_NOMI_DOPPI = "Progetto:Antroponimi/Nomi_doppi";
+
     public static final String PATH_MODULO_PROFESSIONE = PATH_MODULO_LINK + ATT_LOWER;
 
 
@@ -74,5 +76,7 @@ public class WikiCost {
     public static final String TAG_NAZIONALITA = "nazionalita";
 
     public static final String TAG_PROFESSIONE = "professione";
+
+    public static final String TAG_DOPPIO_NOME = "doppionome";
 
 }

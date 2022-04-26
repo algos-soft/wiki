@@ -6,6 +6,8 @@ import com.vaadin.flow.component.orderedlayout.*;
 import com.vaadin.flow.component.textfield.*;
 import com.vaadin.flow.router.*;
 import static it.algos.vaad23.backend.boot.VaadCost.*;
+import it.algos.vaad23.backend.enumeration.*;
+import it.algos.vaad23.backend.wrapper.*;
 import it.algos.vaad23.ui.views.*;
 import static it.algos.wiki.backend.boot.WikiCost.*;
 import it.algos.wiki.backend.enumeration.*;
@@ -91,33 +93,18 @@ public class GenereView extends WikiView {
     public void fixAlert() {
         super.fixAlert();
 
-//        FlexLayout flexLayout = new FlexLayout();
-////        flexLayout.setWidth();
-//        flexLayout.setFlexWrap(FlexLayout.FlexWrap.WRAP);
-//        Label label=new Label();
-//        message = "Contiene la tabella di conversione delle attività passate via parametri 'Attività/Attività2/Attività3',";
-//        message += "Contiene la tabella di conversione delle attività passate via parametri 'Attività/Attività2/Attività3',";
-//        message += "Contiene la tabella di conversione delle attività passate via parametri 'Attività/Attività2/Attività3',";
-//label.setText(message);
-//flexLayout.add(label);
-//this.add(flexLayout);
-
-        addSpanBlue(PATH_MODULO_GENERE);
         message = "Contiene la tabella di conversione delle attività passate via parametri 'Attività/Attività2/Attività3',";
+        message += " da singolare maschile e femminile (usati nell'incipit) al plurale maschile e femminile,";
+        message += " per le intestazioni dei paragrafi nelle liste di antroponimi previste nel [Progetto:Antroponimi].";
         addSpanVerde(message);
-        message = "da singolare maschile e femminile (usati nell'incipit) al plurale maschile e femminile,";
-        addSpanVerde(message);
-        message = "per le intestazioni dei paragrafi nelle liste di antroponimi previste nel [Progetto:Antroponimi].";
-        addSpanVerde(message);
+
         message = "Le attività sono elencate all'interno del modulo con la seguente sintassi:";
+        message += " [\"attivita singolare maschile\"] = \"attività plurale maschile\";";
+        message += " [\"attivita singolare femminile\"] = \"attività plurale femminile\".";
         addSpanVerde(message);
-        message = "[\"attivita singolare maschile\"] = \"attività plurale maschile\"";
-        addSpanVerde(message);
-        message = "[\"attivita singolare femminile\"] = \"attività plurale femminile\"";
-        addSpanVerde(message);
-        message = "Indipendentemente da come sono scritte nel modulo, tutte le attività singolari e plurali sono convertite in minuscolo";
-        addSpanRosso(message);
-        message = String.format("Le voci delle ex-attività vengono aggiunte al package attività");
+
+        message = "Indipendentemente da come sono scritte nel modulo, tutte le attività singolari e plurali sono convertite in minuscolo.";
+        message += " Le voci delle ex-attività vengono aggiunte al package attività";
         addSpanRosso(message);
     }
 

@@ -2,6 +2,7 @@ package it.algos.wiki.backend.packages.wiki;
 
 import com.vaadin.flow.spring.annotation.SpringComponent;
 import it.algos.vaad23.backend.entity.*;
+import it.algos.vaad23.backend.exception.*;
 import it.algos.vaad23.backend.logic.*;
 import it.algos.vaad23.backend.wrapper.*;
 import it.algos.wiki.backend.enumeration.*;
@@ -68,8 +69,21 @@ public abstract class WikiBackend extends CrudBackend {
 
         delta = delta / 1000;
         durata = delta.intValue();
-        lastDownload.setValue(LocalDateTime.now());
-        durataDownload.setValue(durata);
+        if (lastDownload!=null) {
+            lastDownload.setValue(LocalDateTime.now());
+        }
+        else {
+            logger.warn(new WrapLog().exception(new AlgosException("lastDownload è nullo")));
+            return;
+        }
+        if (durataDownload!=null) {
+            durataDownload.setValue(durata);
+        }
+        else {
+            logger.warn(new WrapLog().exception(new AlgosException("durataDownload è nullo")));
+            return;
+        }
+
         if (sizeServerWiki == sizeMongoDB) {
             message = String.format("Download di %s righe da [%s]", wikiTxt, wikiTitle);
         }

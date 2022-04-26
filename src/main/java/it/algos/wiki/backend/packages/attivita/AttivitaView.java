@@ -63,7 +63,6 @@ public class AttivitaView extends WikiView {
         super.fixPreferenze();
 
         super.gridPropertyNamesList = Arrays.asList("singolare", "plurale", "aggiunta");
-        super.formPropertyNamesList = Arrays.asList("singolare", "plurale", "aggiunta");
 
         super.sortOrder = Sort.by(Sort.Direction.ASC, "singolare");
         super.lastDownload = WPref.lastDownloadAttivita;
@@ -80,33 +79,16 @@ public class AttivitaView extends WikiView {
     public void fixAlert() {
         super.fixAlert();
 
-        String uno;
-        String due;
-        String minuscolo;
-        parametri = "Attività/Attività2/Attività3";
-        alfabetico = "alfabetico";
-        singolare = "singolare";
-        plurale = "plurale";
-        minuscolo = "minuscolo";
-        uno = "Forma1";
-        due = "Forma2";
-        String ex = "ex";
-        String moduloTxt = PATH_MODULO_ATTIVITA + " genere";
+        message = "Contiene la tabella di conversione delle attività passate via parametri 'Attività/Attività2/Attività3',";
+        message += " da singolare maschile e femminile (usati nell'incipit) al plurale maschile per categorizzare la pagina.";
+        addSpanVerde(message);
 
-        message = String.format("Contiene la tabella di conversione delle attività passate via parametri %s.", parametri);
+        message = "Le attività sono elencate all'interno del modulo con la seguente sintassi:";
+        message += " [\"attivitaforma1\"]=\"attività al plurale\"; [\"attivitaforma2\"]=\"attività al plurale\".";
         addSpanVerde(message);
-        message = String.format("Da maschile e femminile (usati nell'incipit) al %s maschile, per categorizzare la pagina.", singolare);
-        addSpanVerde(message);
-        message = String.format("Le attività sono elencate nel modulo '%s'", PATH_MODULO_ATTIVITA);
-        addSpanVerde(message);
-        message = String.format(" con la sintassi: [\"attivita%s\"]=\"attività al plurale\", [\"attivita%s\"]=\"attività al plurale\".", uno, due);
-        addSpanVerde(message);
-        message = String.format("Nella collezione locale mongoDB vengono aggiunte anche le voci delle %s-attività (non presenti nel " +
-                "modulo)", ex);
-        addSpanRosso(message);
-        message = String.format("Le voci aggiunte vengono recuperate dal modulo '%s' ", moduloTxt);
-        addSpanRosso(message);
-        message = String.format("Indipendentemente da come sono scritte nel modulo, tutte le attività singolari e plurali sono convertite in %s ", minuscolo);
+
+        message = "Indipendentemente da come sono scritte nel modulo, tutte le attività singolari e plurali sono convertite in minuscolo.";
+        message += " Le voci delle ex-attività (non presenti nel modulo) vengono aggiunte prendendole dal package 'genere'";
         addSpanRosso(message);
     }
 

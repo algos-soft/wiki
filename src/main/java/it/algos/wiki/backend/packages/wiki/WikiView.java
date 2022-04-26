@@ -2,12 +2,17 @@ package it.algos.wiki.backend.packages.wiki;
 
 import com.vaadin.flow.component.*;
 import com.vaadin.flow.component.button.*;
+import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.component.icon.*;
 import com.vaadin.flow.data.selection.*;
 import com.vaadin.flow.server.communication.*;
+import it.algos.vaad23.backend.boot.*;
+import static it.algos.vaad23.backend.boot.VaadCost.*;
 import it.algos.vaad23.backend.entity.*;
+import it.algos.vaad23.backend.enumeration.*;
 import it.algos.vaad23.backend.logic.*;
 import it.algos.vaad23.backend.service.*;
+import it.algos.vaad23.backend.wrapper.*;
 import it.algos.vaad23.ui.views.*;
 import static it.algos.wiki.backend.boot.WikiCost.*;
 import it.algos.wiki.backend.enumeration.*;
@@ -68,17 +73,17 @@ public abstract class WikiView extends CrudView {
 
     protected Button buttonUploadPagina;
 
-    protected String parametri;
+    //    protected String parametri;
 
     protected String wikiModuloTitle;
 
     protected String wikiStatisticheTitle;
 
-    protected String alfabetico;
-
-    protected String singolare;
-
-    protected String plurale;
+    //    protected String alfabetico;
+    //
+    //    protected String singolare;
+    //
+    //    protected String plurale;
 
     protected boolean usaInfoDownload;
 
@@ -139,11 +144,19 @@ public abstract class WikiView extends CrudView {
     public void fixAlert() {
         super.fixAlert();
 
+        Span spanInfo;
+        Anchor anchor = new Anchor(VaadCost.PATH_WIKI + wikiModuloTitle, wikiModuloTitle);
+        anchor.getElement().getStyle().set(AEFontWeight.HTML, AEFontWeight.bold.getTag());
+
         if (usaInfoDownload && lastDownload != null && durataDownload != null) {
             String data = dateService.get((LocalDateTime) lastDownload.get());
             int durata = durataDownload.getInt();
-            message = String.format("Ultimo download effettuato il %s in %d secondi", data, durata);
-            addSpanBlue(message);
+            message = String.format("%sultimo download effettuato il %s in %d secondi", FORWARD, data, durata);
+            spanInfo = getSpan(new WrapSpan(message).color(AETypeColor.blu).weight(AEFontWeight.normal));
+            alertPlaceHolder.add(new Span(anchor, spanInfo));
+        }
+        else {
+            alertPlaceHolder.add(new Span(anchor));
         }
     }
 

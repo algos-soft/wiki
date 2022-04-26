@@ -6,6 +6,7 @@ import it.algos.vaad23.backend.interfaces.*;
 import it.algos.vaad23.backend.packages.geografia.continente.*;
 import static it.algos.wiki.backend.boot.WikiCost.*;
 import it.algos.wiki.backend.packages.attivita.*;
+import it.algos.wiki.backend.packages.doppionome.*;
 import it.algos.wiki.backend.packages.genere.*;
 import it.algos.wiki.backend.packages.nazionalita.*;
 import it.algos.wiki.backend.packages.professione.*;
@@ -112,6 +113,7 @@ public class WikiBoot extends VaadBoot {
         VaadVar.menuRouteList.add(AttivitaView.class);
         VaadVar.menuRouteList.add(NazionalitaView.class);
         VaadVar.menuRouteList.add(ProfessioneView.class);
+        VaadVar.menuRouteList.add(DoppionomeView.class);
     }
 
 }

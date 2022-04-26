@@ -59,17 +59,16 @@ public class GenereBackend extends WikiBackend {
         super.durataDownload = WPref.durataDownloadGenere;
     }
 
-    /**
-     * Crea e registra una entityBean <br>
-     *
-     * @param singolare        di riferimento
-     * @param pluraleMaschile  di riferimento
-     * @param pluraleFemminile di riferimento
-     *
-     * @return la nuova entityBean appena creata e salvata
-     */
-    public void crea(final String singolare, final String pluraleMaschile, final String pluraleFemminile, final boolean maschile) {
-        repository.insert(newEntity(singolare, pluraleMaschile, pluraleFemminile, maschile));
+    public Genere creaIfNotExist(final String singolare, final String pluraleMaschile, final String pluraleFemminile, final boolean maschile) {
+        return checkAndSave(newEntity(singolare, pluraleMaschile, pluraleFemminile, maschile));
+    }
+
+    public Genere checkAndSave(final Genere genere) {
+        return isExist(genere.singolare) ? null : repository.insert(genere);
+    }
+
+    public boolean isExist(final String singolare) {
+        return repository.findFirstBySingolare(singolare) != null;
     }
 
     /**
@@ -153,12 +152,14 @@ public class GenereBackend extends WikiBackend {
                 pluraleFemminile = this.estraeFemminile(pluraliGrezzi);
 
                 if (textService.isValid(pluraleMaschile)) {
-                    crea(singolare, pluraleMaschile, VUOTA, true);
-                    size++;
+                    if (creaIfNotExist(singolare, pluraleMaschile, VUOTA, true) != null) {
+                        size++;
+                    }
                 }
                 if (textService.isValid(pluraleFemminile)) {
-                    crea(singolare, VUOTA, pluraleFemminile, false);
-                    size++;
+                    if (creaIfNotExist(singolare, pluraleMaschile, VUOTA, false) != null) {
+                        size++;
+                    }
                 }
             }
         }

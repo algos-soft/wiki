@@ -55,21 +55,18 @@ public class AttivitaBackend extends WikiBackend {
         super.durataDownload = WPref.durataDownloadAttivita;
     }
 
-    /**
-     * Crea e registra una entityBean <br>
-     *
-     * @param singolare di riferimento (obbligatorio, unico)
-     * @param plurale   (facoltativo, non unico)
-     *
-     * @return la nuova entityBean appena creata e salvata
-     */
-    public Attivita creaOriginale(final String singolare, final String plurale) {
-        return crea(singolare, plurale, false);
+    public Attivita creaIfNotExist(final String singolare, final String plurale, final boolean aggiunta) {
+        return checkAndSave(newEntity(singolare, plurale, aggiunta));
     }
 
-    public Attivita crea(final String singolare, final String plurale, final boolean aggiunta) {
-        return repository.insert(newEntity(singolare, plurale, aggiunta));
+    public Attivita checkAndSave(final Attivita attivita) {
+        return isExist(attivita.singolare) ? null : repository.insert(attivita);
     }
+
+    public boolean isExist(final String singolare) {
+        return repository.findFirstBySingolare(singolare) != null;
+    }
+
 
     /**
      * Creazione in memoria di una nuova entity che NON viene salvata <br>
@@ -122,8 +119,9 @@ public class AttivitaBackend extends WikiBackend {
         if (mappa != null && mappa.size() > 0) {
             deleteAll();
             for (Map.Entry<String, String> entry : mappa.entrySet()) {
-                this.creaOriginale(entry.getKey(), entry.getValue());
-                size++;
+                if (creaIfNotExist(entry.getKey(), entry.getValue(), false) != null) {
+                    size++;
+                }
             }
         }
         else {
@@ -174,8 +172,12 @@ public class AttivitaBackend extends WikiBackend {
                 }
 
                 if (entity != null) {
-                    crea(genereSingolare, entity.plurale, true);
-                    size = size + 1;
+                    if (creaIfNotExist(genereSingolare, entity.plurale, true) != null) {
+                        size++;
+                    }
+                    else {
+                        logger.info(new WrapLog().message(genereSingolare));
+                    }
                 }
             }
         }

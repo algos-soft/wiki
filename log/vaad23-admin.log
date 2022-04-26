@@ -265,3 +265,96 @@
 2022-04-26 14:14:39 INFO  [http-nio-8080-exec-5] : [system    ] - Aggiunte 212 ex-attività dalla collection genere 
 2022-04-26 14:15:29 INFO  [http-nio-8080-exec-7] : [system    ] - Download di 534 righe da [Modulo:Bio/Plurale nazionalità] 
 2022-04-26 14:15:45 INFO  [http-nio-8080-exec-9] : [system    ] - Download di 861 righe da [Modulo:Bio/Link attività] 
+2022-04-26 18:04:37 INFO  [http-nio-8080-exec-5] : [spazio    ] 
+2022-04-26 18:04:37 INFO  [http-nio-8080-exec-5] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
+2022-04-26 18:04:37 INFO  [http-nio-8080-exec-5] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-26 18:04:37 INFO  [http-nio-8080-exec-5] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-26 18:04:37 INFO  [http-nio-8080-exec-5] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-26 18:04:37 INFO  [http-nio-8080-exec-5] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-26 18:04:37 INFO  [http-nio-8080-exec-5] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-26 18:04:37 INFO  [http-nio-8080-exec-5] : [wizard    ] - Update: la directory 'vaad23' esisteva già ma è stata sostituita. (dirDeletingAll) 
+2022-04-26 18:04:37 INFO  [http-nio-8080-exec-5] : [wizard    ] - Delete: cancellata la directory 'sources' dal progetto wiki 
+2022-04-26 19:52:04 WARN  [http-nio-8080-exec-5] : [system    ] - Non sono riuscito a leggere da wiki il modulo Progetto:Antroponimi/Nomi_doppi [class=DoppionomeBackend   ] [method=download            ] [line=106 ]  
+2022-04-26 20:16:49 WARN  [http-nio-8080-exec-6] : [system    ] - lastDownload è nullo [class=WikiBackend         ] [method=fixDownload         ] [line=76  ]  
+2022-04-26 20:16:49 WARN  [http-nio-8080-exec-6] : [system    ] - durataDownload è nullo [class=WikiBackend         ] [method=fixDownload         ] [line=82  ]  
+2022-04-26 20:16:49 INFO  [http-nio-8080-exec-6] : [system    ] - Download di 65 righe da [Progetto:Antroponimi/Nomi_doppi] 
+2022-04-26 20:17:39 WARN  [http-nio-8080-exec-3] : [system    ] - lastDownload è nullo [class=WikiBackend         ] [method=fixDownload         ] [line=76  ]  
+2022-04-26 20:18:58 INFO  [http-nio-8080-exec-5] : [system    ] - Download di 65 righe da [Progetto:Antroponimi/Nomi_doppi] 
+2022-04-26 20:19:16 INFO  [http-nio-8080-exec-7] : [system    ] - Download di 65 righe da [Progetto:Antroponimi/Nomi_doppi] 
+2022-04-26 21:49:19 INFO  [http-nio-8080-exec-6] : [system    ] - Download di 65 righe da [Progetto:Antroponimi/Nomi_doppi] 
+2022-04-26 21:58:01 INFO  [http-nio-8080-exec-1] : [system    ] - Download di 65 righe da [Progetto:Antroponimi/Nomi_doppi] 
+2022-04-26 22:13:48 INFO  [http-nio-8080-exec-5] : [system    ] - Download di 65 righe da [Progetto:Antroponimi/Nomi_doppi] 
+2022-04-26 22:15:29 INFO  [http-nio-8080-exec-4] : [system    ] - Download di 65 righe da [Progetto:Antroponimi/Nomi_doppi] 
+2022-04-26 22:16:10 INFO  [http-nio-8080-exec-7] : [system    ] - Download di 65 righe da [Progetto:Antroponimi/Nomi_doppi] 
+2022-04-26 22:16:34 INFO  [http-nio-8080-exec-10] : [system    ] - Download di 65 righe da [Progetto:Antroponimi/Nomi_doppi] 
+2022-04-26 22:20:39 INFO  [http-nio-8080-exec-8] : [system    ] - Download di 1.131 righe da [Modulo:Bio/Plurale attività] 
+2022-04-26 22:20:39 INFO  [http-nio-8080-exec-8] : [system    ] - Aggiunte 212 ex-attività dalla collection genere 
+2022-04-26 22:24:11 INFO  [http-nio-8080-exec-3] : [system    ] - Download di 1.131 righe da [Modulo:Bio/Plurale attività] 
+2022-04-26 22:24:11 INFO  [http-nio-8080-exec-3] : [system    ] - Aggiunte 153 ex-attività dalla collection genere 
+2022-04-26 22:25:13 INFO  [http-nio-8080-exec-4] : [system    ] - Download di 1.131 righe da [Modulo:Bio/Plurale attività] 
+2022-04-26 22:25:13 INFO  [http-nio-8080-exec-4] : [system    ] - ex artista marziale 
+2022-04-26 22:25:13 INFO  [http-nio-8080-exec-4] : [system    ] - ex astronauta 
+2022-04-26 22:25:13 INFO  [http-nio-8080-exec-4] : [system    ] - ex atleta 
+2022-04-26 22:25:13 INFO  [http-nio-8080-exec-4] : [system    ] - ex biathleta 
+2022-04-26 22:25:13 INFO  [http-nio-8080-exec-4] : [system    ] - ex biatleta 
+2022-04-26 22:25:13 INFO  [http-nio-8080-exec-4] : [system    ] - ex bobbista 
+2022-04-26 22:25:13 INFO  [http-nio-8080-exec-4] : [system    ] - ex canoista 
+2022-04-26 22:25:13 INFO  [http-nio-8080-exec-4] : [system    ] - ex cestista 
+2022-04-26 22:25:13 INFO  [http-nio-8080-exec-4] : [system    ] - ex ciclista su strada 
+2022-04-26 22:25:13 INFO  [http-nio-8080-exec-4] : [system    ] - ex ciclista 
+2022-04-26 22:25:13 INFO  [http-nio-8080-exec-4] : [system    ] - ex ciclocrossista 
+2022-04-26 22:25:13 INFO  [http-nio-8080-exec-4] : [system    ] - ex culturista 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex dirigente d'azienda 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex manager 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex fondista 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex ginnasta 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex golfista 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex hockeista in carrozzina 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex hockeista in-line 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex hockeista su ghiaccio 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex hockeista su pista 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex hockeista su prato 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex hockeista su slittino 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex judoka 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex karateka 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex kickboxer 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex militare 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex ufficiale 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex pallamanista 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex pallanuotista 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex pallavolista 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex copilota di rally 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex pilota di rally 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex motociclista 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex pistard 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex rugbista a 13 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex rugbista a 15 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex skeletonista 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex slittinista 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex tennistavolista 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex tennista 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex terrorista 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex triatleta 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex velista 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex velocista 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex wrestler 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex altista 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex astista 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex fondista di corsa in montagna 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex giavellottista 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex lunghista 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex maratoneta 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex martellista 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex mezzofondista 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex multiplista 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex ostacolista 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex pesista 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex siepista 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - ex triplista 
+2022-04-26 22:25:14 INFO  [http-nio-8080-exec-4] : [system    ] - Aggiunte 153 ex-attività dalla collection genere 
+2022-04-26 22:35:44 INFO  [http-nio-8080-exec-5] : [system    ] - Download di 1.184 righe da [Modulo:Bio/Plurale attività genere] 
+2022-04-26 22:36:03 INFO  [http-nio-8080-exec-5] : [system    ] - Download di 1.131 righe da [Modulo:Bio/Plurale attività] 
+2022-04-26 22:36:03 INFO  [http-nio-8080-exec-5] : [system    ] - Aggiunte 153 ex-attività dalla collection genere 
+2022-04-26 22:36:10 INFO  [http-nio-8080-exec-7] : [system    ] - Download di 534 righe da [Modulo:Bio/Plurale nazionalità] 
+2022-04-26 22:36:17 INFO  [http-nio-8080-exec-6] : [system    ] - Download di 861 righe da [Modulo:Bio/Link attività] 
+2022-04-26 22:36:22 INFO  [http-nio-8080-exec-3] : [system    ] - Download di 65 righe da [Progetto:Antroponimi/Nomi_doppi] 
