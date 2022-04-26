@@ -1,79 +1,267 @@
-2022-04-25 10:15:06 INFO  [http-nio-8080-exec-6] : [system    ] - Download di 1.131 attività dal modulo wiki 
-2022-04-25 10:15:06 INFO  [http-nio-8080-exec-6] : [system    ] - Aggiunte 212 ex-attività dalla collection genere 
-2022-04-25 10:16:02 INFO  [http-nio-8080-exec-1] : [system    ] - Download di 1.131 attività dal modulo wiki 
-2022-04-25 10:16:02 INFO  [http-nio-8080-exec-1] : [system    ] - Aggiunte 212 ex-attività dalla collection genere 
-2022-04-25 10:16:19 INFO  [http-nio-8080-exec-8] : [system    ] - Download di 1.131 attività dal modulo wiki 
-2022-04-25 10:21:52 INFO  [http-nio-8080-exec-8] : [system    ] - Aggiunte 212 ex-attività dalla collection genere 
-2022-04-25 13:46:56 INFO  [http-nio-8080-exec-10] : [spazio    ] 
-2022-04-25 13:46:56 INFO  [http-nio-8080-exec-10] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
-2022-04-25 13:46:56 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-25 13:46:56 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-25 13:46:56 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-25 13:46:56 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-25 13:46:56 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-25 13:46:56 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'vaad23' esisteva già ma è stata sostituita. (dirDeletingAll) 
-2022-04-25 13:46:56 INFO  [http-nio-8080-exec-10] : [wizard    ] - Delete: cancellata la directory 'sources' dal progetto wiki 
-2022-04-25 14:37:08 INFO  [http-nio-8080-exec-7] : [spazio    ] 
-2022-04-25 14:37:08 INFO  [http-nio-8080-exec-7] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
-2022-04-25 14:37:08 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-25 14:37:08 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-25 14:37:08 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-25 14:37:08 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-25 14:37:08 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-25 14:37:08 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'vaad23' esisteva già ma è stata sostituita. (dirDeletingAll) 
-2022-04-25 14:37:08 INFO  [http-nio-8080-exec-7] : [wizard    ] - Delete: cancellata la directory 'sources' dal progetto wiki 
-2022-04-25 15:38:17 INFO  [http-nio-8080-exec-10] : [spazio    ] 
-2022-04-25 15:38:17 INFO  [http-nio-8080-exec-10] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
-2022-04-25 15:38:17 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-25 15:38:17 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-25 15:38:17 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-25 15:38:17 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-25 15:38:17 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-25 15:38:17 INFO  [http-nio-8080-exec-10] : [wizard    ] - Update: la directory 'vaad23' esisteva già ma è stata sostituita. (dirDeletingAll) 
-2022-04-25 15:38:17 INFO  [http-nio-8080-exec-10] : [wizard    ] - Delete: cancellata la directory 'sources' dal progetto wiki 
-2022-04-25 15:50:46 INFO  [http-nio-8080-exec-7] : [spazio    ] 
-2022-04-25 15:50:46 INFO  [http-nio-8080-exec-7] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
-2022-04-25 15:50:46 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-25 15:50:46 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-25 15:50:46 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-25 15:50:46 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-25 15:50:46 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-25 15:50:46 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'vaad23' esisteva già ma è stata sostituita. (dirDeletingAll) 
-2022-04-25 15:50:46 INFO  [http-nio-8080-exec-7] : [wizard    ] - Delete: cancellata la directory 'sources' dal progetto wiki 
-2022-04-25 17:07:10 INFO  [http-nio-8080-exec-4] : [spazio    ] 
-2022-04-25 17:07:10 INFO  [http-nio-8080-exec-4] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
-2022-04-25 17:07:10 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-25 17:07:10 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-25 17:07:10 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-25 17:07:10 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-25 17:07:10 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-25 17:07:10 INFO  [http-nio-8080-exec-4] : [wizard    ] - Update: la directory 'vaad23' esisteva già ma è stata sostituita. (dirDeletingAll) 
-2022-04-25 17:07:10 INFO  [http-nio-8080-exec-4] : [wizard    ] - Delete: cancellata la directory 'sources' dal progetto wiki 
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=ReflectionService   ] [method=getField            ] [line=50  ]  
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=ReflectionService   ] [method=getField            ] [line=50  ]  
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=ReflectionService   ] [method=getField            ] [line=50  ]  
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=ReflectionService   ] [method=getField            ] [line=50  ]  
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=ReflectionService   ] [method=getField            ] [line=50  ]  
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=ReflectionService   ] [method=getField            ] [line=50  ]  
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
-2022-04-25 19:03:15 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
-2022-04-25 19:09:09 INFO  [http-nio-8080-exec-5] : [system    ] - Download di 534 nazionalità dal modulo wiki 
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:28:04 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - ordine [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - ordine [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - code [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - code [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - descrizione [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - descrizione [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:31 ERROR [http-nio-8080-exec-5] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:29:40 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - ordine [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - ordine [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - code [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - code [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - descrizione [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - descrizione [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:04 ERROR [http-nio-8080-exec-4] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - ordine [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - ordine [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - code [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - code [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - descrizione [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - descrizione [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:47 ERROR [http-nio-8080-exec-7] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:30:58 ERROR [http-nio-8080-exec-6] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:31:34 ERROR [http-nio-8080-exec-1] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:31:34 ERROR [http-nio-8080-exec-1] : [system    ] - ordine [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:31:40 ERROR [http-nio-8080-exec-1] : [system    ] - ordine [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:31:40 ERROR [http-nio-8080-exec-1] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:31:40 ERROR [http-nio-8080-exec-1] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:31:40 ERROR [http-nio-8080-exec-1] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:31:40 ERROR [http-nio-8080-exec-1] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:31:40 ERROR [http-nio-8080-exec-1] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:31:56 ERROR [http-nio-8080-exec-1] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:31:56 ERROR [http-nio-8080-exec-1] : [system    ] - code [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:31:56 ERROR [http-nio-8080-exec-1] : [system    ] - code [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:31:56 ERROR [http-nio-8080-exec-1] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:31:56 ERROR [http-nio-8080-exec-1] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:31:56 ERROR [http-nio-8080-exec-1] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:31:56 ERROR [http-nio-8080-exec-1] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:31:56 ERROR [http-nio-8080-exec-1] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:32:04 ERROR [http-nio-8080-exec-1] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:32:04 ERROR [http-nio-8080-exec-1] : [system    ] - descrizione [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:32:04 ERROR [http-nio-8080-exec-1] : [system    ] - descrizione [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:32:04 ERROR [http-nio-8080-exec-1] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:32:04 ERROR [http-nio-8080-exec-1] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:32:04 ERROR [http-nio-8080-exec-1] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:32:04 ERROR [http-nio-8080-exec-1] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:32:04 ERROR [http-nio-8080-exec-1] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:32:04 ERROR [http-nio-8080-exec-1] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:32:04 ERROR [http-nio-8080-exec-1] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:32:04 ERROR [http-nio-8080-exec-1] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:33:00 ERROR [http-nio-8080-exec-10] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:33:16 ERROR [http-nio-8080-exec-10] : [system    ] - ordine [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:35:34 ERROR [http-nio-8080-exec-10] : [system    ] - ordine [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:35:34 ERROR [http-nio-8080-exec-10] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:35:34 ERROR [http-nio-8080-exec-10] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:35:34 ERROR [http-nio-8080-exec-10] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:35:34 ERROR [http-nio-8080-exec-10] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:35:34 ERROR [http-nio-8080-exec-10] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:35:34 ERROR [http-nio-8080-exec-10] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:35:34 ERROR [http-nio-8080-exec-10] : [system    ] - code [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:35:34 ERROR [http-nio-8080-exec-10] : [system    ] - code [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:35:34 ERROR [http-nio-8080-exec-10] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:35:34 ERROR [http-nio-8080-exec-10] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:35:34 ERROR [http-nio-8080-exec-10] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:35:34 ERROR [http-nio-8080-exec-10] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:35:34 ERROR [http-nio-8080-exec-10] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:35:34 ERROR [http-nio-8080-exec-10] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:35:34 ERROR [http-nio-8080-exec-10] : [system    ] - descrizione [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:35:34 ERROR [http-nio-8080-exec-10] : [system    ] - descrizione [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-26 07:35:34 ERROR [http-nio-8080-exec-10] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:35:34 ERROR [http-nio-8080-exec-10] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:35:34 ERROR [http-nio-8080-exec-10] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:35:34 ERROR [http-nio-8080-exec-10] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:35:34 ERROR [http-nio-8080-exec-10] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:35:34 ERROR [http-nio-8080-exec-10] : [system    ] - ordine [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:35:34 ERROR [http-nio-8080-exec-10] : [system    ] - code [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:35:34 ERROR [http-nio-8080-exec-10] : [system    ] - descrizione [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-26 07:46:15 INFO  [http-nio-8080-exec-4] : [system    ] - Download di 861 professioni dal modulo wiki 
+2022-04-26 07:52:04 INFO  [http-nio-8080-exec-3] : [spazio    ] 
+2022-04-26 07:52:04 INFO  [http-nio-8080-exec-3] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
+2022-04-26 07:52:04 INFO  [http-nio-8080-exec-3] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-26 07:52:04 INFO  [http-nio-8080-exec-3] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-26 07:52:04 INFO  [http-nio-8080-exec-3] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-26 07:52:04 INFO  [http-nio-8080-exec-3] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-26 07:52:04 INFO  [http-nio-8080-exec-3] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-26 07:52:04 INFO  [http-nio-8080-exec-3] : [wizard    ] - Update: la directory 'vaad23' esisteva già ma è stata sostituita. (dirDeletingAll) 
+2022-04-26 07:52:04 INFO  [http-nio-8080-exec-3] : [wizard    ] - Delete: cancellata la directory 'sources' dal progetto wiki 
+2022-04-26 08:01:38 INFO  [http-nio-8080-exec-3] : [system    ] - Download di 1.131 attività dal modulo wiki 
+2022-04-26 08:01:38 INFO  [http-nio-8080-exec-3] : [system    ] - Aggiunte 212 ex-attività dalla collection genere 
+2022-04-26 08:01:54 INFO  [http-nio-8080-exec-4] : [system    ] - Download di 534 nazionalità dal modulo wiki 
+2022-04-26 08:01:59 INFO  [http-nio-8080-exec-9] : [system    ] - Download di 861 professioni dal modulo wiki 
+2022-04-26 08:26:23 INFO  [http-nio-8080-exec-1] : [system    ] - Download di 1.131 attività dal modulo wiki 
+2022-04-26 08:26:23 INFO  [http-nio-8080-exec-1] : [system    ] - Aggiunte 212 ex-attività dalla collection genere 
+2022-04-26 08:33:29 INFO  [http-nio-8080-exec-1] : [system    ] - Download di 1.131 attività dal modulo wiki 
+2022-04-26 08:33:29 INFO  [http-nio-8080-exec-1] : [system    ] - Aggiunte 212 ex-attività dalla collection genere 
+2022-04-26 08:33:51 INFO  [http-nio-8080-exec-3] : [spazio    ] 
+2022-04-26 08:33:51 INFO  [http-nio-8080-exec-3] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
+2022-04-26 08:33:52 INFO  [http-nio-8080-exec-3] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-26 08:33:52 INFO  [http-nio-8080-exec-3] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-26 08:33:52 INFO  [http-nio-8080-exec-3] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-26 08:33:52 INFO  [http-nio-8080-exec-3] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-26 08:33:52 INFO  [http-nio-8080-exec-3] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-26 08:33:52 INFO  [http-nio-8080-exec-3] : [wizard    ] - Update: la directory 'vaad23' esisteva già ma è stata sostituita. (dirDeletingAll) 
+2022-04-26 08:33:52 INFO  [http-nio-8080-exec-3] : [wizard    ] - Delete: cancellata la directory 'sources' dal progetto wiki 
+2022-04-26 08:36:46 INFO  [http-nio-8080-exec-4] : [system    ] - Download di 1.131 attività dal modulo wiki 
+2022-04-26 08:36:46 INFO  [http-nio-8080-exec-4] : [system    ] - Aggiunte 212 ex-attività dalla collection genere 
+2022-04-26 08:43:35 INFO  [http-nio-8080-exec-2] : [system    ] - Aggiunte 212 ex-attività dalla collection genere 
+2022-04-26 11:58:51 INFO  [http-nio-8080-exec-7] : [system    ] - Aggiunte 212 ex-attività dalla collection genere 
+2022-04-26 11:59:08 INFO  [http-nio-8080-exec-1] : [system    ] - Aggiunte 212 ex-attività dalla collection genere 
+2022-04-26 11:59:08 INFO  [http-nio-8080-exec-1] : [system    ] - Download di 1.131 attività dal modulo wiki 
+2022-04-26 12:00:06 INFO  [http-nio-8080-exec-3] : [system    ] - Download di 1.131 attività dal modulo wiki 
+2022-04-26 12:00:06 INFO  [http-nio-8080-exec-3] : [system    ] - Aggiunte 212 ex-attività dalla collection genere 
+2022-04-26 12:01:55 INFO  [http-nio-8080-exec-6] : [system    ] - Download di 1.131 attività dal modulo wiki 
+2022-04-26 12:01:56 INFO  [http-nio-8080-exec-6] : [system    ] - Aggiunte 212 ex-attività dalla collection genere 
+2022-04-26 13:42:03 INFO  [http-nio-8080-exec-8] : [system    ] - Download di 1.184 attività dal modulo wiki 
+2022-04-26 13:43:24 INFO  [http-nio-8080-exec-3] : [system    ] - Download di 1.184 attività dal modulo wiki 
+2022-04-26 13:47:13 INFO  [http-nio-8080-exec-4] : [system    ] - Download di 1.184 attività dal modulo wiki 
+2022-04-26 13:49:43 INFO  [http-nio-8080-exec-3] : [system    ] - Download di 1.184 attività dal modulo wiki 
+2022-04-26 13:49:59 INFO  [http-nio-8080-exec-4] : [system    ] - Download di 1.184 elementi da Modulo:Bio/Plurale attività genere 
+2022-04-26 13:51:24 INFO  [http-nio-8080-exec-9] : [system    ] - Download di 1.184 elementi da Modulo:Bio/Plurale attività genere 
+2022-04-26 14:05:37 INFO  [http-nio-8080-exec-6] : [system    ] - Download di 1.184 righe da Modulo:Bio/Plurale attività genere 
+2022-04-26 14:12:59 INFO  [http-nio-8080-exec-7] : [system    ] - Download di 1.184 righe da Modulo:Bio/Plurale attività genere 
+2022-04-26 14:13:24 INFO  [http-nio-8080-exec-10] : [system    ] - Download di 1.184 righe da Modulo:Bio/Plurale attività genere convertite in 1.473 elementi su mongoDB 
+2022-04-26 14:14:24 INFO  [http-nio-8080-exec-4] : [system    ] - Download di 1.184 righe da [Modulo:Bio/Plurale attività genere] convertite in 1.473 elementi su mongoDB 
+2022-04-26 14:14:39 INFO  [http-nio-8080-exec-5] : [system    ] - Download di 1.131 righe da [Modulo:Bio/Plurale attività] 
+2022-04-26 14:14:39 INFO  [http-nio-8080-exec-5] : [system    ] - Aggiunte 212 ex-attività dalla collection genere 
+2022-04-26 14:15:29 INFO  [http-nio-8080-exec-7] : [system    ] - Download di 534 righe da [Modulo:Bio/Plurale nazionalità] 
+2022-04-26 14:15:45 INFO  [http-nio-8080-exec-9] : [system    ] - Download di 861 righe da [Modulo:Bio/Link attività] 

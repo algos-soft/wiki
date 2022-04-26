@@ -1,4 +1,4 @@
-package it.algos.wiki.backend.packages.nazionalita;
+package it.algos.wiki.backend.packages.professione;
 
 import com.vaadin.flow.spring.annotation.*;
 import it.algos.vaad23.backend.entity.*;
@@ -20,8 +20,8 @@ import com.vaadin.flow.component.textfield.TextField;
  * Project wiki
  * Created by Algos
  * User: gac
- * Date: lun, 25-apr-2022
- * Time: 18:21
+ * Date: mar, 26-apr-2022
+ * Time: 07:19
  * <p>
  * Estende l'interfaccia MongoRepository col casting alla Entity relativa di questa repository <br>
  * <p>
@@ -30,19 +30,19 @@ import com.vaadin.flow.component.textfield.TextField;
  * Eventualmente usare una costante di VaadCost come @Qualifier sia qui che nella corrispondente classe xxxBackend <br>
  */
 @Repository
-@Qualifier(TAG_NAZIONALITA)
-public interface NazionalitaRepository extends MongoRepository<Nazionalita, String> {
+@Qualifier(TAG_PROFESSIONE)
+public interface ProfessioneRepository extends MongoRepository<Professione, String> {
 
     @Override
-    List<Nazionalita> findAll();
+    List<Professione> findAll();
 
-    <Nazionalita extends AEntity> Nazionalita insert(Nazionalita entity);
+    <Professione extends AEntity> Professione insert(Professione entity);
 
-    <Nazionalita extends AEntity> Nazionalita save(Nazionalita entity);
+    <Professione extends AEntity> Professione save(Professione entity);
 
     @Override
-    void delete(Nazionalita entity);
+    void delete(Professione entity);
 
-    Nazionalita findFirstBySingolare(String singolare);
+    Professione findFirstByAttivita(String attivita);
 
 }// end of crud repository class

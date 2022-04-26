@@ -2,6 +2,7 @@ package it.algos.wiki.backend.packages.genere;
 
 import com.vaadin.flow.spring.annotation.*;
 import it.algos.vaad23.backend.entity.*;
+import static it.algos.wiki.backend.boot.WikiCost.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.beans.factory.config.*;
 import org.springframework.context.annotation.Scope;
@@ -29,7 +30,7 @@ import com.vaadin.flow.component.textfield.TextField;
  * Eventualmente usare una costante di VaadCost come @Qualifier sia qui che nella corrispondente classe xxxBackend <br>
  */
 @Repository
-@Qualifier("Genere")
+@Qualifier(TAG_GENERE)
 public interface GenereRepository extends MongoRepository<Genere, String> {
 
     @Override

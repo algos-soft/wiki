@@ -1,5 +1,6 @@
 package it.algos.vaad23.backend.enumeration;
 
+import static com.vaadin.flow.server.frontend.FrontendUtils.*;
 import static it.algos.vaad23.backend.boot.VaadCost.*;
 import it.algos.vaad23.backend.interfaces.*;
 
@@ -13,10 +14,10 @@ import java.util.*;
  * Time: 07:13
  */
 public enum AENotaLevel implements AIType, AIPref {
-    dettaglio("GREEN"),
-    normale("BRIGHT_BLUE"),
-    urgente("YELLOW"),
-    critico("RED"),
+    dettaglio(GREEN),
+    normale(BRIGHT_BLUE),
+    urgente(YELLOW),
+    critico(RED),
     ;
 
     public String tag;

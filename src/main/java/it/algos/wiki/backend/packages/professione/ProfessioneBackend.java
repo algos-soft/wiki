@@ -1,4 +1,4 @@
-package it.algos.wiki.backend.packages.nazionalita;
+package it.algos.wiki.backend.packages.professione;
 
 import static it.algos.vaad23.backend.boot.VaadCost.*;
 import it.algos.vaad23.backend.exception.*;
@@ -24,8 +24,8 @@ import java.util.*;
  * Project wiki
  * Created by Algos
  * User: gac
- * Date: lun, 25-apr-2022
- * Time: 18:21
+ * Date: mar, 26-apr-2022
+ * Time: 07:19
  * <p>
  * Service di una entityClazz specifica e di un package <br>
  * Garantisce i metodi di collegamento per accedere al database <br>
@@ -35,10 +35,18 @@ import java.util.*;
  * NOT annotated with @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) (inutile, esiste già @Service) <br>
  */
 @Service
-public class NazionalitaBackend extends WikiBackend {
+public class ProfessioneBackend extends WikiBackend {
 
 
-    private NazionalitaRepository repository;
+    /**
+     * Istanza unica di una classe @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) di servizio <br>
+     * Iniettata automaticamente dal framework SpringBoot/Vaadin con l'Annotation @Autowired <br>
+     * Disponibile DOPO il ciclo init() del costruttore di questa classe <br>
+     */
+    @Autowired
+    public WikiApiService wikiApiService;
+
+    private ProfessioneRepository repository;
 
     /**
      * Costruttore @Autowired (facoltativo) @Qualifier (obbligatorio) <br>
@@ -50,15 +58,15 @@ public class NazionalitaBackend extends WikiBackend {
      *
      * @param crudRepository per la persistenza dei dati
      */
-    public NazionalitaBackend(@Autowired @Qualifier(TAG_NAZIONALITA) final MongoRepository crudRepository) {
-        super(crudRepository, Nazionalita.class);
-        this.repository = (NazionalitaRepository) crudRepository;
-        super.lastDownload = WPref.lastDownloadNazionalita;
-        super.durataDownload = WPref.durataDownloadNazionalita;
+    public ProfessioneBackend(@Autowired @Qualifier(TAG_PROFESSIONE) final MongoRepository crudRepository) {
+        super(crudRepository, Professione.class);
+        this.repository = (ProfessioneRepository) crudRepository;
+        super.lastDownload = WPref.lastDownloadProfessione;
+        super.durataDownload = WPref.durataDownloadProfessione;
     }
 
-    public Nazionalita crea(final String singolare, final String plurale) {
-        return repository.insert(newEntity(singolare, plurale));
+    public Professione crea(final String attivita, final String pagina, final boolean aggiunta) {
+        return repository.insert(newEntity(attivita, pagina, aggiunta));
     }
 
     /**
@@ -68,8 +76,8 @@ public class NazionalitaBackend extends WikiBackend {
      *
      * @return la nuova entity appena creata (non salvata)
      */
-    public Nazionalita newEntity() {
-        return newEntity(VUOTA, VUOTA);
+    public Professione newEntity() {
+        return newEntity(VUOTA, VUOTA, true);
     }
 
     /**
@@ -78,15 +86,14 @@ public class NazionalitaBackend extends WikiBackend {
      * Eventuali regolazioni iniziali delle property <br>
      * All properties <br>
      *
-     * @param singolare di riferimento (obbligatorio, unico)
-     * @param plurale   (facoltativo, non unico)
      *
      * @return la nuova entity appena creata (non salvata e senza keyID)
      */
-    public Nazionalita newEntity(final String singolare, final String plurale) {
-        return Nazionalita.builder()
-                .singolare(textService.isValid(singolare) ? singolare : null)
-                .plurale(textService.isValid(plurale) ? plurale : null)
+    public Professione newEntity(final String attivita, final String pagina, final boolean aggiunta) {
+        return Professione.builder()
+                .attivita(textService.isValid(attivita) ? attivita : null)
+                .pagina(textService.isValid(pagina) ? pagina : null)
+                .aggiunta(aggiunta)
                 .build();
     }
 
@@ -102,16 +109,15 @@ public class NazionalitaBackend extends WikiBackend {
      * @return true se l'azione è stata eseguita
      */
     public void download(String wikiTitle) {
-        String message;
-        int size = 0;
         long inizio = System.currentTimeMillis();
+        int size = 0;
 
         Map<String, String> mappa = wikiApiService.leggeMappaModulo(wikiTitle);
 
         if (mappa != null && mappa.size() > 0) {
             deleteAll();
             for (Map.Entry<String, String> entry : mappa.entrySet()) {
-                this.crea(entry.getKey(), entry.getValue());
+                this.crea(entry.getKey(), entry.getValue(),false);
                 size++;
             }
         }
@@ -119,9 +125,7 @@ public class NazionalitaBackend extends WikiBackend {
             message = String.format("Non sono riuscito a leggere da wiki il modulo %s", wikiTitle);
             logger.warn(new WrapLog().exception(new AlgosException(message)).usaDb());
         }
-
         super.fixDownload(inizio, wikiTitle, mappa.size(), size);
     }
-
 
 }// end of crud backend class

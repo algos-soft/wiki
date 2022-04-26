@@ -1,7 +1,9 @@
 package it.algos.wiki.backend.packages.genere;
 
 import ch.carnet.kasparscherrer.*;
+import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.component.orderedlayout.*;
+import com.vaadin.flow.component.textfield.*;
 import com.vaadin.flow.router.*;
 import static it.algos.vaad23.backend.boot.VaadCost.*;
 import it.algos.vaad23.ui.views.*;
@@ -16,7 +18,6 @@ import java.util.*;
 import com.vaadin.flow.spring.annotation.SpringComponent;
 import org.springframework.context.annotation.Scope;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import com.vaadin.flow.component.textfield.TextField;
 import org.springframework.data.domain.*;
 
 /**
@@ -33,15 +34,12 @@ import org.springframework.data.domain.*;
  * Su richiesta apre un Dialogo per gestire la singola entity <br>
  */
 @PageTitle("Genere")
-@Route(value = "genere", layout = MainLayout.class)
+@Route(value = TAG_GENERE, layout = MainLayout.class)
 public class GenereView extends WikiView {
 
 
     //--per eventuali metodi specifici
     private GenereBackend backend;
-
-    //--per eventuali metodi specifici
-    private GenereDialog dialog;
 
     private TextField searchFieldPluraleMaschile;
 
@@ -73,7 +71,16 @@ public class GenereView extends WikiView {
         super.formPropertyNamesList = Arrays.asList("singolare", "pluraleMaschile", "pluraleFemminile");
 
         super.sortOrder = Sort.by(Sort.Direction.ASC, "singolare");
-        super.dialogClazz = GenereDialog.class;
+        super.lastDownload = WPref.lastDownloadGenere;
+        super.durataDownload = WPref.durataDownloadGenere;
+        super.wikiModuloTitle = PATH_MODULO_GENERE;
+
+        super.usaBottoneUpload = false;
+        super.usaBottoneStatistiche = false;
+        super.usaBottoneUploadStatistiche = false;
+        super.usaBottonePaginaWiki = false;
+        super.usaBottoneTest = false;
+        super.usaBottoneUploadPagina = false;
     }
 
     /**
@@ -84,18 +91,23 @@ public class GenereView extends WikiView {
     public void fixAlert() {
         super.fixAlert();
 
-        String message;
+//        FlexLayout flexLayout = new FlexLayout();
+////        flexLayout.setWidth();
+//        flexLayout.setFlexWrap(FlexLayout.FlexWrap.WRAP);
+//        Label label=new Label();
+//        message = "Contiene la tabella di conversione delle attività passate via parametri 'Attività/Attività2/Attività3',";
+//        message += "Contiene la tabella di conversione delle attività passate via parametri 'Attività/Attività2/Attività3',";
+//        message += "Contiene la tabella di conversione delle attività passate via parametri 'Attività/Attività2/Attività3',";
+//label.setText(message);
+//flexLayout.add(label);
+//this.add(flexLayout);
 
-        String data = dateService.get((LocalDateTime) WPref.lastDownloadGenere.get());
-        int durata = WPref.durataDownloadGenere.getInt();
-        message = String.format("Ultimo download effettuato il %s in %d secondi", data, durata);
-        addSpanBlue(message);
-
-        message = "Contiene la tabella di conversione delle attività passate via parametri 'Attività/Attività2/Attività3'.";
+        addSpanBlue(PATH_MODULO_GENERE);
+        message = "Contiene la tabella di conversione delle attività passate via parametri 'Attività/Attività2/Attività3',";
         addSpanVerde(message);
-        message = "Da singolare maschile e femminile (usati nell'incipit) al plurale maschile e femminile.";
+        message = "da singolare maschile e femminile (usati nell'incipit) al plurale maschile e femminile,";
         addSpanVerde(message);
-        message = "Per le intestazioni dei paragrafi nelle liste di antroponimi previste nel Progetto:Antroponimi.";
+        message = "per le intestazioni dei paragrafi nelle liste di antroponimi previste nel [Progetto:Antroponimi].";
         addSpanVerde(message);
         message = "Le attività sono elencate all'interno del modulo con la seguente sintassi:";
         addSpanVerde(message);
@@ -103,9 +115,9 @@ public class GenereView extends WikiView {
         addSpanVerde(message);
         message = "[\"attivita singolare femminile\"] = \"attività plurale femminile\"";
         addSpanVerde(message);
-        message = String.format("Le voci delle ex-attività vengono aggiunte alla collection Attività");
-        addSpanRosso(message);
         message = "Indipendentemente da come sono scritte nel modulo, tutte le attività singolari e plurali sono convertite in minuscolo";
+        addSpanRosso(message);
+        message = String.format("Le voci delle ex-attività vengono aggiunte al package attività");
         addSpanRosso(message);
     }
 

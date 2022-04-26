@@ -4,14 +4,18 @@ import com.vaadin.flow.component.*;
 import com.vaadin.flow.component.button.*;
 import com.vaadin.flow.component.icon.*;
 import com.vaadin.flow.data.selection.*;
+import com.vaadin.flow.server.communication.*;
 import it.algos.vaad23.backend.entity.*;
 import it.algos.vaad23.backend.logic.*;
 import it.algos.vaad23.backend.service.*;
 import it.algos.vaad23.ui.views.*;
+import static it.algos.wiki.backend.boot.WikiCost.*;
+import it.algos.wiki.backend.enumeration.*;
 import it.algos.wiki.backend.packages.attivita.*;
 import it.algos.wiki.backend.service.*;
 import org.springframework.beans.factory.annotation.*;
 
+import java.time.*;
 import java.util.*;
 
 /**
@@ -66,11 +70,21 @@ public abstract class WikiView extends CrudView {
 
     protected String parametri;
 
+    protected String wikiModuloTitle;
+
+    protected String wikiStatisticheTitle;
+
     protected String alfabetico;
 
     protected String singolare;
 
     protected String plurale;
+
+    protected boolean usaInfoDownload;
+
+    protected WPref lastDownload;
+
+    protected WPref durataDownload;
 
     /**
      * Istanza unica di una classe @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) di servizio <br>
@@ -114,9 +128,24 @@ public abstract class WikiView extends CrudView {
         this.usaBottoneUploadStatistiche = true;
         this.usaBottonePaginaWiki = true;
         this.usaBottoneTest = true;
-        this.usaBottoneUploadPagina = true;
+        this.usaInfoDownload = true;
     }
 
+    /**
+     * Costruisce un (eventuale) layout per informazioni aggiuntive come header della view <br>
+     * Può essere sovrascritto, invocando PRIMA il metodo della superclasse <br>
+     */
+    @Override
+    public void fixAlert() {
+        super.fixAlert();
+
+        if (usaInfoDownload && lastDownload != null && durataDownload != null) {
+            String data = dateService.get((LocalDateTime) lastDownload.get());
+            int durata = durataDownload.getInt();
+            message = String.format("Ultimo download effettuato il %s in %d secondi", data, durata);
+            addSpanBlue(message);
+        }
+    }
 
     /**
      * Bottoni standard (solo icone) Reset, New, Edit, Delete, ecc.. <br>
@@ -146,7 +175,7 @@ public abstract class WikiView extends CrudView {
             buttonModulo.getElement().setAttribute("theme", "secondary");
             buttonModulo.getElement().setProperty("title", "Modulo: lettura del modulo originario su wiki");
             buttonModulo.setIcon(new Icon(VaadinIcon.LIST));
-            buttonModulo.addClickListener(event -> visioneModulo());
+            buttonModulo.addClickListener(event -> wikiModulo());
             topPlaceHolder.add(buttonModulo);
         }
 
@@ -242,7 +271,7 @@ public abstract class WikiView extends CrudView {
      * Deve essere sovrascritto, invocando PRIMA il metodo della superclasse <br>
      */
     public void download() {
-        crudBackend.download();
+        crudBackend.download(wikiModuloTitle);
         reload();
     }
 
@@ -258,8 +287,10 @@ public abstract class WikiView extends CrudView {
      * Esegue un azione di apertura di un modulo su wiki, specifica del programma/package in corso <br>
      * Deve essere sovrascritto, invocando PRIMA il metodo della superclasse <br>
      */
-    public void visioneModulo() {
-        reload();
+    public void wikiModulo() {
+        if (textService.isValid(wikiModuloTitle)) {
+            wikiApiService.openWikiPage(wikiModuloTitle);
+        }
     }
 
     /**
@@ -267,7 +298,9 @@ public abstract class WikiView extends CrudView {
      * Deve essere sovrascritto, invocando PRIMA il metodo della superclasse <br>
      */
     public void statistiche() {
-        reload();
+        if (textService.isValid(wikiStatisticheTitle)) {
+            wikiApiService.openWikiPage(wikiStatisticheTitle);
+        }
     }
 
     /**

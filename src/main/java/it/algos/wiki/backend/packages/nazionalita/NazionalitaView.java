@@ -5,9 +5,11 @@ import static it.algos.vaad23.backend.boot.VaadCost.*;
 import it.algos.vaad23.backend.entity.*;
 import it.algos.vaad23.ui.views.*;
 import static it.algos.wiki.backend.boot.WikiCost.*;
+import it.algos.wiki.backend.enumeration.*;
 import it.algos.wiki.backend.packages.wiki.*;
 import org.springframework.beans.factory.annotation.*;
 
+import java.time.*;
 import java.util.*;
 
 import com.vaadin.flow.component.textfield.TextField;
@@ -27,7 +29,7 @@ import org.springframework.data.domain.*;
  * Su richiesta apre un Dialogo per gestire la singola entity <br>
  */
 @PageTitle("Nazionalita")
-@Route(value = "nazionalita", layout = MainLayout.class)
+@Route(value = TAG_NAZIONALITA, layout = MainLayout.class)
 public class NazionalitaView extends WikiView {
 
 
@@ -62,6 +64,10 @@ public class NazionalitaView extends WikiView {
         super.formPropertyNamesList = Arrays.asList("singolare", "plurale");
 
         super.sortOrder = Sort.by(Sort.Direction.ASC, "singolare");
+        super.lastDownload = WPref.lastDownloadNazionalita;
+        super.durataDownload = WPref.durataDownloadNazionalita;
+        super.wikiModuloTitle = PATH_MODULO_NAZIONALITA;
+        super.wikiStatisticheTitle = PATH_STATISTICHE_NAZIONALITA;
     }
 
     /**
@@ -71,7 +77,31 @@ public class NazionalitaView extends WikiView {
     @Override
     public void fixAlert() {
         super.fixAlert();
-        addSpanVerde("Prova di colori");
+        String uno;
+        String due;
+        String anche;
+        String minuscolo;
+        parametri = "Nazionalità/Cittadinanza/NazionalitàNaturalizzato";
+        alfabetico = "alfabetico";
+        singolare = "singolare";
+        plurale = "plurale";
+        minuscolo = "minuscolo";
+        uno = "Forma1";
+        due = "Forma2";
+        anche = "anche";
+        String ex = "ex";
+        String moduloTxt = PATH_MODULO_NAZIONALITA + " genere";
+
+        message = String.format("Contiene la tabella di conversione delle nazionalità passate via parametri %s.", parametri);
+        addSpanVerde(message);
+        message = String.format("da singolare maschile e femminile (usati nell'incipit) al %s, per categorizzare la pagina.", plurale);
+        addSpanVerde(message);
+        message = String.format("Le nazionalità sono elencate nel modulo '%s'", PATH_MODULO_NAZIONALITA);
+        addSpanVerde(message);
+        message = String.format(" con la sintassi: [\"nazionalita%s\"]=\"nazionalità al plurale\", [\"nazionalita%s\"]=\"nazionalità al plurale\".", uno, due);
+        addSpanVerde(message);
+        message = String.format("Indipendentemente da come sono scritte nel modulo, tutte le nazionalità sono convertite in %s ", minuscolo);
+        addSpanRosso(message);
     }
 
     protected void fixBottoniTopSpecifici() {
@@ -98,12 +128,12 @@ public class NazionalitaView extends WikiView {
             items = items.stream().filter(naz -> naz.plurale.matches("^(?i)" + textSearchPlurale + ".*$")).toList();
         }
 
-
         if (items != null) {
             grid.setItems((List) items);
+            elementiFiltrati = items.size();
+            sicroBottomLayout();
         }
     }
-
 
     /**
      * Esegue un azione di apertura di una pagina su wiki, specifica del programma/package in corso <br>

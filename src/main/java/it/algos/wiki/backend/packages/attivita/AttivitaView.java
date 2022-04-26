@@ -31,7 +31,7 @@ import java.util.*;
  * Su richiesta apre un Dialogo per gestire la singola entity <br>
  */
 @PageTitle("Attivita")
-@Route(value = "attivita", layout = MainLayout.class)
+@Route(value = TAG_ATTIVITA, layout = MainLayout.class)
 public class AttivitaView extends WikiView {
 
 
@@ -66,6 +66,10 @@ public class AttivitaView extends WikiView {
         super.formPropertyNamesList = Arrays.asList("singolare", "plurale", "aggiunta");
 
         super.sortOrder = Sort.by(Sort.Direction.ASC, "singolare");
+        super.lastDownload = WPref.lastDownloadAttivita;
+        super.durataDownload = WPref.durataDownloadAttivita;
+        super.wikiModuloTitle = PATH_MODULO_ATTIVITA;
+        super.wikiStatisticheTitle = PATH_STATISTICHE_ATTIVITA;
     }
 
     /**
@@ -76,37 +80,29 @@ public class AttivitaView extends WikiView {
     public void fixAlert() {
         super.fixAlert();
 
-        String message;
         String uno;
         String due;
-        String anche;
         String minuscolo;
-        String data = dateService.get((LocalDateTime) WPref.lastDownloadAttivita.get());
-        int durata = WPref.durataDownloadAttivita.getInt();
-
-        parametri = htmlService.bold("Attività/Attività2/Attività3");
-        alfabetico = htmlService.bold("alfabetico");
-        singolare = htmlService.bold("singolare");
-        plurale = htmlService.bold("plurale");
-        minuscolo = htmlService.bold("minuscolo");
-        uno = htmlService.bold("Forma1");
-        due = htmlService.bold("Forma2");
-        anche = htmlService.bold("anche");
-        String ex = htmlService.bold("ex");
+        parametri = "Attività/Attività2/Attività3";
+        alfabetico = "alfabetico";
+        singolare = "singolare";
+        plurale = "plurale";
+        minuscolo = "minuscolo";
+        uno = "Forma1";
+        due = "Forma2";
+        String ex = "ex";
         String moduloTxt = PATH_MODULO_ATTIVITA + " genere";
 
-        message = String.format("Ultimo download effettuato il %s in %d secondi", data, durata);
-        addSpanBlue(message);
-
-        message = String.format("Contiene la tabella di conversione delle attività passate via parametri %s.", parametri, singolare, plurale);
+        message = String.format("Contiene la tabella di conversione delle attività passate via parametri %s.", parametri);
         addSpanVerde(message);
-        message = String.format("Da maschile e femminile (usati nell'incipit) al %s maschile, per categorizzare la pagina.", singolare, plurale);
+        message = String.format("Da maschile e femminile (usati nell'incipit) al %s maschile, per categorizzare la pagina.", singolare);
         addSpanVerde(message);
         message = String.format("Le attività sono elencate nel modulo '%s'", PATH_MODULO_ATTIVITA);
         addSpanVerde(message);
         message = String.format(" con la sintassi: [\"attivita%s\"]=\"attività al plurale\", [\"attivita%s\"]=\"attività al plurale\".", uno, due);
         addSpanVerde(message);
-        message = String.format("Nella collezione locale mongoDB vengono aggiunte %s le voci delle %s-attività (non presenti nel modulo)", anche, ex);
+        message = String.format("Nella collezione locale mongoDB vengono aggiunte anche le voci delle %s-attività (non presenti nel " +
+                "modulo)", ex);
         addSpanRosso(message);
         message = String.format("Le voci aggiunte vengono recuperate dal modulo '%s' ", moduloTxt);
         addSpanRosso(message);
@@ -152,8 +148,11 @@ public class AttivitaView extends WikiView {
 
         if (items != null) {
             grid.setItems((List) items);
+            elementiFiltrati = items.size();
+            sicroBottomLayout();
         }
     }
+
 
     /**
      * Esegue un azione di apertura di una pagina su wiki, specifica del programma/package in corso <br>

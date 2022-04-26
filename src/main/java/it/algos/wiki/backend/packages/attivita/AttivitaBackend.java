@@ -8,6 +8,7 @@ import it.algos.wiki.backend.boot.*;
 import static it.algos.wiki.backend.boot.WikiCost.*;
 import it.algos.wiki.backend.enumeration.*;
 import it.algos.wiki.backend.packages.genere.*;
+import it.algos.wiki.backend.packages.wiki.*;
 import it.algos.wiki.backend.service.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.data.mongodb.repository.*;
@@ -31,23 +32,8 @@ import java.util.*;
  * NOT annotated with @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) (inutile, esiste già @Service) <br>
  */
 @Service
-public class AttivitaBackend extends CrudBackend {
+public class AttivitaBackend extends WikiBackend {
 
-    /**
-     * Istanza unica di una classe @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) di servizio <br>
-     * Iniettata automaticamente dal framework SpringBoot/Vaadin con l'Annotation @Autowired <br>
-     * Disponibile DOPO il ciclo init() del costruttore di questa classe <br>
-     */
-    @Autowired
-    public WikiApiService wikiApiService;
-
-    /**
-     * Istanza unica di una classe @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) di servizio <br>
-     * Iniettata automaticamente dal framework SpringBoot/Vaadin con l'Annotation @Autowired <br>
-     * Disponibile DOPO il ciclo init() del costruttore di questa classe <br>
-     */
-    @Autowired
-    public GenereBackend genereBackend;
 
     private AttivitaRepository repository;
 
@@ -62,10 +48,11 @@ public class AttivitaBackend extends CrudBackend {
      *
      * @param crudRepository per la persistenza dei dati
      */
-    //@todo registrare eventualmente come costante in VaadCost il valore del Qualifier
-    public AttivitaBackend(@Autowired @Qualifier("Attivita") final MongoRepository crudRepository) {
+    public AttivitaBackend(@Autowired @Qualifier(TAG_ATTIVITA) final MongoRepository crudRepository) {
         super(crudRepository, Attivita.class);
         this.repository = (AttivitaRepository) crudRepository;
+        super.lastDownload = WPref.lastDownloadAttivita;
+        super.durataDownload = WPref.durataDownloadAttivita;
     }
 
     /**
@@ -117,15 +104,6 @@ public class AttivitaBackend extends CrudBackend {
 
 
     /**
-     * Esegue un azione di download, specifica del programma/package in corso <br>
-     * Deve essere sovrascritto, senza invocare il metodo della superclasse <br>
-     */
-    @Override
-    public void download() {
-        downloadModulo(PATH_MODULO_ATTIVITA);
-    }
-
-    /**
      * Legge la mappa di valori dal modulo di wiki <br>
      * Cancella la (eventuale) precedente lista di attività <br>
      * Elabora la mappa per creare le singole attività <br>
@@ -135,45 +113,27 @@ public class AttivitaBackend extends CrudBackend {
      *
      * @return true se l'azione è stata eseguita
      */
-    public boolean downloadModulo(String wikiTitle) {
-        boolean status = false;
-        String message;
+    public void download(final String wikiTitle) {
         long inizio = System.currentTimeMillis();
-        long fine;
-        Long delta;
-        int durata;
-        int size;
+        int size = 0;
 
         Map<String, String> mappa = wikiApiService.leggeMappaModulo(wikiTitle);
 
         if (mappa != null && mappa.size() > 0) {
-            size = mappa.size();
             deleteAll();
             for (Map.Entry<String, String> entry : mappa.entrySet()) {
                 this.creaOriginale(entry.getKey(), entry.getValue());
+                size++;
             }
-            status = true;
-            fine = System.currentTimeMillis();
-            delta = fine - inizio;
-            delta = delta / 1000;
-            durata = delta.intValue();
-            WPref.durataDownloadAttivita.setValue(durata);
-            WPref.lastDownloadAttivita.setValue(LocalDateTime.now());
-            message = String.format("Download di %s attività dal modulo wiki", textService.format(size));
-            logger.info(new WrapLog().message(message));
         }
         else {
             message = String.format("Non sono riuscito a leggere da wiki il modulo %s", wikiTitle);
             logger.warn(new WrapLog().exception(new AlgosException(message)).usaDb());
+            return;
         }
 
+        super.fixDownload(inizio, wikiTitle, mappa.size(), size);
         aggiunge();
-
-        return status;
-    }
-
-    public int countAll() {
-        return repository.findAll().size();
     }
 
 

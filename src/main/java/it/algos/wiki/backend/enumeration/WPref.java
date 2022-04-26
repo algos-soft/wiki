@@ -20,12 +20,19 @@ import java.util.*;
  * <p>
  * Creazione da code di alcune preferenze del progetto <br>
  */
-public enum WPref  {
+public enum WPref {
 
-    lastDownloadGenere("lastGenere", AETypePref.localdatetime, "Data dell'ultimo download di attività dal Modulo:Bio/Plurale attività.", ROOT_DATA_TIME) {},
-    durataDownloadGenere("durataGenere", AETypePref.integer, "Durata in secondi dell'ultimo download del modulo genere.",0) {},
-    lastDownloadAttivita("lastAttivita", AETypePref.localdatetime, "Data dell'ultimo download di attività dal Modulo:Bio/Plurale attività.", ROOT_DATA_TIME) {},
-    durataDownloadAttivita("durataAttivita", AETypePref.integer, "Durata in secondi dell'ultimo download del modulo attività.",0) {},
+    lastDownloadGenere("lastGenere", AETypePref.localdatetime, "Data dell'ultimo download di attività dal Modulo:Bio/Plurale attività.", ROOT_DATA_TIME),
+    durataDownloadGenere("durataGenere", AETypePref.integer, "Durata in secondi dell'ultimo download del modulo genere.", 0),
+    lastDownloadAttivita("lastAttivita", AETypePref.localdatetime, "Data dell'ultimo download di attività dal Modulo:Bio/Plurale attività.", ROOT_DATA_TIME),
+    durataDownloadAttivita("durataAttivita", AETypePref.integer, "Durata in secondi dell'ultimo download del modulo attività.", 0),
+    lastDownloadNazionalita("lastNazionalita", AETypePref.localdatetime, "Data dell'ultimo download di nazionalità dal Modulo:Bio/Plurale" +
+            " nazionalità.", ROOT_DATA_TIME),
+    durataDownloadNazionalita("durataNazionalita", AETypePref.integer, "Durata in secondi dell'ultimo download del modulo nazionalità.", 0),
+    lastDownloadProfessione("lastProfessione", AETypePref.localdatetime, "Data dell'ultimo download di professione dal Modulo:Bio/Plurale" +
+            " " +
+            "attività.", ROOT_DATA_TIME),
+    durataDownloadProfessione("durataProfessione", AETypePref.integer, "Durata in secondi dell'ultimo professione del modulo genere.", 0),
     ;
 
     //--codice di riferimento.
@@ -52,7 +59,6 @@ public enum WPref  {
 
     //--Link injected da un metodo static
     private DateService date;
-
 
 
     WPref(final String keyCode, final AETypePref type, final String descrizione, final Object defaultValue) {

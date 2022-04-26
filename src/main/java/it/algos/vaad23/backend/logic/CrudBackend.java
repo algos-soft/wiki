@@ -182,4 +182,13 @@ public abstract class CrudBackend extends AbstractService {
     public void download() {
     }
 
+    /**
+     * Esegue un azione di download, specifica del programma/package in corso <br>
+     * Deve essere sovrascritto, senza invocare il metodo della superclasse <br>
+     *
+     * @param wikiTitle della pagina sul web
+     */
+    public void download(final String wikiTitle) {
+    }
+
 }

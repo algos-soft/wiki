@@ -212,6 +212,8 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
 
     protected int elementiFiltrati;
 
+    protected String message;
+
     private Function<String, Grid.Column<AEntity>> getColonna = name -> grid.getColumnByKey(name);
 
 
@@ -303,6 +305,11 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
         this.alertPlaceHolder.setSpacing(true);
         this.alertPlaceHolder.setMargin(false);
         this.add(alertPlaceHolder);
+
+        //--spazio prima dei bottoni
+        Label emptyLabel = new Label(VUOTA);
+        emptyLabel.setHeight("0.3em");
+        this.add(emptyLabel);
     }
 
     /**
@@ -332,6 +339,11 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
         this.fixFiltri();
         this.fixBottoniTopSpecifici();
         this.add(topPlaceHolder);
+
+        //--spazio prima della grid
+        Label emptyLabel = new Label(VUOTA);
+        emptyLabel.setHeight("0.1em");
+        this.add(emptyLabel);
     }
 
     /**
@@ -562,7 +574,6 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
     }
 
     protected void sicroBottomLayout() {
-        String message;
         String view = textService.primaMaiuscola(entityClazz.getSimpleName());
         int elementiTotali = crudBackend.countAll();
         String totaleTxt = textService.format(elementiTotali);

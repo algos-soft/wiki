@@ -67,4 +67,12 @@ public class WikiCost {
 
     public static final String TAG_EX2 = "ex-";
 
+    public static final String TAG_GENERE = "genere";
+
+    public static final String TAG_ATTIVITA = "attivita";
+
+    public static final String TAG_NAZIONALITA = "nazionalita";
+
+    public static final String TAG_PROFESSIONE = "professione";
+
 }

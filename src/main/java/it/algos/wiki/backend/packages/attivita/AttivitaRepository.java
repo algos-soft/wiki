@@ -1,6 +1,7 @@
 package it.algos.wiki.backend.packages.attivita;
 
 import it.algos.vaad23.backend.entity.*;
+import static it.algos.wiki.backend.boot.WikiCost.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.data.mongodb.repository.*;
 import org.springframework.stereotype.*;
@@ -21,7 +22,7 @@ import java.util.*;
  * Eventualmente usare una costante di VaadCost come @Qualifier sia qui che nella corrispondente classe xxxBackend <br>
  */
 @Repository
-@Qualifier("Attivita")
+@Qualifier(TAG_ATTIVITA)
 public interface AttivitaRepository extends MongoRepository<Attivita, String> {
 
     @Override

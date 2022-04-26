@@ -6,6 +6,7 @@ import it.algos.vaad23.backend.logic.*;
 import it.algos.vaad23.backend.wrapper.*;
 import static it.algos.wiki.backend.boot.WikiCost.*;
 import it.algos.wiki.backend.enumeration.*;
+import it.algos.wiki.backend.packages.wiki.*;
 import it.algos.wiki.backend.service.*;
 import org.springframework.data.mongodb.repository.*;
 import org.springframework.stereotype.Service;
@@ -36,15 +37,7 @@ import java.util.stream.*;
  * NOT annotated with @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) (inutile, esiste già @Service) <br>
  */
 @Service
-public class GenereBackend extends CrudBackend {
-
-    /**
-     * Istanza unica di una classe @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) di servizio <br>
-     * Iniettata automaticamente dal framework SpringBoot/Vaadin con l'Annotation @Autowired <br>
-     * Disponibile DOPO il ciclo init() del costruttore di questa classe <br>
-     */
-    @Autowired
-    public WikiApiService wikiApiService;
+public class GenereBackend extends WikiBackend {
 
 
     private GenereRepository repository;
@@ -59,10 +52,11 @@ public class GenereBackend extends CrudBackend {
      *
      * @param crudRepository per la persistenza dei dati
      */
-    //@todo registrare eventualmente come costante in VaadCost il valore del Qualifier
-    public GenereBackend(@Autowired @Qualifier("Genere") final MongoRepository crudRepository) {
+    public GenereBackend(@Autowired @Qualifier(TAG_GENERE) final MongoRepository crudRepository) {
         super(crudRepository, Genere.class);
         this.repository = (GenereRepository) crudRepository;
+        super.lastDownload = WPref.lastDownloadGenere;
+        super.durataDownload = WPref.durataDownloadGenere;
     }
 
     /**
@@ -74,8 +68,8 @@ public class GenereBackend extends CrudBackend {
      *
      * @return la nuova entityBean appena creata e salvata
      */
-    public Genere crea(final String singolare, final String pluraleMaschile, final String pluraleFemminile, final boolean maschile) {
-        return repository.insert(newEntity(singolare, pluraleMaschile, pluraleFemminile, maschile));
+    public void crea(final String singolare, final String pluraleMaschile, final String pluraleFemminile, final boolean maschile) {
+        repository.insert(newEntity(singolare, pluraleMaschile, pluraleFemminile, maschile));
     }
 
     /**
@@ -127,15 +121,6 @@ public class GenereBackend extends CrudBackend {
         return (List<Genere>) findAll().stream().filter(startEx).collect(Collectors.toList());
     }
 
-    /**
-     * Esegue un azione di download, specifica del programma/package in corso <br>
-     * Deve essere sovrascritto, senza invocare il metodo della superclasse <br>
-     */
-    @Override
-    public void download() {
-        downloadModulo(PATH_MODULO_GENERE);
-    }
-
 
     /**
      * Legge la mappa di valori dal modulo di wiki <br>
@@ -147,13 +132,9 @@ public class GenereBackend extends CrudBackend {
      *
      * @return true se l'azione è stata eseguita
      */
-    public boolean downloadModulo(String wikiTitle) {
-        boolean status = false;
-        String message;
+    public void download(final String wikiTitle) {
         long inizio = System.currentTimeMillis();
-        long fine;
-        Long delta;
-        int durata;
+        int size = 0;
         String singolare;
         String pluraliGrezzi;
         String pluraleMaschile;
@@ -172,26 +153,20 @@ public class GenereBackend extends CrudBackend {
                 pluraleFemminile = this.estraeFemminile(pluraliGrezzi);
 
                 if (textService.isValid(pluraleMaschile)) {
-                    this.crea(singolare, pluraleMaschile, VUOTA, true);
+                    crea(singolare, pluraleMaschile, VUOTA, true);
+                    size++;
                 }
                 if (textService.isValid(pluraleFemminile)) {
-                    this.crea(singolare, VUOTA, pluraleFemminile, false);
+                    crea(singolare, VUOTA, pluraleFemminile, false);
+                    size++;
                 }
             }
-            status = true;
-            fine = System.currentTimeMillis();
-            delta = fine - inizio;
-            delta = delta / 1000;
-            durata = delta.intValue();
-            WPref.durataDownloadGenere.setValue(durata);
-            WPref.lastDownloadGenere.setValue(LocalDateTime.now());
         }
         else {
             message = String.format("Non sono riuscito a leggere da wiki il modulo %s", wikiTitle);
             logger.warn(new WrapLog().exception(new AlgosException(message)).usaDb());
         }
-
-        return status;
+        super.fixDownload(inizio, wikiTitle, mappa.size(), size);
     }
 
 
