@@ -214,6 +214,8 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
 
     protected String message;
 
+    protected boolean usaSelectionGrid;
+
     private Function<String, Grid.Column<AEntity>> getColonna = name -> grid.getColumnByKey(name);
 
 
@@ -292,6 +294,7 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
         usaComboType = false;
         usaBottomTotale = true;
         usaBottomInfo = true;
+        usaSelectionGrid = true;
     }
 
     /**
@@ -474,8 +477,11 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
         // switch to single select mode
         grid.setSelectionMode(Grid.SelectionMode.SINGLE);
 
-        // sincronizzazione dei bottoni Edit e Delete
+        // sincronizzazione delle righe
         grid.addSelectionListener(event -> sincroSelection(event));
+        if (!usaSelectionGrid) {
+            grid.setSelectionMode(Grid.SelectionMode.NONE);
+        }
 
         // layout configuration
         setSizeFull();
@@ -553,7 +559,7 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
      */
     protected void fixListener() {
         // pass the row/item that the user double-clicked to method updateItem
-        if (Pref.doubleClick.is()) {
+        if (usaSelectionGrid && Pref.doubleClick.is()) {
             grid.addItemDoubleClickListener(listener -> updateItem(listener.getItem()));
         }
     }
@@ -766,6 +772,7 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
 
         return indexWidth;
     }
+
 
     public void addSpanVerde(final String message) {
         alertPlaceHolder.add(getSpan(new WrapSpan(message).color(AETypeColor.verde)));

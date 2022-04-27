@@ -3,7 +3,9 @@ package it.algos.wiki.backend.packages.professione;
 import ch.carnet.kasparscherrer.*;
 import com.vaadin.flow.component.orderedlayout.*;
 import com.vaadin.flow.router.*;
+import it.algos.vaad23.backend.boot.*;
 import static it.algos.vaad23.backend.boot.VaadCost.*;
+import it.algos.vaad23.backend.entity.*;
 import it.algos.vaad23.ui.views.*;
 import static it.algos.wiki.backend.boot.WikiCost.*;
 import it.algos.wiki.backend.enumeration.*;
@@ -74,7 +76,6 @@ public class ProfessioneView extends WikiView {
         super.usaBottoneUpload = false;
         super.usaBottoneStatistiche = false;
         super.usaBottoneUploadStatistiche = false;
-        super.usaBottonePaginaWiki = false;
         super.usaBottoneTest = false;
         super.usaBottoneUploadPagina = false;
     }
@@ -141,6 +142,20 @@ public class ProfessioneView extends WikiView {
         if (items != null) {
             grid.setItems((List) items);
         }
+    }
+
+    /**
+     * Esegue un azione di apertura di una pagina su wiki, specifica del programma/package in corso <br>
+     * Deve essere sovrascritto, invocando PRIMA il metodo della superclasse <br>
+     */
+    @Override
+    protected AEntity wikiPage() {
+        Professione professione = (Professione) super.wikiPage();
+
+        String paginaText = textService.primaMaiuscola(professione.pagina);
+        wikiApiService.openWikiPage( paginaText);
+
+        return null;
     }
 
 }// end of crud @Route view class

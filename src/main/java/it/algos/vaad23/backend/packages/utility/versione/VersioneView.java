@@ -65,7 +65,6 @@ public class VersioneView extends CrudView {
         super.sortOrder = Sort.by(Sort.Direction.ASC, "ordine");
         super.usaBottoneDeleteReset = false;
         super.usaBottoneNew = false;
-        super.usaBottoneEdit = false;
         super.usaBottoneDelete = false;
     }
 

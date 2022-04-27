@@ -55,14 +55,15 @@ public class LoggerView extends CrudView {
 
         if (VaadVar.usaCompany) {
             super.gridPropertyNamesList = Arrays.asList("type", "livello", "evento", "descrizione", "company", "user", "classe", "metodo", "linea");
+            super.formPropertyNamesList = Arrays.asList("type", "livello", "evento", "descrizione", "company", "user", "classe", "metodo", "linea");
         }
         else {
             super.gridPropertyNamesList = Arrays.asList("type", "livello", "evento", "descrizione", "classe", "metodo", "linea");
+            super.formPropertyNamesList = Arrays.asList("type", "livello", "evento", "descrizione", "classe", "metodo", "linea");
         }
         super.sortOrder = Sort.by(Sort.Direction.DESC, "evento");
         super.usaBottoneDeleteReset = true;
         super.usaBottoneNew = false;
-        super.usaBottoneEdit = false;
         super.usaBottoneDelete = false;
         super.usaComboType = true;
     }

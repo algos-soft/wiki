@@ -61,11 +61,12 @@ public class DoppionomeView extends WikiView {
         super.durataDownload = WPref.durataDownloadNomi;
         super.wikiModuloTitle = PATH_TABELLA_NOMI_DOPPI;
 
-        this.usaBottoneUpload = false;
-        this.usaBottoneStatistiche = false;
-        this.usaBottoneUploadStatistiche = false;
-        this.usaBottonePaginaWiki = false;
-        this.usaBottoneTest = false;
+        super.usaBottoneUpload = false;
+        super.usaBottoneStatistiche = false;
+        super.usaBottoneUploadStatistiche = false;
+        super.usaBottonePaginaWiki = false;
+        super.usaBottoneTest = false;
+        super.usaSelectionGrid = false;
     }
 
     /**

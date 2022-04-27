@@ -26,11 +26,11 @@ import java.time.format.*;
 @EqualsAndHashCode(callSuper = false)
 public class Logger extends AEntity {
 
-    @AIField(type = AETypeField.enumeration)
-    public AELogLevel livello;
-
-    @AIField(type = AETypeField.enumeration)
+    @AIField(type = AETypeField.enumeration, enumClazz = AETypeLog.class)
     public AETypeLog type;
+
+    @AIField(type = AETypeField.enumeration, enumClazz = AELogLevel.class)
+    public AELogLevel livello;
 
     @AIField(type = AETypeField.localDateTime)
     public LocalDateTime evento;

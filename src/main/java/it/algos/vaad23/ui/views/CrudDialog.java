@@ -4,6 +4,7 @@ import com.vaadin.flow.component.*;
 import com.vaadin.flow.component.button.*;
 import com.vaadin.flow.component.checkbox.*;
 import com.vaadin.flow.component.combobox.*;
+import com.vaadin.flow.component.datetimepicker.*;
 import com.vaadin.flow.component.dialog.*;
 import com.vaadin.flow.component.formlayout.*;
 import com.vaadin.flow.component.html.*;
@@ -267,7 +268,11 @@ public class CrudDialog extends Dialog {
                         }
                         yield combo;
                     }
-                    default -> new TextField(key);
+                    case localDateTime -> new DateTimePicker(key);
+                    default -> {
+                        logger.error(new WrapLog().exception(new AlgosException("Manca il case dello switch")).usaDb());
+                        yield new TextField(key);
+                    }
                 };
 
                 formLayout.add(field);
