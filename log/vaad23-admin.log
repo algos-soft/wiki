@@ -41,3 +41,14 @@
 2022-04-28 11:30:24 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
 2022-04-28 11:30:24 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'vaad23' esisteva già ma è stata sostituita. (dirDeletingAll) 
 2022-04-28 11:30:24 INFO  [http-nio-8080-exec-7] : [wizard    ] - Delete: cancellata la directory 'sources' dal progetto wiki 
+2022-04-28 13:51:50 ERROR [http-nio-8080-exec-5] : [system    ] - There are no instance fields found for automatic binding [class=CrudDialog          ] [method=fixBinder           ] [line=296 ]  
+2022-04-28 21:10:27 INFO  [http-nio-8080-exec-3] : [spazio    ] 
+2022-04-28 21:10:27 INFO  [http-nio-8080-exec-3] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
+2022-04-28 21:10:28 INFO  [http-nio-8080-exec-3] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-28 21:10:28 INFO  [http-nio-8080-exec-3] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-28 21:10:28 INFO  [http-nio-8080-exec-3] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-28 21:10:28 INFO  [http-nio-8080-exec-3] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-28 21:10:28 INFO  [http-nio-8080-exec-3] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-28 21:10:28 INFO  [http-nio-8080-exec-3] : [wizard    ] - Update: la directory 'vaad23' esisteva già ma è stata sostituita. (dirDeletingAll) 
+2022-04-28 21:10:28 INFO  [http-nio-8080-exec-3] : [wizard    ] - Delete: cancellata la directory 'sources' dal progetto wiki 
+2022-04-28 21:12:09 INFO  [http-nio-8080-exec-3] : [wizard    ] - La directory 'wizard' è stata aggiornata su 'vaadin23' 

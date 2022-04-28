@@ -9,7 +9,10 @@ import com.vaadin.flow.router.*;
 import com.vaadin.flow.spring.annotation.*;
 import it.algos.vaad23.backend.boot.*;
 import static it.algos.vaad23.backend.boot.VaadCost.*;
+import it.algos.vaad23.backend.exception.*;
 import it.algos.vaad23.backend.service.*;
+import it.algos.vaad23.backend.wrapper.*;
+import it.algos.vaad23.ui.dialog.*;
 import it.algos.vaad23.ui.views.*;
 import it.algos.vaad23.wizard.scripts.*;
 import org.springframework.beans.factory.annotation.*;
@@ -40,6 +43,14 @@ public class WizardView extends VerticalLayout {
      */
     @Autowired
     public ApplicationContext appContext;
+
+    /**
+     * Istanza unica di una classe @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) di servizio <br>
+     * Iniettata automaticamente dal framework SpringBoot/Vaadin con l'Annotation @Autowired <br>
+     * Disponibile DOPO il ciclo init() del costruttore di questa classe <br>
+     */
+    @Autowired
+    public LogService logger;
 
     /**
      * Istanza unica di una classe @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) di servizio <br>
