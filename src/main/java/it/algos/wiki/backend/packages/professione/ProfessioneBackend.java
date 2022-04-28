@@ -2,7 +2,6 @@ package it.algos.wiki.backend.packages.professione;
 
 import static it.algos.vaad23.backend.boot.VaadCost.*;
 import it.algos.vaad23.backend.exception.*;
-import it.algos.vaad23.backend.logic.*;
 import it.algos.vaad23.backend.wrapper.*;
 import static it.algos.wiki.backend.boot.WikiCost.*;
 import it.algos.wiki.backend.enumeration.*;
@@ -12,12 +11,6 @@ import org.springframework.data.mongodb.repository.*;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.*;
 
-import com.vaadin.flow.spring.annotation.SpringComponent;
-import org.springframework.context.annotation.Scope;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import com.vaadin.flow.component.textfield.TextField;
-
-import java.time.*;
 import java.util.*;
 
 /**
@@ -61,8 +54,7 @@ public class ProfessioneBackend extends WikiBackend {
     public ProfessioneBackend(@Autowired @Qualifier(TAG_PROFESSIONE) final MongoRepository crudRepository) {
         super(crudRepository, Professione.class);
         this.repository = (ProfessioneRepository) crudRepository;
-        super.lastDownload = WPref.lastDownloadProfessione;
-        super.durataDownload = WPref.durataDownloadProfessione;
+//        super.lastDownload = WPref.downloadProfessione;
     }
 
     public Professione creaIfNotExist(final String attivita, final String pagina, final boolean aggiunta) {

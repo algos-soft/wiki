@@ -1,6 +1,7 @@
 package it.algos.vaad23.backend.packages.utility.preferenza;
 
 import com.vaadin.flow.spring.annotation.*;
+import static it.algos.vaad23.backend.boot.VaadCost.*;
 import it.algos.vaad23.backend.entity.*;
 import it.algos.vaad23.backend.enumeration.*;
 import org.springframework.beans.factory.annotation.*;
@@ -26,7 +27,7 @@ import java.util.*;
  */
 @SpringComponent
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
-@Qualifier("Preferenza")
+@Qualifier(TAG_PRE)
 @Repository
 public interface PreferenzaRepository extends MongoRepository<Preferenza, String> {
 
@@ -40,10 +41,12 @@ public interface PreferenzaRepository extends MongoRepository<Preferenza, String
 
     List<Preferenza> findAllByCode(String code);
 
-    List<Preferenza> findByCodeStartingWithIgnoreCase(String code);
+//    List<Preferenza> findByCodeStartingWithIgnoreCase(String code);
 
     List<Preferenza> findByType(AETypePref type);
 
     List<Preferenza> findByCodeStartingWithIgnoreCaseAndType(String code, AETypePref type);
+
+    Preferenza findFirstByCode(String code);
 
 }// end of crud repository class

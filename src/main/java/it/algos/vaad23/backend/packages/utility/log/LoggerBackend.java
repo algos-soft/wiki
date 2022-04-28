@@ -25,8 +25,7 @@ import java.time.*;
  * NOT annotated with @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) (inutile, esiste già @Service) <br>
  */
 @Service
-@Qualifier("Logger") //@todo Qualifier da sostituire (eventualmente) con costante da registrare su VaadCost
-//@AIScript(sovraScrivibile = true)
+@Qualifier(TAG_LOGGER)
 public class LoggerBackend extends CrudBackend {
 
     public LoggerRepository repository;
@@ -42,7 +41,7 @@ public class LoggerBackend extends CrudBackend {
      * @param crudRepository per la persistenza dei dati
      */
     //@todo registrare eventualmente come costante in VaadCost il valore del Qualifier
-    public LoggerBackend(@Autowired @Qualifier("Logger") final MongoRepository crudRepository) {
+    public LoggerBackend(@Autowired @Qualifier(TAG_LOGGER) final MongoRepository crudRepository) {
         super(crudRepository, Logger.class);
         this.repository = (LoggerRepository) crudRepository;
     }

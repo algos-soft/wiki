@@ -6,6 +6,7 @@ import it.algos.vaad23.backend.exception.*;
 import it.algos.vaad23.backend.packages.utility.preferenza.*;
 import it.algos.vaad23.backend.service.*;
 import it.algos.vaad23.backend.wrapper.*;
+import static it.algos.wiki.backend.boot.WikiCost.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 
@@ -22,22 +23,20 @@ import java.util.*;
  */
 public enum WPref {
 
-    lastDownloadGenere("lastGenere", AETypePref.localdatetime, "Data dell'ultimo download di attività dal Modulo:Bio/Plurale attività.", ROOT_DATA_TIME),
-    durataDownloadGenere("durataGenere", AETypePref.integer, "Durata in secondi dell'ultimo download del modulo genere.", 0),
-    lastDownloadAttivita("lastAttivita", AETypePref.localdatetime, "Data dell'ultimo download di attività dal Modulo:Bio/Plurale attività.", ROOT_DATA_TIME),
-    durataDownloadAttivita("durataAttivita", AETypePref.integer, "Durata in secondi dell'ultimo download del modulo attività.", 0),
-    lastDownloadNazionalita("lastNazionalita", AETypePref.localdatetime, "Data dell'ultimo download di nazionalità dal Modulo:Bio/Plurale" +
-            " nazionalità.", ROOT_DATA_TIME),
-    durataDownloadNazionalita("durataNazionalita", AETypePref.integer, "Durata in secondi dell'ultimo download del modulo nazionalità.", 0),
-    lastDownloadProfessione("lastProfessione", AETypePref.localdatetime, "Data dell'ultimo download di professione dal Modulo:Bio/Plurale" +
-            " " +
-            "attività.", ROOT_DATA_TIME),
-    durataDownloadProfessione("durataProfessione", AETypePref.integer, "Durata in secondi dell'ultimo professione del modulo genere.", 0),
+    downloadGenere("downloadGenere", AETypePref.localdatetime, "Download di Modulo:Bio/Plurale attività genere.", ROOT_DATA_TIME),
+    downloadAttivita("downloadAttivita", AETypePref.localdatetime, "Download di Modulo:Bio/Plurale attività.", ROOT_DATA_TIME),
+    elaboraAttivita("elaboraAttivita", AETypePref.localdatetime, "Elaborazione di tutte le attività.", ROOT_DATA_TIME),
+    elaboraAttivitaTime("elaboraAttivitaTime", AETypePref.integer, "Durata elaborazione delle attività.", 0),
+    uploadAttivita("uploadAttivita", AETypePref.localdatetime, "Upload di tutte le attività.", ROOT_DATA_TIME),
+    //    uploadAttivitaTime("uploadAttivitaTime", AETypePref.integer, "Durata upload delle attività.", 0),
+    //    downloadNazionalita("downloadNazionalita", AETypePref.localdatetime, "Download di Modulo:Bio/Plurale nazionalità.", ROOT_DATA_TIME),
+    //    downloadProfessione("downloadProfessione", AETypePref.localdatetime, "Download di Modulo:Bio/Link attività.", ROOT_DATA_TIME),
+    //    downloadNomi("downloadNomi", AETypePref.localdatetime, "Download di Progetto:Antroponimi/Nomi doppi.", ROOT_DATA_TIME),
 
-    lastDownloadNomi("lastNomi", AETypePref.localdatetime,
-                       "Data dell'ultimo download di attività dalla tabella Progetto:Antroponimi/Nomi doppi.", ROOT_DATA_TIME),
-    durataDownloadNomi("durataNomi", AETypePref.integer, "Durata in secondi dell'ultimo download della tabella Nomi doppi.", 0),
-;
+    sogliaAttNazWiki("sogliaAttNazWiki", AETypePref.integer, "Soglia minima per creare la pagina di una attività o nazionalità sul server wiki", 50),
+
+    ;
+
     //--codice di riferimento.
     private String keyCode;
 

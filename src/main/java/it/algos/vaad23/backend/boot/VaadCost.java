@@ -249,6 +249,10 @@ public class VaadCost {
 
     public static final String TAG_VERSIONE = "versione";
 
+    public static final String TAG_NOTA = "nota";
+
+    public static final String TAG_LOGGER = "logger";
+
     public static final String TAG_CONTINENTE = "continente";
 
     public static final String TAG_FLOW_DATA = "flowdata";
@@ -316,7 +320,6 @@ public class VaadCost {
 
     public static final List<String> ESCLUSI_ALL = Arrays.asList(PROPERTY_SERIAL, PROPERTY_NOTE, PROPERTY_CREAZIONE, PROPERTY_MODIFICA);
 
-    public static final String TAG_NOTA = "nota";
 
     public static final String TAG_EM = "em";
 

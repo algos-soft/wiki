@@ -1,25 +1,18 @@
 package it.algos.wiki.backend.packages.genere;
 
 import ch.carnet.kasparscherrer.*;
-import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.component.orderedlayout.*;
 import com.vaadin.flow.component.textfield.*;
 import com.vaadin.flow.router.*;
 import static it.algos.vaad23.backend.boot.VaadCost.*;
-import it.algos.vaad23.backend.enumeration.*;
-import it.algos.vaad23.backend.wrapper.*;
 import it.algos.vaad23.ui.views.*;
 import static it.algos.wiki.backend.boot.WikiCost.*;
 import it.algos.wiki.backend.enumeration.*;
 import it.algos.wiki.backend.packages.wiki.*;
 import org.springframework.beans.factory.annotation.*;
 
-import java.time.*;
 import java.util.*;
 
-import com.vaadin.flow.spring.annotation.SpringComponent;
-import org.springframework.context.annotation.Scope;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.data.domain.*;
 
 /**
@@ -73,17 +66,18 @@ public class GenereView extends WikiView {
         super.formPropertyNamesList = Arrays.asList("singolare", "pluraleMaschile", "pluraleFemminile");
 
         super.sortOrder = Sort.by(Sort.Direction.ASC, "singolare");
-        super.lastDownload = WPref.lastDownloadGenere;
-        super.durataDownload = WPref.durataDownloadGenere;
+        super.lastDownload = WPref.downloadGenere;
         super.wikiModuloTitle = PATH_MODULO_GENERE;
 
         super.usaBottoneUpload = false;
-        super.usaBottoneStatistiche = false;
+//        super.usaBottoneStatistiche = false;
         super.usaBottoneUploadStatistiche = false;
         super.usaBottonePaginaWiki = false;
         super.usaBottoneTest = false;
         super.usaBottoneUploadPagina = false;
         super.usaSelectionGrid = false;
+
+        super.fixPreferenzeBackend();
     }
 
     /**

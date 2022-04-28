@@ -36,6 +36,11 @@ public class Attivita extends AEntity {
     @AIField(type = AETypeField.booleano, headerIcon = VaadinIcon.ADD_DOCK, caption = "aggiunta (ex-attività)", usaCheckBox3Vie = true)
     public boolean aggiunta;
 
+    @AIField(type = AETypeField.integer)
+    public int bio;
+
+    @AIField(type = AETypeField.booleano, headerIcon = VaadinIcon.LIST)
+    public boolean pagina;
 
     /**
      * @return a string representation of the object.

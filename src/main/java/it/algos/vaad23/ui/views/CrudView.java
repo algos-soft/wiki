@@ -795,7 +795,7 @@ public abstract class CrudView extends VerticalLayout implements AfterNavigation
             wrap.color(AETypeColor.verde);
         }
         if (wrap.getWeight() == null) {
-            wrap.weight(AEFontWeight.bold);
+            wrap.weight(AEFontWeight.normal);
         }
         if (wrap.getFontHeight() == null) {
             if (browserWidth == 0 || browserWidth > 500) {

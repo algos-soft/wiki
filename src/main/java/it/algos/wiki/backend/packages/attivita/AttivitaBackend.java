@@ -2,19 +2,16 @@ package it.algos.wiki.backend.packages.attivita;
 
 import static it.algos.vaad23.backend.boot.VaadCost.*;
 import it.algos.vaad23.backend.exception.*;
-import it.algos.vaad23.backend.logic.*;
 import it.algos.vaad23.backend.wrapper.*;
 import it.algos.wiki.backend.boot.*;
 import static it.algos.wiki.backend.boot.WikiCost.*;
 import it.algos.wiki.backend.enumeration.*;
 import it.algos.wiki.backend.packages.genere.*;
 import it.algos.wiki.backend.packages.wiki.*;
-import it.algos.wiki.backend.service.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.data.mongodb.repository.*;
 import org.springframework.stereotype.*;
 
-import java.time.*;
 import java.util.*;
 
 /**
@@ -51,8 +48,6 @@ public class AttivitaBackend extends WikiBackend {
     public AttivitaBackend(@Autowired @Qualifier(TAG_ATTIVITA) final MongoRepository crudRepository) {
         super(crudRepository, Attivita.class);
         this.repository = (AttivitaRepository) crudRepository;
-        super.lastDownload = WPref.lastDownloadAttivita;
-        super.durataDownload = WPref.durataDownloadAttivita;
     }
 
     public Attivita creaIfNotExist(final String singolare, final String plurale, final boolean aggiunta) {

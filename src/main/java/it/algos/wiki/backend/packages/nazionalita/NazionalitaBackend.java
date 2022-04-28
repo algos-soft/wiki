@@ -2,22 +2,14 @@ package it.algos.wiki.backend.packages.nazionalita;
 
 import static it.algos.vaad23.backend.boot.VaadCost.*;
 import it.algos.vaad23.backend.exception.*;
-import it.algos.vaad23.backend.logic.*;
 import it.algos.vaad23.backend.wrapper.*;
 import static it.algos.wiki.backend.boot.WikiCost.*;
 import it.algos.wiki.backend.enumeration.*;
 import it.algos.wiki.backend.packages.wiki.*;
-import it.algos.wiki.backend.service.*;
 import org.springframework.data.mongodb.repository.*;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.*;
 
-import com.vaadin.flow.spring.annotation.SpringComponent;
-import org.springframework.context.annotation.Scope;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import com.vaadin.flow.component.textfield.TextField;
-
-import java.time.*;
 import java.util.*;
 
 /**
@@ -53,8 +45,7 @@ public class NazionalitaBackend extends WikiBackend {
     public NazionalitaBackend(@Autowired @Qualifier(TAG_NAZIONALITA) final MongoRepository crudRepository) {
         super(crudRepository, Nazionalita.class);
         this.repository = (NazionalitaRepository) crudRepository;
-        super.lastDownload = WPref.lastDownloadNazionalita;
-        super.durataDownload = WPref.durataDownloadNazionalita;
+//        super.lastDownload = WPref.downloadNazionalita;
     }
 
     public Nazionalita creaIfNotExist(final String singolare, final String plurale) {

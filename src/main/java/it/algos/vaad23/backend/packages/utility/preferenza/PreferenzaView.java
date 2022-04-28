@@ -37,7 +37,7 @@ import java.util.*;
  * Time: 10:29
  */
 @PageTitle("Preferenze")
-@Route(value = "preferenza", layout = MainLayout.class)
+@Route(value = TAG_PRE, layout = MainLayout.class)
 @AIView(lineawesomeClassnames = "wrench")
 public class PreferenzaView extends VerticalLayout implements AfterNavigationObserver {
 
@@ -241,7 +241,7 @@ public class PreferenzaView extends VerticalLayout implements AfterNavigationObs
 
         grid.addColumns("descrizione");
 
-        String larCode = "9em";
+        String larCode = "12em";
         String larType = "9em";
         String larValue = "10em";
         String larDesc = "30em";

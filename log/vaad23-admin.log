@@ -1,9 +1,25 @@
-2022-04-27 07:42:12 INFO  [http-nio-8080-exec-1] : [spazio    ] 
-2022-04-27 07:42:12 INFO  [http-nio-8080-exec-1] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
-2022-04-27 07:42:12 INFO  [http-nio-8080-exec-1] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-27 07:42:12 INFO  [http-nio-8080-exec-1] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-27 07:42:12 INFO  [http-nio-8080-exec-1] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-27 07:42:12 INFO  [http-nio-8080-exec-1] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-27 07:42:12 INFO  [http-nio-8080-exec-1] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
-2022-04-27 07:42:12 INFO  [http-nio-8080-exec-1] : [wizard    ] - Update: la directory 'vaad23' esisteva già ma è stata sostituita. (dirDeletingAll) 
-2022-04-27 07:42:12 INFO  [http-nio-8080-exec-1] : [wizard    ] - Delete: cancellata la directory 'sources' dal progetto wiki 
+2022-04-28 08:24:11 INFO  [http-nio-8080-exec-7] : [spazio    ] 
+2022-04-28 08:24:11 INFO  [http-nio-8080-exec-7] : [wizard    ] - Aggiornato il progetto esistente: 'wiki' 
+2022-04-28 08:24:11 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'config' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-28 08:24:11 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'doc' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-28 08:24:11 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'frontend' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-28 08:24:11 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'links' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-28 08:24:11 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'snippets' esisteva già ma è stata integrata. (dirAddingOnly) 
+2022-04-28 08:24:11 INFO  [http-nio-8080-exec-7] : [wizard    ] - Update: la directory 'vaad23' esisteva già ma è stata sostituita. (dirDeletingAll) 
+2022-04-28 08:24:11 INFO  [http-nio-8080-exec-7] : [wizard    ] - Delete: cancellata la directory 'sources' dal progetto wiki 
+2022-04-28 08:29:49 WARN  [http-nio-8080-exec-3] : [system    ] - lastDownload è nullo [class=WikiBackend         ] [method=fixDownload         ] [line=74  ]  
+2022-04-28 08:29:49 INFO  [http-nio-8080-exec-3] : [system    ] - Aggiunte 153 ex-attività dalla collection genere 
+2022-04-28 08:31:19 WARN  [http-nio-8080-exec-2] : [system    ] - lastDownload è nullo [class=WikiBackend         ] [method=fixDownload         ] [line=74  ]  
+2022-04-28 08:31:19 INFO  [http-nio-8080-exec-2] : [system    ] - Aggiunte 153 ex-attività dalla collection genere 
+2022-04-28 08:42:52 INFO  [http-nio-8080-exec-6] : [system    ] - Download di 1.131 righe da [Modulo:Bio/Plurale attività] 
+2022-04-28 08:42:52 INFO  [http-nio-8080-exec-6] : [system    ] - Aggiunte 153 ex-attività dalla collection genere 
+2022-04-28 09:59:22 ERROR [http-nio-8080-exec-8] : [system    ] - biografie [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-28 09:59:22 ERROR [http-nio-8080-exec-8] : [system    ] - biografie [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-28 09:59:22 ERROR [http-nio-8080-exec-8] : [system    ] - biografie [class=ReflectionService   ] [method=getField            ] [line=50  ]  
+2022-04-28 09:59:22 ERROR [http-nio-8080-exec-8] : [system    ] - biografie [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-28 09:59:22 ERROR [http-nio-8080-exec-8] : [system    ] - biografie [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-28 09:59:22 ERROR [http-nio-8080-exec-8] : [system    ] - biografie [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-28 09:59:22 ERROR [http-nio-8080-exec-8] : [system    ] - biografie [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-28 09:59:22 ERROR [http-nio-8080-exec-8] : [system    ] - biografie [class=AnnotationService   ] [method=getAIField          ] [line=239 ]  
+2022-04-28 10:00:23 INFO  [http-nio-8080-exec-4] : [system    ] - Download di 1.131 righe da [Modulo:Bio/Plurale attività] 
+2022-04-28 10:00:24 INFO  [http-nio-8080-exec-4] : [system    ] - Aggiunte 153 ex-attività dalla collection genere 

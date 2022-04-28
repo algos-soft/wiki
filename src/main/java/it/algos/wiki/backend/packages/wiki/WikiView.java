@@ -48,13 +48,17 @@ public abstract class WikiView extends CrudView {
 
     protected Button buttonUpload;
 
-    protected boolean usaBottoneModulo;
+//    protected boolean usaBottoneModulo;
+//
+//    protected Button buttonModulo;
 
-    protected Button buttonModulo;
+    protected boolean usaBottoneCategoria;
 
-    protected boolean usaBottoneStatistiche;
+    protected Button buttonCategoria;
 
-    protected Button buttonStatistiche;
+//    protected boolean usaBottoneStatistiche;
+//
+//    protected Button buttonStatistiche;
 
     protected boolean usaBottoneUploadStatistiche;
 
@@ -89,7 +93,16 @@ public abstract class WikiView extends CrudView {
 
     protected WPref lastDownload;
 
-    protected WPref durataDownload;
+    protected WPref lastElaborazione;
+
+    protected WPref durataElaborazione;
+
+    protected WPref lastUpload;
+
+
+    protected WPref durataUpload;
+
+    protected WikiBackend crudBackend;
 
     /**
      * Istanza unica di una classe @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) di servizio <br>
@@ -107,8 +120,9 @@ public abstract class WikiView extends CrudView {
      *
      * @param crudBackend service specifico per la businessLogic e il collegamento con la persistenza dei dati
      */
-    public WikiView(final CrudBackend crudBackend, final Class entityClazz) {
+    public WikiView(final WikiBackend crudBackend, final Class entityClazz) {
         super(crudBackend, entityClazz);
+        this.crudBackend = crudBackend;
     }
 
 
@@ -128,12 +142,19 @@ public abstract class WikiView extends CrudView {
 
         this.usaBottoneDownload = true;
         this.usaBottoneUpload = true;
-        this.usaBottoneModulo = true;
-        this.usaBottoneStatistiche = true;
+//        this.usaBottoneModulo = true;
+        this.usaBottoneCategoria = false;
+//        this.usaBottoneStatistiche = true;
         this.usaBottoneUploadStatistiche = true;
         this.usaBottonePaginaWiki = true;
         this.usaBottoneTest = true;
         this.usaInfoDownload = true;
+    }
+
+    protected void fixPreferenzeBackend() {
+        if (crudBackend != null) {
+            crudBackend.lastDownload = lastDownload;
+        }
     }
 
     /**
@@ -144,21 +165,37 @@ public abstract class WikiView extends CrudView {
     public void fixAlert() {
         super.fixAlert();
 
-        Span spanInfo;
-        Anchor anchor = new Anchor(VaadCost.PATH_WIKI + wikiModuloTitle, wikiModuloTitle);
-        anchor.getElement().getStyle().set(AEFontWeight.HTML, AEFontWeight.bold.getTag());
-
-        if (usaInfoDownload && lastDownload != null && durataDownload != null) {
-            String data = dateService.get((LocalDateTime) lastDownload.get());
-            int durata = durataDownload.getInt();
-            message = String.format("%sultimo download effettuato il %s in %d secondi", FORWARD, data, durata);
-            spanInfo = getSpan(new WrapSpan(message).color(AETypeColor.blu).weight(AEFontWeight.normal));
-            alertPlaceHolder.add(new Span(anchor, spanInfo));
-        }
-        else {
-            alertPlaceHolder.add(new Span(anchor));
+        if (usaInfoDownload) {
+            if (lastDownload != null && lastDownload.get() instanceof LocalDateTime download) {
+                if (download.equals(ROOT_DATA_TIME)) {
+                    message = "Download non ancora effettuato";
+                }
+                else {
+                    message = String.format("Ultimo download effettuato il %s", dateService.get(download));
+                }
+                addSpanVerdeSmall(message);
+            }
+            if (lastElaborazione != null && lastElaborazione.get() instanceof LocalDateTime elaborazione) {
+                if (elaborazione.equals(ROOT_DATA_TIME)) {
+                    message = "Elaborazione non ancora effettuata";
+                }
+                else {
+                    message = String.format("Ultimo elaborazione effettuata il %s", dateService.get(elaborazione));
+                }
+                addSpanVerdeSmall(message);
+            }
+            if (lastUpload != null && lastUpload.get() instanceof LocalDateTime upload) {
+                if (upload.equals(ROOT_DATA_TIME)) {
+                    message = "Upload non ancora effettuato";
+                }
+                else {
+                    message = String.format("Ultimo upload effettuato il %s", dateService.get(upload));
+                }
+                addSpanVerdeSmall(message);
+            }
         }
     }
+
 
     /**
      * Bottoni standard (solo icone) Reset, New, Edit, Delete, ecc.. <br>
@@ -183,23 +220,23 @@ public abstract class WikiView extends CrudView {
             topPlaceHolder.add(buttonUpload);
         }
 
-        if (usaBottoneModulo) {
-            buttonModulo = new Button();
-            buttonModulo.getElement().setAttribute("theme", "secondary");
-            buttonModulo.getElement().setProperty("title", "Modulo: lettura del modulo originario su wiki");
-            buttonModulo.setIcon(new Icon(VaadinIcon.LIST));
-            buttonModulo.addClickListener(event -> wikiModulo());
-            topPlaceHolder.add(buttonModulo);
-        }
+//        if (usaBottoneModulo) {
+//            buttonModulo = new Button();
+//            buttonModulo.getElement().setAttribute("theme", "secondary");
+//            buttonModulo.getElement().setProperty("title", "Modulo: lettura del modulo originario su wiki");
+//            buttonModulo.setIcon(new Icon(VaadinIcon.LIST));
+//            buttonModulo.addClickListener(event -> wikiModulo());
+//            topPlaceHolder.add(buttonModulo);
+//        }
 
-        if (usaBottoneStatistiche) {
-            buttonStatistiche = new Button();
-            buttonStatistiche.getElement().setAttribute("theme", "secondary");
-            buttonStatistiche.getElement().setProperty("title", "Statistiche: lettura della pagina su wiki");
-            buttonStatistiche.setIcon(new Icon(VaadinIcon.TABLE));
-            buttonStatistiche.addClickListener(event -> statistiche());
-            topPlaceHolder.add(buttonStatistiche);
-        }
+//        if (usaBottoneStatistiche) {
+//            buttonStatistiche = new Button();
+//            buttonStatistiche.getElement().setAttribute("theme", "secondary");
+//            buttonStatistiche.getElement().setProperty("title", "Statistiche: lettura della pagina su wiki");
+//            buttonStatistiche.setIcon(new Icon(VaadinIcon.TABLE));
+//            buttonStatistiche.addClickListener(event -> statistiche());
+//            topPlaceHolder.add(buttonStatistiche);
+//        }
 
         if (usaBottoneUploadStatistiche) {
             buttonUploadStatistiche = new Button();
@@ -208,6 +245,16 @@ public abstract class WikiView extends CrudView {
             buttonUploadStatistiche.setIcon(new Icon(VaadinIcon.TABLE));
             buttonUploadStatistiche.addClickListener(event -> uploadStatistiche());
             topPlaceHolder.add(buttonUploadStatistiche);
+        }
+
+        if (usaBottoneCategoria) {
+            buttonCategoria = new Button();
+            buttonCategoria.getElement().setAttribute("theme", "secondary");
+            buttonCategoria.getElement().setProperty("title", "Categoria: apertura della pagina su wiki");
+            buttonCategoria.setIcon(new Icon(VaadinIcon.RECORDS));
+            buttonCategoria.setEnabled(false);
+            buttonCategoria.addClickListener(event -> wikiCategoria());
+            topPlaceHolder.add(buttonCategoria);
         }
 
         if (usaBottonePaginaWiki) {
@@ -252,16 +299,19 @@ public abstract class WikiView extends CrudView {
         if (buttonUpload != null) {
             buttonUpload.setEnabled(!singoloSelezionato);
         }
-        if (buttonModulo != null) {
-            buttonModulo.setEnabled(!singoloSelezionato);
-        }
-        if (buttonStatistiche != null) {
-            buttonStatistiche.setEnabled(!singoloSelezionato);
-        }
+//        if (buttonModulo != null) {
+//            buttonModulo.setEnabled(!singoloSelezionato);
+//        }
+//        if (buttonStatistiche != null) {
+//            buttonStatistiche.setEnabled(!singoloSelezionato);
+//        }
         if (buttonUploadStatistiche != null) {
             buttonUploadStatistiche.setEnabled(!singoloSelezionato);
         }
 
+        if (buttonCategoria != null) {
+            buttonCategoria.setEnabled(singoloSelezionato);
+        }
         if (buttonPaginaWiki != null) {
             buttonPaginaWiki.setEnabled(singoloSelezionato);
         }
@@ -306,6 +356,7 @@ public abstract class WikiView extends CrudView {
         }
     }
 
+
     /**
      * Esegue un azione di apertura di una pagina wiki, specifica del programma/package in corso <br>
      * Deve essere sovrascritto, invocando PRIMA il metodo della superclasse <br>
@@ -322,6 +373,24 @@ public abstract class WikiView extends CrudView {
      */
     public void uploadStatistiche() {
         reload();
+    }
+
+    /**
+     * Esegue un azione di apertura di una categoria su wiki, specifica del programma/package in corso <br>
+     * Deve essere sovrascritto, invocando PRIMA il metodo della superclasse <br>
+     */
+    public AEntity wikiCategoria() {
+        AEntity entiyBeanUnicoSelezionato = null;
+        Set righeSelezionate;
+
+        if (grid != null) {
+            righeSelezionate = grid.getSelectedItems();
+            if (righeSelezionate.size() == 1) {
+                entiyBeanUnicoSelezionato = (AEntity) righeSelezionate.toArray()[0];
+            }
+        }
+
+        return entiyBeanUnicoSelezionato;
     }
 
     /**
@@ -356,6 +425,12 @@ public abstract class WikiView extends CrudView {
      */
     public void uploadPagina() {
         reload();
+    }
+    public void addSpanVerdeSmall(final String message) {
+        alertPlaceHolder.add(getSpan(new WrapSpan(message).color(AETypeColor.verde).fontHeight(AEFontHeight.em7)));
+    }
+    public void addSpanRossoBold(final String message) {
+        alertPlaceHolder.add(getSpan(new WrapSpan(message).color(AETypeColor.rosso).weight(AEFontWeight.bold)));
     }
 
 }

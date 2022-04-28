@@ -1,7 +1,11 @@
 package it.algos.wiki.backend.packages.doppionome;
 
+import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.router.*;
+import it.algos.vaad23.backend.boot.*;
 import static it.algos.vaad23.backend.boot.VaadCost.*;
+import it.algos.vaad23.backend.enumeration.*;
+import it.algos.vaad23.backend.wrapper.*;
 import it.algos.vaad23.ui.views.*;
 import static it.algos.wiki.backend.boot.WikiCost.*;
 import it.algos.wiki.backend.enumeration.*;
@@ -57,12 +61,11 @@ public class DoppionomeView extends WikiView {
 
         super.gridPropertyNamesList = Arrays.asList("nome");
         super.sortOrder = Sort.by(Sort.Direction.ASC, "nome");
-        super.lastDownload = WPref.lastDownloadNomi;
-        super.durataDownload = WPref.durataDownloadNomi;
+//        super.lastDownload = WPref.downloadNomi;
         super.wikiModuloTitle = PATH_TABELLA_NOMI_DOPPI;
 
         super.usaBottoneUpload = false;
-        super.usaBottoneStatistiche = false;
+//        super.usaBottoneStatistiche = false;
         super.usaBottoneUploadStatistiche = false;
         super.usaBottonePaginaWiki = false;
         super.usaBottoneTest = false;
@@ -81,8 +84,13 @@ public class DoppionomeView extends WikiView {
         message += " BioBot crea una lista di biografati una volta superate le 50 biografie (tra nomi e nomi doppi).";
         addSpanVerde(message);
 
-        message = "Vedi anche la categoria [[Categoria:Prenomi composti]].";
-        addSpanVerde(message);
+        message = "Vedi anche la ";
+        Span span = getSpan(new WrapSpan(message).color(AETypeColor.verde).weight(AEFontWeight.bold));
+        Anchor anchor = new Anchor(VaadCost.PATH_WIKI + "Categoria:Prenomi composti", "[[categoria:Prenomi composti]]");
+        anchor.getElement().getStyle().set(AEFontWeight.HTML, AEFontWeight.bold.getTag());
+        anchor.getElement().getStyle().set(AEFontHeight.HTML, AEFontHeight.em9.getTag());
+        anchor.getElement().getStyle().set(AETypeColor.HTML, AETypeColor.verde.getTag());
+        alertPlaceHolder.add(new Span(span, anchor));
 
         message = "La lista nomi prevede solo nomi singoli a cui vengono aggiunti questi nomi doppi accettabili";
         message += " Quando si crea la lista nomi, i nomi doppi vengono scaricati e aggiunti alla lista stessa.";

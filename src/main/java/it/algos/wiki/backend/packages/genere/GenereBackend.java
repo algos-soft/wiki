@@ -2,22 +2,14 @@ package it.algos.wiki.backend.packages.genere;
 
 import static it.algos.vaad23.backend.boot.VaadCost.*;
 import it.algos.vaad23.backend.exception.*;
-import it.algos.vaad23.backend.logic.*;
 import it.algos.vaad23.backend.wrapper.*;
 import static it.algos.wiki.backend.boot.WikiCost.*;
 import it.algos.wiki.backend.enumeration.*;
 import it.algos.wiki.backend.packages.wiki.*;
-import it.algos.wiki.backend.service.*;
 import org.springframework.data.mongodb.repository.*;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.*;
 
-import com.vaadin.flow.spring.annotation.SpringComponent;
-import org.springframework.context.annotation.Scope;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import com.vaadin.flow.component.textfield.TextField;
-
-import java.time.*;
 import java.util.*;
 import java.util.function.*;
 import java.util.stream.*;
@@ -55,8 +47,6 @@ public class GenereBackend extends WikiBackend {
     public GenereBackend(@Autowired @Qualifier(TAG_GENERE) final MongoRepository crudRepository) {
         super(crudRepository, Genere.class);
         this.repository = (GenereRepository) crudRepository;
-        super.lastDownload = WPref.lastDownloadGenere;
-        super.durataDownload = WPref.durataDownloadGenere;
     }
 
     public Genere creaIfNotExist(final String singolare, final String pluraleMaschile, final String pluraleFemminile, final boolean maschile) {

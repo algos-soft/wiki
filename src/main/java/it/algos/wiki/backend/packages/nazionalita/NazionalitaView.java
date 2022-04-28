@@ -9,7 +9,6 @@ import it.algos.wiki.backend.enumeration.*;
 import it.algos.wiki.backend.packages.wiki.*;
 import org.springframework.beans.factory.annotation.*;
 
-import java.time.*;
 import java.util.*;
 
 import com.vaadin.flow.component.textfield.TextField;
@@ -64,10 +63,10 @@ public class NazionalitaView extends WikiView {
         super.formPropertyNamesList = Arrays.asList("singolare", "plurale");
 
         super.sortOrder = Sort.by(Sort.Direction.ASC, "singolare");
-        super.lastDownload = WPref.lastDownloadNazionalita;
-        super.durataDownload = WPref.durataDownloadNazionalita;
+//        super.lastDownload = WPref.downloadNazionalita;
         super.wikiModuloTitle = PATH_MODULO_NAZIONALITA;
         super.wikiStatisticheTitle = PATH_STATISTICHE_NAZIONALITA;
+        super.usaBottoneCategoria = true;
     }
 
     /**
@@ -119,6 +118,19 @@ public class NazionalitaView extends WikiView {
             elementiFiltrati = items.size();
             sicroBottomLayout();
         }
+    }
+
+    /**
+     * Esegue un azione di apertura di una categoria su wiki, specifica del programma/package in corso <br>
+     * Deve essere sovrascritto, invocando PRIMA il metodo della superclasse <br>
+     */
+    public AEntity wikiCategoria() {
+        Nazionalita nazionalita = (Nazionalita) super.wikiCategoria();
+
+        String path = "Categoria:";
+        wikiApiService.openWikiPage(path + nazionalita.plurale);
+
+        return null;
     }
 
     /**

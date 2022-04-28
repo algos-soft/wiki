@@ -20,7 +20,7 @@ import java.util.*;
  * <p>
  */
 @PageTitle("Logger")
-@Route(value = "logger", layout = MainLayout.class)
+@Route(value = TAG_LOGGER, layout = MainLayout.class)
 public class LoggerView extends CrudView {
 
     private ComboBox<AELogLevel> comboLivello;

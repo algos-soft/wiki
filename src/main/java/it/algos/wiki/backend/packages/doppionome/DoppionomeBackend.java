@@ -1,18 +1,12 @@
 package it.algos.wiki.backend.packages.doppionome;
 
 import static it.algos.vaad23.backend.boot.VaadCost.*;
-import it.algos.vaad23.backend.exception.*;
-import it.algos.vaad23.backend.interfaces.*;
-import it.algos.vaad23.backend.logic.*;
-import it.algos.vaad23.backend.wrapper.*;
 import static it.algos.wiki.backend.boot.WikiCost.*;
 import it.algos.wiki.backend.enumeration.*;
 import it.algos.wiki.backend.packages.wiki.*;
 import org.springframework.data.mongodb.repository.*;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.*;
-
-import java.util.*;
 
 /**
  * Project wiki
@@ -46,8 +40,7 @@ public class DoppionomeBackend extends WikiBackend {
     public DoppionomeBackend(@Autowired @Qualifier(TAG_DOPPIO_NOME) final MongoRepository crudRepository) {
         super(crudRepository, Doppionome.class);
         this.repository = (DoppionomeRepository) crudRepository;
-        super.lastDownload = WPref.lastDownloadNomi;
-        super.durataDownload = WPref.durataDownloadNomi;
+//        super.lastDownload = WPref.downloadNomi;
     }
 
     public Doppionome creaIfNotExist(final String nome) {

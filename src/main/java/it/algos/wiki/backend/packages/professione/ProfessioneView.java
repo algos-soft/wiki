@@ -3,7 +3,6 @@ package it.algos.wiki.backend.packages.professione;
 import ch.carnet.kasparscherrer.*;
 import com.vaadin.flow.component.orderedlayout.*;
 import com.vaadin.flow.router.*;
-import it.algos.vaad23.backend.boot.*;
 import static it.algos.vaad23.backend.boot.VaadCost.*;
 import it.algos.vaad23.backend.entity.*;
 import it.algos.vaad23.ui.views.*;
@@ -12,12 +11,8 @@ import it.algos.wiki.backend.enumeration.*;
 import it.algos.wiki.backend.packages.wiki.*;
 import org.springframework.beans.factory.annotation.*;
 
-import java.time.*;
 import java.util.*;
 
-import com.vaadin.flow.spring.annotation.SpringComponent;
-import org.springframework.context.annotation.Scope;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import com.vaadin.flow.component.textfield.TextField;
 import org.springframework.data.domain.*;
 
@@ -69,12 +64,11 @@ public class ProfessioneView extends WikiView {
         super.gridPropertyNamesList = Arrays.asList("attivita", "pagina", "aggiunta");
 
         super.sortOrder = Sort.by(Sort.Direction.ASC, "attivita");
-        super.lastDownload = WPref.lastDownloadProfessione;
-        super.durataDownload = WPref.durataDownloadProfessione;
+//        super.lastDownload = WPref.downloadProfessione;
         super.wikiModuloTitle = PATH_MODULO_PROFESSIONE;
 
         super.usaBottoneUpload = false;
-        super.usaBottoneStatistiche = false;
+//        super.usaBottoneStatistiche = false;
         super.usaBottoneUploadStatistiche = false;
         super.usaBottoneTest = false;
         super.usaBottoneUploadPagina = false;

@@ -1,5 +1,6 @@
 package it.algos.vaad23.backend.packages.utility.log;
 
+import static it.algos.vaad23.backend.boot.VaadCost.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.data.mongodb.repository.*;
 import org.springframework.stereotype.*;
@@ -20,7 +21,7 @@ import java.util.*;
  * Annotated with @Qualifier (obbligatorio) per permettere a Spring di istanziare la classe specifica <br>
  */
 @Repository
-@Qualifier("Logger")
+@Qualifier(TAG_LOGGER)
 public interface LoggerRepository extends MongoRepository<Logger, String> {
 
     @Override

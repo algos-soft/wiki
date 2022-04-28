@@ -26,9 +26,7 @@ public abstract class WikiBackend extends CrudBackend {
 
     protected String message;
 
-    protected WPref lastDownload;
-
-    protected WPref durataDownload;
+    public WPref lastDownload;
 
     /**
      * Istanza unica di una classe @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) di servizio <br>
@@ -69,18 +67,11 @@ public abstract class WikiBackend extends CrudBackend {
 
         delta = delta / 1000;
         durata = delta.intValue();
-        if (lastDownload!=null) {
+        if (lastDownload != null) {
             lastDownload.setValue(LocalDateTime.now());
         }
         else {
             logger.warn(new WrapLog().exception(new AlgosException("lastDownload è nullo")));
-            return;
-        }
-        if (durataDownload!=null) {
-            durataDownload.setValue(durata);
-        }
-        else {
-            logger.warn(new WrapLog().exception(new AlgosException("durataDownload è nullo")));
             return;
         }
 
